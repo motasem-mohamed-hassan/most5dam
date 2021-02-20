@@ -2,12 +2,11 @@
 @section('content')
 
     <div class="container py-3">
-
         <div class="modal" tabindex="-1" role="dialog" id="editCategoryModal">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title">تعديل الماركة</h5>
+                <h5 class="modal-title">تعديل القسم</h5>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
@@ -19,7 +18,10 @@
 
                 <div class="modal-body">
                   <div class="form-group">
-                    <input type="text" id="editName" name="name" class="form-control" value="">
+                    <input type="text" id="editName_en" name="name" class="form-control" value="تعديل القسم انجليزي">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="editName_ar" name="الاسم" class="form-control" value="تعديل القسم عربي">
                   </div>
                 </div>
 
@@ -38,26 +40,26 @@
 
           <div class="card">
             <div class="card-header">
-              <h3>الماركات</h3>
+              <h3>الاقسام</h3>
             </div>
             <div class="card-body">
-              <ul class="list-group">
+              <ul class="list-group" id="myTable">
                 @foreach ($categories as $category)
                   <li class="list-group-item">
                     <div class="d-flex justify-content-between category_name{{ $category->id }}">
-                      {{ $category->name }}
+                      {{ $category->name }} -- {{ $category->الاسم }}
 
-                      {{-- <div class="button-group d-flex">
+                      <div class="button-group d-flex">
                         <button type="button" category_id="{{ $category->id }}" class="editBtn btn btn-sm btn-primary mr-1 edit-category" data-toggle="modal" data-target="#editCategoryModal">Edit</button>
 
                         <form action="#" method="POST">
                           @csrf
                           <button type="submit" category_id="{{ $category->id }}" class="delete_btn btn btn-sm btn-danger">Delete</button>
                         </form>
-                      </div> --}}
+                      </div>
                     </div>
 
-                    @if ($category->children)
+                    {{-- @if ($category->children)
                       <ul class="list-group mt-2">
                         @foreach ($category->children as $child)
                           <li class="list-group-item">
@@ -76,7 +78,7 @@
                           </li>
                         @endforeach
                       </ul>
-                    @endif
+                    @endif --}}
                   </li>
                 @endforeach
               </ul>
@@ -87,14 +89,14 @@
         <div class="col-md-4">
           <div class="card">
             <div class="card-header">
-              <h3>اضافة ماركة</h3>
+              <h3>اضافة قسم</h3>
             </div>
 
             <div class="card-body">
-              <form action="{{ route('admin.categories.store') }}" method="POST">
+              <form action="" method="" id="createForm">
                 @csrf
 
-                <div class="form-group">
+                {{-- <div class="form-group">
                   <select class="form-control" name="parent_id">
                     <option value="">اختار القسم</option>
 
@@ -102,14 +104,17 @@
                       <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                   </select>
+                </div> --}}
+
+                <div class="form-group">
+                  <input type="text" name="name" id="name_en" class="form-control" value="{{ old('name') }}" placeholder="اسم القسم انجليزي" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" name="الاسم" id="name_ar" class="form-control" value="{{ old('الاسم') }}" placeholder="اسم القسم عربي" required>
                 </div>
 
                 <div class="form-group">
-                  <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="اسم الماركة" required>
-                </div>
-
-                <div class="form-group">
-                  <button type="submit" class="btn btn-primary">انشاء</button>
+                  <button type="submit" id="submitToCreate" class="btn btn-primary">انشاء</button>
                 </div>
               </form>
             </div>
@@ -121,50 +126,101 @@
 
     @section('scripts')
     <script>
-        //update data
-            //press edit
+              //store data
+          $(document).on('click', '#submitToCreate', function(e){
+            e.preventDefault();
+
+            var formData = new FormData($('#createForm')[0]);
+
+            $.ajax({
+                type: "post",
+                //enctype: "multipart/form-data",
+                url: "{{ route('admin.categories.store') }}",
+                data: formData,
+
+                processData: false,
+                contentType: false,
+                cache: false,
+
+                success: function (data) {
+                  console.log(data.data);
+                  var id      = data.data.id;
+                  var name_en    = data.data.name;
+                  var name_ar     = data.data.الاسم;
+
+                  $('#myTable').append(
+                    `<li class="list-group-item">
+                      <div class="d-flex justify-content-between category_name${id}">
+                        ${name_en} -- ${name_ar}
+
+                        <div class="button-group d-flex">
+                          <button type="button" category_id="${id}" class="editBtn btn btn-sm btn-primary mr-1 edit-category" data-toggle="modal" data-target="#editCategoryModal">Edit</button>
+
+                          <form action="#" method="POST">
+                            @csrf
+                            <button type="submit" category_id="${id}" class="delete_btn btn btn-sm btn-danger">Delete</button>
+                          </form>
+                        </div>
+                      </div>
+                    </li>`
+                  );
+                  // cleare input data
+                  $('#name_en').val('');
+                  $('#name_ar').val('');
+
+
+                  //success message
+                  toastr.success(data.msg);
+
+                }
+            });
+          });
+
+        // update data
+        //     press edit
             $(document).on('click', '.editBtn', function(e){
                 e.preventDefault();
 
                 var category_id = $(this).attr('category_id');
 
                 $.ajax({
-                    type:   "get",
-                    url:    "{{ route('admin.categories.edit') }}",
-                    data:   {'id' : category_id},
+                  type:   "get",
+                  url:    "{{ route('admin.categories.edit') }}",
+                  data:   {'id' : category_id},
 
-                    success: function (data) {
-                        $('#editName').val(data.data.name);
-                        $('#currentid').val(data.data.id);
-                    },
+                  success: function (data) {
+                      $('#editName_en').val(data.data.name);
+                      $('#editName_ar').val(data.data.الاسم);
+                      $('#currentid').val(data.data.id);
+                  },
 
-                    complete:function(){
-                        //store update
-                        $(document).on('click', '#submitToUpdate', function(e){
-                            e.preventDefault();
+                  complete:function(){
+                      //store update
+                      $(document).on('click', '#submitToUpdate', function(e){
+                        e.preventDefault();
 
-                            var formData = new FormData($('#updateForm')[0]);
+                        var formData = new FormData($('#updateForm')[0]);
 
-                            $.ajax({
-                                type:   "post",
-                                url:    "{{ route('admin.categories.update') }}",
-                                data:   formData,
+                        $.ajax({
+                          type:   "post",
+                          url:    "{{ route('admin.categories.update') }}",
+                          data:   formData,
 
-                                processData: false,
-                                contentType: false,
-                                cache: false,
+                          processData: false,
+                          contentType: false,
+                          cache: false,
 
-                                success: function (data) {
+                          success: function (data) {
 
-                                    location.reload();
-                                    //success message
-                                    toastr.success(data.msg);
-                                },
+                            location.reload();
+                            //success message
+                            toastr.success(data.msg);
+                          },
 
 
-                            });
                         });
-                    }
+                      });
+                  }
 
                 });
             });
@@ -180,8 +236,8 @@
                     type: "delete",
                     url: "{{ route('admin.categories.delete') }}",
                     data: {
-                        '_token': "{{ csrf_token() }}",
-                        'id'    : category_id
+                      '_token': "{{ csrf_token() }}",
+                      'id'    : category_id
                     },
 
                     success: function (data) {
@@ -194,9 +250,6 @@
                         //success message
 
                     },
-                    error: function (reject) {
-
-                    }
                 });
 
             });

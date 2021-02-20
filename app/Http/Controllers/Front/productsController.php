@@ -17,7 +17,7 @@ class productsController extends Controller
 
     public function index(Request $request)
     {
-        $categories = Category::where('parent_id', null)->get();
+        $categories = Category::all();
         $setting = Setting::find('1');
         $query = Product::where('status', 1);
         if($request->has('search')){

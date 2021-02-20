@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css">
   <!-- Custom style for RTL -->
   <link rel="stylesheet" href="{{ asset('admin/dist/css/custom.css') }}">
-  
+
   <!-- toaster link css -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet"/>
 
@@ -100,13 +100,34 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{ route('admin.categories.index') }}" class="nav-link @if($segment=='categories') active @endif">
-              <i class="nav-icon fas fa-th"></i>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
               <p>
-                الأقسام
+                انشاء
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('admin.categories.index') }}" class="nav-link @if($segment=='products') active @endif">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>انشاء الأقسام</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.filters.index') }}" class="nav-link @if($segment=='waiting') active @endif">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>انشاء الفلاتر</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link @if($segment=='approved') active @endif">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>انشاء القيم للفلاتر</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">

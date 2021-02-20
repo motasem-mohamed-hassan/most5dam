@@ -38,11 +38,23 @@ Route::middleware('auth')->namespace('Front')->group(function() {
 Route::namespace('Dashboard')->as('admin.')->middleware('role:admin|superAdmin')->group(function() {
 
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+    //category
     Route::get('/dashboard/categories', 'CategoriesController@index')->name('categories.index');
     Route::post('/dashboard/categories/store', 'CategoriesController@store')->name('categories.store');
     Route::get('/dashboard/categories/edit', 'CategoriesController@edit')->name('categories.edit');
     Route::post('/dashboard/categories/update', 'CategoriesController@update')->name('categories.update');
     Route::delete('/dashboard/categories','CategoriesController@destroy')->name('categories.delete');
+
+    //filter
+    Route::get('/dashboard/filters', 'FiltersController@index')->name('filters.index');
+    Route::post('/dashboard/filters', 'FiltersController@store')->name('filter.store');
+    Route::get('/dashboard/filters/edit', 'FiltersController@edit')->name('filter.edit');
+    Route::post('/dashboard/filters/update', 'FiltersController@update')->name('filter.update');
+    Route::delete('/dashboard/filters/delete', 'FiltersController@destroy')->name('filter.delete');
+
+    //Value
+    Route::get('/dashboard/values', 'ValuesController@index')->name('values.index');
 
     //products view
     Route::get('/dashboard/products', 'productsController@index')->name('products.index');
