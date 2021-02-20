@@ -61,7 +61,7 @@ class FiltersController extends Controller
 
         return response()->json([
             'status' => true,
-            'msg'    => 'تم حزف الفيلتر بنجاح',
+            'msg'    => 'تم حذف الفيلتر بنجاح',
             'id'     => $request->id
         ]);
 

@@ -20,6 +20,10 @@ class CreateValuesTable extends Migration
             $table->string('name')->nullable();
             $table->string('الاسم')->nullable();
             $table->timestamps();
+
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('filter_id')->references('id')->on('filters')->onDelete('cascade');
+
         });
     }
 

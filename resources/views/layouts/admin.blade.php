@@ -110,23 +110,23 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('admin.categories.index') }}" class="nav-link @if($segment=='products') active @endif">
+                <a href="{{ route('admin.categories.index') }}" class="nav-link @if($segment=='categories') active @endif">
                   <i class="far fa-circle nav-icon"></i>
                   <p>انشاء الأقسام</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('admin.filters.index') }}" class="nav-link @if($segment=='waiting') active @endif">
+                <a href="{{ route('admin.filters.index') }}" class="nav-link @if($segment=='filters') active @endif">
                   <i class="far fa-circle nav-icon"></i>
                   <p>انشاء الفلاتر</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link @if($segment=='approved') active @endif">
+              {{-- <li class="nav-item">
+                <a href="{{ route('admin.values.index') }}" class="nav-link @if($segment=='values') active @endif">
                   <i class="far fa-circle nav-icon"></i>
                   <p>انشاء القيم للفلاتر</p>
                 </a>
-              </li>
+              </li> --}}
             </ul>
           </li>
           <li class="nav-item has-treeview">

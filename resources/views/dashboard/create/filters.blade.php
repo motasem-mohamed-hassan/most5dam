@@ -56,11 +56,12 @@
                               {{ $filter->name }} -- {{ $filter->الاسم }}
 
                               <div class="button-group d-flex">
-                                <button type="button" filter_id="{{ $filter->id }}" class="editBtn btn btn-sm btn-primary mr-1 edit-filter" data-toggle="modal" data-target="#editFilterModal">تعديل</button>
+                                <a href="{{ route('admin.values.index', $filter->id) }}" class="btn btn-info">اضافة قيم</a>
+                                <button type="button" filter_id="{{ $filter->id }}" class="editBtn btn btn btn-primary mr-1 edit-filter" data-toggle="modal" data-target="#editFilterModal">تعديل</button>
 
                                 <form action="#" method="POST">
                                   @csrf
-                                  <button type="submit" filter_id="{{ $filter->id }}" class="delete_btn btn btn-sm btn-danger">حذف</button>
+                                  <button type="submit" filter_id="{{ $filter->id }}" class="delete_btn btn btn btn-danger">حذف</button>
                                 </form>
                               </div>
                             </div>
@@ -102,6 +103,7 @@
 
                 <div class="form-group">
                   <button type="submit" id="submitToCreate" class="btn btn-primary">انشاء</button>
+                  <a href="{{ route('admin.categories.index') }}"class="btn btn-info">رجوع للأقسام -></a>
                 </div>
               </form>
             </div>
@@ -126,7 +128,6 @@
                   data:   {'id' : filter_id},
 
                   success: function (data) {
-                      console.log(data);
                       $('#editName_en').val(data.data.name);
                       $('#editName_ar').val(data.data.الاسم);
                       $('#currentid').val(data.data.id);

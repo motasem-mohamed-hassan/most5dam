@@ -54,7 +54,11 @@ Route::namespace('Dashboard')->as('admin.')->middleware('role:admin|superAdmin')
     Route::delete('/dashboard/filters/delete', 'FiltersController@destroy')->name('filter.delete');
 
     //Value
-    Route::get('/dashboard/values', 'ValuesController@index')->name('values.index');
+    Route::get('/dashboard/values/{id}', 'ValuesController@index')->name('values.index');
+    Route::post('/dashboard/values', 'ValuesController@store')->name('value.store');
+    Route::post('/dashboard/values/update', 'ValuesController@update')->name('value.update');
+    Route::delete('/dashboard/values/delete', 'ValuesController@destroy')->name('value.delete');
+
 
     //products view
     Route::get('/dashboard/products', 'productsController@index')->name('products.index');

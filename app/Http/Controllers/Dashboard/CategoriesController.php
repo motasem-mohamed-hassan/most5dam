@@ -71,7 +71,7 @@ class CategoriesController extends Controller
 
         return response()->json([
             'status' => true,
-            'msg'    => 'Category deleted successfully',
+            'msg'    => 'تم حذف القسم بنجاح',
             'id'     => $request->id
         ]);
 
