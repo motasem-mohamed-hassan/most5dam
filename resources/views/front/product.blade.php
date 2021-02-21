@@ -3,28 +3,6 @@
 
 @section('content')
 
-	<!-- page -->
-	<div class="services-breadcrumb">
-		<div class="agile_inner_breadcrumb">
-			<div class="container">
-				<ul class="w3_short">
-					<li>
-						<a href="{{ route('home') }}">الرئيسية</a>
-						<i>|</i>
-					</li>
-					<li>
-                       <a href="{{ route('categoryPage', $product->category->id) }}"> {{ $product->category->name }} </a>
-                        <i>|</i>
-                    </li>
-                    <li>
-                        {{ $subCategory->name }}
-                        <i>|</i>
-                    </li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!-- //page -->
 	<!-- Single Page -->
 	<div class="banner-bootom-w3-agileits">
 		<div class="container">

@@ -7,7 +7,6 @@ use App\Setting;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Session;
 
 class CategoryController extends Controller
 {

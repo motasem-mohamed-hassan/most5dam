@@ -19,6 +19,8 @@ class CreateValuesTable extends Migration
             $table->unsignedBigInteger('filter_id');
             $table->string('name')->nullable();
             $table->string('الاسم')->nullable();
+            $table->boolean('brand')->default(0);
+            $table->integer('brand_id')->nullable();
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

@@ -20,7 +20,7 @@
                         <select name="category_id" class="form-control" id="category">
                             <option value="" selected>--اختر قسم--</option>
                             @foreach ($categories as $category)
-                                <option category_id="{{ $category->id }}" id="categoriesOption" value="{{ $category->id }}">{{ $category->name }}</option>
+                                <option category_id="{{ $category->id }}" id="categoriesOption" value="{{ $category->id }}">{{ $category->الاسم }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -33,7 +33,7 @@
                 <div class="row d-flex justify-content-start" >
                     <div  class="col-md-1"></div>
                     <div class="col-md-9" >
-                        <select name="subCategory_id" class="form-control" id="subCategory">
+                        <select name="brand_id" class="form-control" id="brand">
                             <option value="" selected>--اختر ماركة--</option>
                         </select>
                     </div>
@@ -64,7 +64,7 @@
                     $('.ajax').remove(); //remove result before
                     $.each(response.data, function(index, value) {
                         console.log(value);
-                        $('#subCategory').append(`<option class="ajax" value="${value.id}">${value.name}</option>`);
+                        $('#brand').append(`<option class="ajax" value="${value.id}">${value.name}</option>`);
                     });
                 },
             });

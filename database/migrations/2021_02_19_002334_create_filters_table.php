@@ -18,7 +18,9 @@ class CreateFiltersTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->string('name')->nullable();
             $table->string('الاسم')->nullable();
-            $table->boolean('show')->nullable();
+            $table->enum('show_in_filter', ['yes', 'no']);
+            $table->enum('type', ['select', 'input']);
+            $table->boolean('brand')->default(0);
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

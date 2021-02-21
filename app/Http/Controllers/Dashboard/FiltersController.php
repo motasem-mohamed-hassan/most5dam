@@ -24,6 +24,15 @@ class FiltersController extends Controller
         $filter->category_id    = $request->category_id;
         $filter->name           = $request->name;
         $filter->الاسم           = $request->الاسم;
+        $filter->type           = $request->type;
+        if($request->show_in_filter){
+            $filter->show_in_filter = 'yes';
+        }
+        if($request->brand){
+            $filter->brand = 1;
+        }
+
+
         $filter->save();
 
         toastr()->success('تم اضافة الفلتر بنجاح');

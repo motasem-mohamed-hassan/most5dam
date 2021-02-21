@@ -27,7 +27,7 @@ class AddRequest extends FormRequest
             'name'  => 'required|max:255|',
             'description'  => 'required',
             'category_id'  => 'required',
-            'subCategory_id'  => 'required',
+            'brand_id'  => 'required',
             'price'  => 'required',
             'image'     => 'required'
         ];

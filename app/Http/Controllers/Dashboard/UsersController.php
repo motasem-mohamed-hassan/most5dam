@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Value;
 use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
@@ -50,9 +51,12 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function get(Request $request)
     {
-        //
+        $brand = Value::where('type', 'brand')->get();
+
+        //User chose Brand id and send it to request by Ajax.
+        $mdel = Value::where('brand_id', $request->id)->get();
     }
 
     /**

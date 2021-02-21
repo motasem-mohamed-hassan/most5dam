@@ -56,13 +56,15 @@
                               {{ $filter->name }} -- {{ $filter->الاسم }}
 
                               <div class="button-group d-flex">
-                                <a href="{{ route('admin.values.index', $filter->id) }}" class="btn btn-info">اضافة قيم</a>
-                                <button type="button" filter_id="{{ $filter->id }}" class="editBtn btn btn btn-primary mr-1 edit-filter" data-toggle="modal" data-target="#editFilterModal">تعديل</button>
+                                    @if($filter->type == 'select')
+                                        <a href="{{ route('admin.values.index', $filter->id) }}" class="btn btn-info">اضافة قيم</a>
+                                    @endif
+                                    <button type="button" filter_id="{{ $filter->id }}" class="editBtn btn btn btn-primary mr-1 edit-filter" data-toggle="modal" data-target="#editFilterModal">تعديل</button>
 
-                                <form action="#" method="POST">
-                                  @csrf
-                                  <button type="submit" filter_id="{{ $filter->id }}" class="delete_btn btn btn btn-danger">حذف</button>
-                                </form>
+                                    <form action="#" method="POST">
+                                        @csrf
+                                        <button type="submit" filter_id="{{ $filter->id }}" class="delete_btn btn btn btn-danger">حذف</button>
+                                    </form>
                               </div>
                             </div>
                           </li>
@@ -100,6 +102,28 @@
                 <div class="form-group">
                   <input type="text" name="الاسم" class="form-control" value="{{ old('الاسم') }}" placeholder="اسم الفلتر عربي" required>
                 </div>
+                <div class="form-group">
+                    <label>نوع عرض الفيلتر</label>
+                    <select class="custom-select" name="type">
+                      <option value="select">اختيار</option>
+                      <option value="input">ادخال يدوي</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <div class="custom-control custom-switch">
+                      <input type="checkbox" name="show_in_filter" class="custom-control-input" id="customSwitch1">
+                      <label class="custom-control-label" for="customSwitch1">يظهر في الفلاتر؟</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="custom-control custom-switch">
+                      <input type="checkbox" name="brand" class="custom-control-input" id="customSwitch2">
+                      <label class="custom-control-label" for="customSwitch2">هذا الفلتر ماركة؟</label>
+                    </div>
+                </div>
+
 
                 <div class="form-group">
                   <button type="submit" id="submitToCreate" class="btn btn-primary">انشاء</button>

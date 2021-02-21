@@ -83,6 +83,18 @@
               <input type="text" name="الاسم" id="name_ar" class="form-control" value="{{ old('الاسم') }}" placeholder="اسم القيمة عربي" required>
             </div>
 
+            @if($filter->brand == 0)
+                <div class="form-group">
+                    <label>الماركة التابع لها هذه القيمة</label>
+                    <select class="custom-select" name="brand_id">
+                            <option value="" selected disabled></option>
+                        @foreach($brands as $brand)
+                            <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            @endif
+
             <div class="form-group">
               <button type="submit" id="submitToCreate" class="btn btn-primary">انشاء</button>
               <a href="{{ route('admin.filters.index') }}"class="btn btn-info">رجوع للفلاتر -></a>

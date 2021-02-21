@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Value extends Model
 {
     protected $fillable = [
-        'category_id','filter_id', 'name', 'الاسم', 'created_at', 'updated_at',
+        'category_id','filter_id', 'name', 'الاسم', 'brand', 'brand_id', 'created_at', 'updated_at',
     ];
 
     public function filter()

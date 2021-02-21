@@ -199,7 +199,7 @@
                                                 <ul class="multi-column-dropdown">
                                                 @foreach($chunk as $category)
                                                 <li>
-                                                    <a href="{{ route('categoryPage', $category->id) }}">{{ $category->name }}</a>
+                                                    <a href="{{ route('categoryPage', $category->id) }}">{{ $category->الاسم }}</a>
                                                 </li>
                                                 @endforeach
                                                 </ul>

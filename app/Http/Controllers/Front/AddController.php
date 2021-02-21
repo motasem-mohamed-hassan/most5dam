@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Front;
 
 use App\Image;
+use App\Value;
+use App\Filter;
 use App\Product;
 use App\Setting;
 use App\Category;
@@ -10,15 +12,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AddRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class AddController extends Controller
 {
     public function index()
     {
-        $categories = Category::where('parent_id', null)->get();
+        $categories = Category::all();
         $setting = Setting::find('1');
 
 
@@ -28,11 +28,13 @@ class AddController extends Controller
     public function choseSub(Request $request)
     {
 
-        $subCategories = Category::where('parent_id', $request->id)->get();
+        $brands = Value::where('category_id', $request->id)
+                ->where('brand', 1)
+                ->get();
 
         return response()->json([
             'status'    => true,
-            'data'      => $subCategories
+            'data'      => $brands
         ]);
     }
 
@@ -40,11 +42,13 @@ class AddController extends Controller
     {
         $setting = Setting::find('1');
 
-        $categories = Category::where('parent_id', null)->get();
+        $categories = Category::all();
         $category = Category::where('id', $request->category_id)->first();
-        $category_id = $request->category_id;
-        $subCategory_id = $request->subCategory_id;
-        return view('front.add_product', compact('categories', 'category','subCategory_id', 'setting'));
+        $filters  = Filter::where('category_id', $request->category_id)
+            ->where('brand', 0)
+            ->get();
+        $brand_id = $request->brand_id;
+        return view('front.add_product', compact('categories', 'category', 'brand_id', 'filters', 'setting'));
     }
 
     public function store( AddRequest $request)
@@ -52,7 +56,7 @@ class AddController extends Controller
         $product = new Product();
         $product->user_id           =    Auth::id();
         $product->category_id       =    $request->category_id;
-        $product->subCategory_id	=    $request->subCategory_id;
+        $product->brand_id	        =    $request->brand_id;
 
         $product->name              =    $request->name;
 

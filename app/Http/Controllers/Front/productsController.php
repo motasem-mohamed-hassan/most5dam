@@ -44,7 +44,7 @@ class productsController extends Controller
     public function show($id)
     {
         $setting = Setting::find('1');
-        $categories     = Category::where('parent_id', null)->get();
+        $categories = Category::all();
         $subCategory    = Category::where('parent_id', '>', 0)->get();
 
         $product = Product::find($id);

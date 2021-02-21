@@ -174,7 +174,7 @@
                         @foreach($categories as $category)
                         <li>
                             <div id="index-items">
-                            <a  href="{{ route('categoryPage', $category->id) }}" class="span" style="text-decoration: none">{{ $category->name }}</a>
+                            <a  href="{{ route('categoryPage', $category->id) }}" class="span" style="text-decoration: none">{{ $category->الاسم }}</a>
                             </div>
                         </li>
                         @endforeach
