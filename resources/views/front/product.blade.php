@@ -278,6 +278,23 @@
                         </p>
                     </ul>
                     @endisset
+                    @isset($product->city)
+					<ul>
+                        <p>
+                            <i class="fa fa-hand-o-left" aria-hidden="true"></i>المدينة :
+                            {{ $product->city }}
+                        </p>
+                    </ul>
+                    @endisset
+                    @isset($product->material)
+					<ul>
+                        <p>
+                            <i class="fa fa-hand-o-left" aria-hidden="true"></i>المادة :
+                            {{ $product->material }}
+                        </p>
+                    </ul>
+                    @endisset
+
                     <ul>
                         <p>
                             <i class="fa fa-hand-o-left" aria-hidden="true"></i>معلومات اضافية :
@@ -288,7 +305,10 @@
 
                 @if($product->user_id == Auth::id())
                 <div>
-                    <button href="{{ route('edit_product', $product->id) }}" class="btn btn-info">تعديل</button>
+                    <form action="{{ route('edit_product', $product->id) }}" method="get" style="display: inline-block">
+                        <button type="submit" class="btn btn-info">تعديل</button>
+                    </form>
+
                     <form action="{{ route('delete_product', $product->id) }}" method="POST" style="display: inline-block">
                         @csrf
                         @method('delete')

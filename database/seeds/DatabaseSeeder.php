@@ -53,96 +53,1076 @@ class DatabaseSeeder extends Seeder
         DB::table('categories')->insert([
             'id'            =>  '1',
             'الاسم'        =>  'سيارات',
+            'name'      =>  'Cars'
         ]);
         DB::table('categories')->insert([
             'id'            =>  '2',
             'الاسم'        =>  'موبايلات',
+            'name'      =>  'Mobile'
+
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '3',
             'الاسم'        =>  'اجهزة لوحية',
+            'name'      =>  'Tablets'
+
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '4',
             'الاسم'        =>  'لابتوب',
+            'name'      =>      'laptop'
+
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '5',
             'الاسم'        =>  'كومبيوتر مكتبي',
+            'name'      =>  'Desktop Computer'
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '6',
             'الاسم'        =>  'مكيفات',
+            'name'      =>  'Conditioners'
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '7',
             'الاسم'        =>  'اجهزة منزلية كبيرة',
+            'name'      =>  'Large Home Appliances'
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '8',
             'الاسم'        =>  'اجهزة منزلية صغيرة',
+            'name'      =>  'Small Home Appliances'
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '9',
             'الاسم'        =>  'كاميرات',
+            'name'      =>  'Cameras'
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '10',
             'الاسم'        =>  'تلفيزيونات',
+            'name'      =>  'Televisions'
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '11',
             'الاسم'        =>  'العاب الكترونية',
+            'name'      =>  'Video Games'
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '12',
             'الاسم'        =>  'مكائن القهوة',
+            'name'      =>  'Coffee machines'
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '13',
             'الاسم'        =>  'قوارب',
+            'name'      =>  'Boats'
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '14',
             'الاسم'        =>  'عدد وادوات',
+            'name'      =>  'Tools'
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '15',
             'الاسم'        =>  'معدات رياضية',
+            'name'      =>  'Sports Equipment'
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '16',
             'الاسم'        =>  'اثاث',
+            'name'      =>  'Furniture'
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '17',
             'الاسم'        =>  'معدات صناعية',
+            'name'      =>  'Industrial equipment'
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '18',
             'الاسم'        =>  'اجهزة طبية',
+            'name'      =>  'Medical Devices'
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '19',
             'الاسم'        =>  'مقتنيات ثمينة',
+            'name'      =>  'Valuables'
         ]);
+
+        //Filters
+
+        //السيارات
+        DB::table('filters')->insert([
+            'category_id'   =>  '1',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '1'//1/0
+        ]);
+
+        DB::table('filters')->insert([
+            'category_id'   =>  '1',
+            'name'          =>  'Model',
+            'الاسم'         =>   'الموديل',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '1',
+            'name'          =>  'manufactureYear',
+            'الاسم'         =>   'سنة الصنع',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '1',
+            'name'          =>  'city',
+            'الاسم'         =>   'المدينة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '1',
+            'name'          =>  'transmissionType',
+            'الاسم'         =>   'نوع القير',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '1',
+            'name'          =>  'wheelType',
+            'الاسم'         =>   'نوع الدفع',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '1',
+            'name'          =>  'fuelType',
+            'الاسم'         =>   'نوع الوقود',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '1',
+            'name'          =>  'kilometers',
+            'الاسم'         =>   'عداد الكيلو',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '1',
+            'name'          =>  'engineCapacity',
+            'الاسم'         =>   'سعة المحرك',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '1',
+            'name'          =>  'description',
+            'الاسم'         =>   'وصف الحالة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+
+
+
+        //موبايلات
+        DB::table('filters')->insert([
+            'category_id'   =>  '2',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '1'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '2',
+            'name'          =>  'Model',
+            'الاسم'         =>   'الموديل',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '2',
+            'name'          =>  'screenSize',
+            'الاسم'         =>   'حجم الشاشة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '2',
+            'name'          =>  'memory',
+            'الاسم'         =>   'الرام',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '2',
+            'name'          =>  'storage',
+            'الاسم'         =>   'التخزين',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '2',
+            'name'          =>  'generation',
+            'الاسم'         =>   'الجيل',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '2',
+            'name'          =>  'color',
+            'الاسم'         =>   'اللون',
+            'show_in_filter'=>  'no',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '2',
+            'name'          =>  'age',
+            'الاسم'         =>   'العمر',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '2',
+            'name'          =>  'description',
+            'الاسم'         =>   'وصف الحالة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+        //تاب
+        DB::table('filters')->insert([
+            'category_id'   =>  '3',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '1'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '3',
+            'name'          =>  'Model',
+            'الاسم'         =>   'الموديل',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '3',
+            'name'          =>  'screensize',
+            'الاسم'         =>   'حجم الشاشة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '3',
+            'name'          =>  'memory',
+            'الاسم'         =>   'الرام',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '3',
+            'name'          =>  'storage',
+            'الاسم'         =>   'التخزين',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '3',
+            'name'          =>  'generation',
+            'الاسم'         =>   'الجيل',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '3',
+            'name'          =>  'color',
+            'الاسم'         =>   'اللون',
+            'show_in_filter'=>  'no',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '3',
+            'name'          =>  'age',
+            'الاسم'         =>   'العمر',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '3',
+            'name'          =>  'accessories',
+            'الاسم'         =>   'الملحقات',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '3',
+            'name'          =>  'description',
+            'الاسم'         =>   'وصف الحالة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+        //لابتوب
+        DB::table('filters')->insert([
+            'category_id'   =>  '4',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '4',
+            'name'          =>  'processor',
+            'الاسم'         =>   'المعالج',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '4',
+            'name'          =>  'memory',
+            'الاسم'         =>   'الرام',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '4',
+            'name'          =>  'storage',
+            'الاسم'         =>   'سعة التخزين',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '4',
+            'name'          =>  'age',
+            'الاسم'         =>   'العمر',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '4',
+            'name'          =>  'description',
+            'الاسم'         =>   'وصف الحالة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+        //كمبيوتر مكتبي
+        DB::table('filters')->insert([
+            'category_id'   =>  '5',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '5',
+            'name'          =>  'processor',
+            'الاسم'         =>   'المعالج',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '5',
+            'name'          =>  'memory',
+            'الاسم'         =>   'الرام',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '5',
+            'name'          =>  'storage',
+            'الاسم'         =>   'سعة التخزين',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '5',
+            'name'          =>  'age',
+            'الاسم'         =>   'العمر',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '5',
+            'name'          =>  'description',
+            'الاسم'         =>   'وصف الحالة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+
+        //مكيفات
+        DB::table('filters')->insert([
+            'category_id'   =>  '6',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '1'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '6',
+            'name'          =>  'Model',
+            'الاسم'         =>   'الموديل',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '6',
+            'name'          =>  'coolingPower',
+            'الاسم'         =>   'طاقة التبريد',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '6',
+            'name'          =>  'coolingType',
+            'الاسم'         =>   'نوع التبريد',
+            'show_in_filter'=>  'no',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '6',
+            'name'          =>  'age',
+            'الاسم'         =>   'العمر',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '6',
+            'name'          =>  'description',
+            'الاسم'         =>   'وصف الحالة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+
+        //اجهزة كبيرة
+        DB::table('filters')->insert([
+            'category_id'   =>  '7',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '1'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '7',
+            'name'          =>  'Model',
+            'الاسم'         =>   'الموديل',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '7',
+            'name'          =>  'capacitance',
+            'الاسم'         =>   'السعة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '7',
+            'name'          =>  'age',
+            'الاسم'         =>   'العمر',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '7',
+            'name'          =>  'description',
+            'الاسم'         =>   'وصف الحالة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+        //اجهزة صغيرة
+        DB::table('filters')->insert([
+            'category_id'   =>  '8',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '1'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '8',
+            'name'          =>  'Model',
+            'الاسم'         =>   'الموديل',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '8',
+            'name'          =>  'capacitance',
+            'الاسم'         =>   'السعة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '8',
+            'name'          =>  'age',
+            'الاسم'         =>   'العمر',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '8',
+            'name'          =>  'description',
+            'الاسم'         =>   'وصف الحالة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+        //الكاميرات
+        DB::table('filters')->insert([
+            'category_id'   =>  '9',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '1'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '9',
+            'name'          =>  'Model',
+            'الاسم'         =>   'الموديل',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '9',
+            'name'          =>  'megapixel',
+            'الاسم'         =>   'ميغابكسل',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '9',
+            'name'          =>  'storage',
+            'الاسم'         =>   'ذاكرة التخزين',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '9',
+            'name'          =>  'age',
+            'الاسم'         =>   'العمر',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '9',
+            'name'          =>  'description',
+            'الاسم'         =>   'وصف الحالة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+
+        //تلفيزيونات
+        DB::table('filters')->insert([
+            'category_id'   =>  '10',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '1'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '10',
+            'name'          =>  'screenSize',
+            'الاسم'         =>   'حجم الشاشة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '10',
+            'name'          =>  'screenType',
+            'الاسم'         =>   'نوع الشاشة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '10',
+            'name'          =>  'age',
+            'الاسم'         =>   'العمر',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '10',
+            'name'          =>  'description',
+            'الاسم'         =>   'وصف الحالة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+
+        //العاب الكترونية
+        DB::table('filters')->insert([
+            'category_id'   =>  '11',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '1'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '11',
+            'name'          =>  'Model',
+            'الاسم'         =>   'الموديل',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '11',
+            'name'          =>  'age',
+            'الاسم'         =>   'العمر',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+
+        //مكائن القهوة
+        DB::table('filters')->insert([
+            'category_id'   =>  '12',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '1'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '12',
+            'name'          =>  'Model',
+            'الاسم'         =>   'الموديل',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '12',
+            'name'          =>  'age',
+            'الاسم'         =>   'العمر',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '12',
+            'name'          =>  'description',
+            'الاسم'         =>   'وصف الحالة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+        //قوارب
+        DB::table('filters')->insert([
+            'category_id'   =>  '13',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '1'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '13',
+            'name'          =>  'length',
+            'الاسم'         =>   'الطول',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '13',
+            'name'          =>  'machinesPlace',
+            'الاسم'         =>   'مكان المكائن',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '13',
+            'name'          =>  'machinesNumber',
+            'الاسم'         =>   'عدد المكائن',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '13',
+            'name'          =>  'machinesType',
+            'الاسم'         =>   'نوع الماكينه',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '13',
+            'name'          =>  'machinesPower',
+            'الاسم'         =>   'قوة الماكينه',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '13',
+            'name'          =>  'age',
+            'الاسم'         =>   'عمر القارب',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '13',
+            'name'          =>  'machines Age',
+            'الاسم'         =>   'عمر المكائن',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+        //عدد وادوات
+        DB::table('filters')->insert([
+            'category_id'   =>  '14',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '1'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '14',
+            'name'          =>  'capleType',
+            'الاسم'         =>   'نوع الكابل',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '14',
+            'name'          =>  'Model',
+            'الاسم'         =>   'الموديل',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '14',
+            'name'          =>  'size',
+            'الاسم'         =>   'المقاس',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+
+        //معدات رباضية
+        DB::table('filters')->insert([
+            'category_id'   =>  '15',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '1'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '15',
+            'name'          =>  'Model',
+            'الاسم'         =>   'الموديل',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '15',
+            'name'          =>  'age',
+            'الاسم'         =>   'العمر',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '15',
+            'name'          =>  'description',
+            'الاسم'         =>   'وصف الحالة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+
+        //اثاث
+        DB::table('filters')->insert([
+            'category_id'   =>  '16',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '1'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '16',
+            'name'          =>  'manufactureType',
+            'الاسم'         =>   'نوع التصنيع',
+            'show_in_filter'=>  'no',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '16',
+            'name'          =>  'age',
+            'الاسم'         =>   'العمر',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+        //معدات صناعية
+        DB::table('filters')->insert([
+            'category_id'   =>  '17',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'yes',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '1'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '17',
+            'name'          =>  'fuelType',
+            'الاسم'         =>   'الوقود',
+            'show_in_filter'=>  'no',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '17',
+            'name'          =>  'Model',
+            'الاسم'         =>   'الموديل',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '17',
+            'name'          =>  'energy',
+            'الاسم'         =>   'الطاقة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '17',
+            'name'          =>  'age',
+            'الاسم'         =>   'العمر',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '17',
+            'name'          =>  'description',
+            'الاسم'         =>   'وصف الحالة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+
+        //اجهزة طبية
+        DB::table('filters')->insert([
+            'category_id'   =>  '18',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '1'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '18',
+            'name'          =>  'age',
+            'الاسم'         =>   'العمر',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '18',
+            'name'          =>  'description',
+            'الاسم'         =>   'وصف الحالة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+        //مقتنيات ثمينة
+        DB::table('filters')->insert([
+            'category_id'   =>  '19',
+            'name'          =>  'Brand',
+            'الاسم'         =>   'الماركة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '1'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '19',
+            'name'          =>  'material',
+            'الاسم'         =>   'المادة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'select',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '19',
+            'name'          =>  'age',
+            'الاسم'         =>   'العمر',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '19',
+            'name'          =>  'description',
+            'الاسم'         =>   'وصف الحالة',
+            'show_in_filter'=>  'no',
+            'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // //subCategories

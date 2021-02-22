@@ -64,7 +64,7 @@
                     $('.ajax').remove(); //remove result before
                     $.each(response.data, function(index, value) {
                         console.log(value);
-                        $('#brand').append(`<option class="ajax" value="${value.id}">${value.name}</option>`);
+                        $('#brand').append(`<option class="ajax" value="${value.id}">${value.الاسم}</option>`);
                     });
                 },
             });

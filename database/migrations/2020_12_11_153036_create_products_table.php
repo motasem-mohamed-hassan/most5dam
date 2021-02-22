@@ -33,7 +33,7 @@ class CreateProductsTable extends Migration
             $table->string('transmissionType')->nullable();  //نوع القير
             $table->string('kilometers')->nullable();   //عدد الكيلومتر
             $table->string('engineCapacity')->nullable();   //سعة المحرك
-            $table->string('screensize')->nullable();   //حجم الشاشة
+            $table->string('screenSize')->nullable();   //حجم الشاشة
             $table->string('memory')->nullable();   //الميموري
             $table->string('storage')->nullable();  //سعة التخزين
             $table->string('generation')->nullable();   //الجيل
@@ -51,6 +51,9 @@ class CreateProductsTable extends Migration
             $table->string('manufactureType')->nullable(); //نوع التصنيع للاثاث
             $table->string('fuelType')->nullable(); //نوع الوقود
             $table->string('energy')->nullable();  //الطاقة للعدد والادوات
+            $table->string('city')->nullable();  //المدينة للسيارات
+            $table->string('material')->nullable();  //المادة للمقتنيات
+
 
             $table->text('description')->nullable();
             $table->unsignedInteger('price');
