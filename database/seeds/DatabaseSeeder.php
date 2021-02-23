@@ -589,7 +589,7 @@ class DatabaseSeeder extends Seeder
             'category_id'   =>  '7',
             'name'          =>  'capacitance',
             'الاسم'         =>   'السعة',
-            'show_in_filter'=>  'yes',
+            'show_in_filter'=>  'no',
             'type'          =>  'select',//select / input
             'brand'         =>  '0'//1/0
         ]);
@@ -597,7 +597,7 @@ class DatabaseSeeder extends Seeder
             'category_id'   =>  '7',
             'name'          =>  'age',
             'الاسم'         =>   'العمر',
-            'show_in_filter'=>  'yes',
+            'show_in_filter'=>  'no',
             'type'          =>  'input',//select / input
             'brand'         =>  '0'//1/0
         ]);
@@ -605,7 +605,7 @@ class DatabaseSeeder extends Seeder
             'category_id'   =>  '7',
             'name'          =>  'description',
             'الاسم'         =>   'وصف الحالة',
-            'show_in_filter'=>  'yes',
+            'show_in_filter'=>  'no',
             'type'          =>  'input',//select / input
             'brand'         =>  '0'//1/0
         ]);
@@ -640,7 +640,7 @@ class DatabaseSeeder extends Seeder
             'category_id'   =>  '8',
             'name'          =>  'age',
             'الاسم'         =>   'العمر',
-            'show_in_filter'=>  'yes',
+            'show_in_filter'=>  'no',
             'type'          =>  'input',//select / input
             'brand'         =>  '0'//1/0
         ]);
@@ -648,7 +648,7 @@ class DatabaseSeeder extends Seeder
             'category_id'   =>  '8',
             'name'          =>  'description',
             'الاسم'         =>   'وصف الحالة',
-            'show_in_filter'=>  'yes',
+            'show_in_filter'=>  'no',
             'type'          =>  'input',//select / input
             'brand'         =>  '0'//1/0
         ]);

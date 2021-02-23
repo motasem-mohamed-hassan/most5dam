@@ -81,7 +81,7 @@
 
 	<!-- top Products -->
 	<div class="ads-grid">
-		<div class="container">
+		<div class="container-fluid" style="margin:1rem">
 			<!-- tittle heading -->
 			<h3 class="tittle-w3l">جميع المنتجات
 				<span class="heading-style">
@@ -91,44 +91,94 @@
 				</span>
 			</h3>
             <!-- //tittle heading -->
-            <div>
+            <div style="direction: rtl">
+                <div style="direction: ltr">
+                    <button style="padding: 0.25rem;border:none; margin-left:1rem" id="four-elements" onclick="displayedItems()">
+                        <i class="fa fa-th" aria-hidden="true"></i>
+                    </button>
+                </div>
+
                 <div class="agileinfo-ads-display col-md-9">
-                    <div class="wrapper">
-                        @foreach ($products->chunk(3) as $chunk)
-                            <div class="product-sec1">
+                    <div class="wrapper" id="id1" style="direction: rtl;float: right;">
+                        @foreach ($products->chunk(4) as $chunk)
+                            <div class="product-sec1" >
                                 @foreach ($chunk as $product)
-                                <div class="col-md-4 product-men">
+                                <div class="col-md-3 product-men" style="direction: rtl;float: right;">
                                     <div class="men-pro-item simpleCart_shelfItem">
                                         <div class="men-thumb-item">
-                                            <img src="{{ asset('storage/products/'.$product->first_image->url) }}" style="width: 100%; height:40vh">
+                                            <img src="{{ asset('storage/products/'.$product->first_image->url) }}"
+                                                style="width: 100%; height:30vh">
                                             <div class="men-cart-pro">
                                                 <div class="inner-men-cart-pro">
-                                                    <a href="{{ route('profile', $product->user_id) }}" class="link-product-add-cart">تواصل مع البائع</a>
+                                                    <a href="{{ route('profile', $product->user_id) }}"
+                                                        class="link-product-add-cart">تواصل مع البائع</a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="item-info-product text-center border-top mt-4">
                                             <h4 class="pt-1">
-                                                <a href="{{ route('singleProduct', $product->id) }}">{{ $product->name }}</a>
+                                                <a
+                                                    href="{{ route('singleProduct', $product->id) }}">{{ $product->name }}</a>
                                             </h4>
                                             <div class="info-product-price my-2">
                                                 <span class="item_price">${{ $product->price }}</span>
                                             </div>
-                                            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                                    <fieldset >
-                                                        <a href="{{ route('singleProduct', $product->id) }}" class="btn btn-success" id="product-page" >صفحة المنتج</a>
-                                                    </fieldset>
+                                            <div
+                                                class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                                                <fieldset>
+                                                    <a href="{{ route('singleProduct', $product->id) }}"
+                                                        class="btn btn-success" id="product-page">صفحة المنتج</a>
+                                                </fieldset>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
+                                <div class="clearfix"></div>
+                            </div>
                         @endforeach
-                        <div class="clearfix"></div>
                     </div>
-                @endforeach
                 </div>
-            </div>
+
+                <div style="display: none;"  id="id2" class="col-md-9" >
+                    @foreach($products->chunk(1) as $chank)
+                        <div style="box-shadow: 0px 0px 15px 0px #D6D6D6;padding: 30px 20px;direction:rtl;margin:1rem 0rem">
+                            <div class="card mb-3" >
+                                @foreach($chank as $product)
+                                    <div class="row no-gutters">
+
+                                        <div class="col-md-2">
+                                            <a href="{{ route('singleProduct', $product->id) }}"
+                                                class="btn btn-success " style="width: 150px;margin:0.5rem 0rem">صفحة المنتج</a>
+
+                                            <a href="{{ route('profile', $product->user_id) }}"
+                                                class="btn btn-info " style="width: 150px;margin:0.5rem 0rem">تواصل مع البائع</a>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="card-body">
+                                            <h5 class="card-title">النوع: {{ $product->category->name }}</h5>
+                                            <p class="card-text">الموديل: {{ $product->name }}</p>
+                                            <p class="card-text">الوصف: {{ $product->description }}</p><hr>
+
+                                            <p class="card-text"><small class="text-muted">{{ $product->price }} ر.س </small></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <img src="{{ asset('storage/products/'.$product->first_image->url) }}"
+                                            style="width: 100%; height:20vh">
+                                        </div>
+
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+
             <!-- //product right -->
 
             <!-- product left -->
@@ -185,6 +235,33 @@
         </div>
         <!-- //top products -->
     </div>
+    <script>
+        function displayedItems() {
+            var x = document.getElementById("id1");
+            var y =document.getElementById("id2");
+            var z =document.getElementById("four-elements");
+            if (y.style.display === "none" && x.style.display === "inline-block" ) {
+                x.style.display = "none";
+                y.style.display = "inline-block";
+                z.innerHTML= `<i class="fa fa-align-justify" aria-hidden="true"></i>`;
+
+            }
+            else if (x.style.display === "none" && y.style.display === "inline-block" ){
+                x.style.display = "inline-block";
+                y.style.display = "none";
+                z.innerHTML=`<i class="fa fa-th" aria-hidden="true"></i>`;
+
+
+            }
+            else{
+                x.style.display = "inline-block";
+                y.style.display = "none";
+                z.innerHTML=`<i class="fa fa-th" aria-hidden="true"></i>`;
+
+            }
+            }
+
+    </script>
     @endsection
 
 

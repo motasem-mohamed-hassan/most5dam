@@ -6,58 +6,68 @@
 			<div class="col-md-4 logo_agile">
 				<h1>
 					<a href="{{ route('home') }}">
-						<img src="{{ asset('frontend/images/logo.png') }}" alt=" " style="width: 60%;">
+						<img src="{{ asset('frontend/images/logo.png') }}" alt="logo" width="80%">
 					</a>
 				</h1>
 			</div>
-			<!-- header-bot -->
-			<div class="col-md-8 header" >
-				<!-- header lists -->
-				<ul >
-					<li>
-						@if(auth()->check())
-						    <a href="{{ route('profile', Auth::user()) }}">
-						@else
-						    <a href="#" data-toggle="modal" data-target="#myModal1">
-						@endif
-					</li>
-                    @role('admin|superAdmin')
-                    <li>
-                        <a class="btn btn-danger" href="{{ route('admin.dashboard') }}">صفحة الأدمن
-                        </a>
-                    </li>
-                    @endrole
-					<li>
-						{{ $setting->phone1 }}<span class="fa fa-phone" aria-hidden="true"></span>
-                    </li>
-					@if( auth()->check() )
-					<li>
-						<a href="{{ route('profile', Auth::id())}}">
-							<span class="fa fa-user" aria-hidden="true"></span>الصفحة الشخصية</a>
-					</li>
-					<li class="nav-item">
-                        <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                            <button type="submit" id="logout-btn">
-                                <span class="fa fa-unlock-alt" aria-hidden="true"></span> تسجيل خروج  </a>
-                            </button>
-                        </form>
+			<!-- //header-bot -->
 
-					</li>
-					@else
-					<li>
-						<a href="#" data-toggle="modal" data-target="#myModal1">
-							تسجيل دخول <span class="fa fa-unlock-alt" aria-hidden="true"></span> </a>
-					</li>
-					<li>
-						<a href="#" data-toggle="modal" data-target="#myModal2">
-							تسجيل حساب جديد <span class="fa fa-pencil-square-o" aria-hidden="true"></span> </a>
-					</li>
-					@endif
+			<div class="col-md-8 header" style="direction: rtl;" >
+				<!-- header lists -->
+                {{-- <div class="col-md-3 "> --}}
+				<ul>
+                    <li>
+                        <div class="dropdown"  style="width:100%;margin-right: 3rem">
+                            @if(auth()->check())
+
+                            <button class="dropbtn" >حسابك</button>
+                            <div class="dropdown-content" >
+
+                                <a class="btn btn-info" href="{{ route('profile', Auth::id())}}">
+                                    <span class="fa fa-user" aria-hidden="true"></span>الصفحة الشخصية
+                                </a><br>
+
+                                <a class="btn btn-primary" href="{{ route('personal-products', Auth::id()) }}">
+                                    منتجاتك
+                                </a><br>
+
+                                @role('admin|superAdmin')
+                                <a class="btn btn-danger" href="{{ route('admin.dashboard') }}">
+                                    صفحة الأدمن
+                                </a>
+                                @endrole
+
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" id="logout-btn">
+                                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> تسجيل خروج  </a>
+                                    </button>
+                                </form>
+
+                            </div>
+
+                            @else
+                            <button class="dropbtn" > سجّل الدخول</button>
+                            <div class="dropdown-content" >
+                                <a href="#" data-toggle="modal" data-target="#myModal1" style="text-decoration-line:underline">
+                                    تسجيل دخول <span class="fa fa-unlock-alt" aria-hidden="true"></span>
+                                </a>
+                                <span><small>لا تمتلك حساب؟</small></span><br>
+                                <span><a href="#" data-toggle="modal" data-target="#myModal2" style="margin:20px 0px">
+                                    سجّل الآن <span class="fa fa-pencil-square-o" aria-hidden="true"></span>
+                                </a></span>
+                            </div>
+                            @endif
+
+                        <!-- //login -->
+                    </li>
 				</ul>
+                {{-- </div> --}}
+
+
                 <!-- Search box-->
 
-                <div class="search" >
+                <div class="search col-md-5" >
                     <form action="#" method="GET" class="search-form">
                         <input  type="text" name="search" placeholder="ابحث..." required>
                         <button type="submit" class="btn btn-default">
@@ -65,9 +75,10 @@
                         </button>
                     </form>
                 </div>
+            </div>
 
-			</div>
 			<div class="clearfix"></div>
+
 		</div>
 	</div>
 

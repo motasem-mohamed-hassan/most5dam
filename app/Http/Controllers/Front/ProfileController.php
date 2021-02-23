@@ -18,7 +18,7 @@ class ProfileController extends Controller
 {
     public function show($id)
     {
-        $categories = Category::where('parent_id', null)->get();
+        $categories = Category::all();
         $user       = User::findOrFail($id);
         $setting = Setting::find('1');
 
@@ -57,7 +57,7 @@ class ProfileController extends Controller
     {
         $user = User::find($id);
         $setting = Setting::find('1');
-        $categories = Category::where('parent_id', null)->get();
+        $categories = Category::all();
         $products = Product::where('user_id', $id)->get();
 
 

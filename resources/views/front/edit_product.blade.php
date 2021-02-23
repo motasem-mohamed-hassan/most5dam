@@ -51,7 +51,7 @@
                                         <option value="{{ $value->name }}">{{ $value->الاسم }}</option>
                                     @endforeach
                                     @foreach($filter->values->where('brand_id', null) as $value)
-                                    <option value="{{ $value->name }}">{{ $value->الاسم }}</option>
+                                        <option value="{{ $value->name }}">{{ $value->الاسم }}</option>
                                     @endforeach
                                 </select><br>
                             </div>

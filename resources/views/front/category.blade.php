@@ -20,28 +20,10 @@
 
 @section('content')
 
-	<!-- page -->
-	<div class="services-breadcrumb">
-		<div class="agile_inner_breadcrumb">
-			<div class="container">
-				<ul class="w3_short">
-					<li>
-						<a href="{{ route('home') }}">الرئيسية</a>
-						<i>|</i>
-					</li>
-					<li>{{ $category->name }}</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!-- //page -->
-	<!-- top Products -->
-
-</div>
 
 <div>
     <div class="ads-grid">
-		<div class="container">
+		<div class="container-fluid" style="margin:1rem">
 			<!-- tittle heading -->
 			<h3 class="tittle-w3l">{{ $category->name }}
 				<span class="heading-style">
@@ -53,20 +35,19 @@
 			<!-- //tittle heading -->
 			<!-- product right -->
 			<div class="agileinfo-ads-display col-md-9 w3l-rightpro">
-                <div class="wrapper">
-                    @foreach($products->chunk(3) as $chunk)
-                    <div class="product-sec1">
+                <div class="wrapper" style="direction: rtl;float: right;">
+                    @foreach($products->chunk(4) as $chunk)
+                    <div class="product-sec1" style="direction: rtl;float: right;">
                         @foreach ($chunk as $product)
-                                <div class="col-md-4 product-men justify-content-end">
+                                <div class="col-md-3 product-men" style="direction: rtl;float: right;">
                                     <div class="men-pro-item simpleCart_shelfItem mt-5">
                                         <div class="men-thumb-item">
-                                            <img src="{{ asset('storage/products/'.$product->first_image->url) }}" style="width: 100%; height:40vh">
+                                            <img src="{{ asset('storage/products/'.$product->first_image->url) }}" style="width: 100%; height:30vh">
                                             <div class="men-cart-pro">
                                                 <div class="inner-men-cart-pro">
                                                     <a href="{{ route('profile', $product->user_id) }}" class="link-product-add-cart">تواصل مع البائع</a>
                                                 </div>
                                             </div>
-                                            <span class="product-new-top">New</span>
                                         </div>
                                         <div class="item-info-product ">
                                             <h4>
@@ -96,6 +77,20 @@
 
             <!-- product left -->
                 <div class="side-bar col-md-3">
+                    <div class="left-side" style="direction: rtl">
+
+                        <button  onclick="ToggleList()" id="show-cat" style="display: inline-block;margin-left:1rem;color:#17a2b8">الاقسام الرئيسية<span style="font-size: 30px"> </span>+</button><hr>
+                        <ul id="cat-list" style="display: none">
+                            @foreach($categories as $category)
+                            <li>
+                                <div id="index-items">
+                                <a  href="{{ route('categoryPage', $category->id) }}" class="span" style="text-decoration: none">{{ $category->name }}</a>
+                                </div>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+
                     <form style="direction: rtl">
                         <div class="range">
                             <h3 class="agileits-sear-head">تحديد السعر</h3>
@@ -120,13 +115,22 @@
                     <!-- price range -->
                     <!-- //price range -->
                     <!-- cuisine -->
-                    @if($category->name == 'موبايلات')
-                        <select multiple class="selectpicker" name="subcategory[]" >
-                            <option disabled disabled selected>الماركة</option>
-                            @foreach ($category->children as $subcategory)
-                            <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
+
+                    @foreach($filters->where('type', 'select') as $filter)
+
+                        <select multiple class="selectpicker" name="{{ $filter->الاسم }}[]" >
+                            <option disabled disabled selected>{{ $filter->name }}</option>
+                            @foreach ($filter->values as $value)
+                            <option value="{{ $value->name }}">{{ $value->الاسم }}</option>
                             @endforeach
+
                         </select><br>
+                    @endforeach
+                    @foreach($filters->where('type', 'input') as $filter)
+                        <input class="form-control" name="{{ $filter->name }}" placeholder="{{ $filter->الاسم }}"><br>
+                    @endforeach
+
+                    {{-- @if($category->name == 'موبايلات')
                         <select multiple class="selectpicker"  name="screensize[]">
                             <option disabled selected>حجم الشاشة</option>
                             <option value="4">4</option>
@@ -436,7 +440,7 @@
                 <option value="{{ $subcategory->name }}">{{ $subcategory->name }}</option>
                 @endforeach
             </select><br>
-            @endif
+            @endif --}}
 
 
 
@@ -454,7 +458,7 @@
 
 
 
-            <button type="submit" class="btn btn-primary" style="width: 100%; " id="submitToRange">نفذ</button>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">نفذ</button>
             </form>
 		</div>
 	</div>
