@@ -25,8 +25,8 @@
 	</div>
 	<!-- //newsletter -->
 	<!-- footer -->
-	<footer>
-		<div class="container">
+	<footer >
+		<div class="container-fluid">
 			<!-- footer first section -->
 			<h4 style="color: grey;text-align:right;margin:0 2rem" > أفضل موقع محلّي للإعلانات المُبوبة. حيث ستتمكّن من بيع وشراء أي شيئ ممكن أن تتخيله، من موبايلك القديم والمقاعد التي مللت منها أو حتى سيارتك، أو الشقة التي تسكن فيها. والأفضل من ذلك، قد تتمكن من العثور على وظيفة أحلامك
 
@@ -72,6 +72,7 @@
 			<!-- //footer second section -->
 			<!-- footer third section -->
 			<div class="footer-info w3-agileits-info container-fluid"  >
+
 					<!-- <div class="col-xs-6 footer-grids agile-secomk">
 						<ul>
 							<li>
@@ -96,6 +97,7 @@
 					</div> -->
 					<div class="clearfix"></div>
 				</div>
+
                 <!-- social icons -->
 				<div class="col-sm-5 footer-grids  w3l-socialmk" >
 					<h3 style="text-align: center;">
