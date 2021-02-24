@@ -20,9 +20,9 @@
                         <div class="dropdown"  style="width:100%;margin-right: 3rem">
                             @if(auth()->check())
                             <button class="dropbtn" >حسابك</button>
-                            <div class="dropdown-content" >
+                            <div class="dropdown-content" style="padding: 20px;" >
 
-                                <a class="btn btn-info" href="{{ route('profile', Auth::id())}}">
+                                <a class="btn btn-primary" href="{{ route('profile', Auth::id())}}">
                                     <span class="fa fa-user" aria-hidden="true"></span>الصفحة الشخصية
                                 </a><br>
 
@@ -31,9 +31,9 @@
                                 </a><br>
 
                                 @role('admin|superAdmin')
-                                <a class="btn btn-danger" href="{{ route('admin.dashboard') }}">
+                                <a class="btn btn-success" href="{{ route('admin.dashboard') }}">
                                     صفحة الأدمن
-                                </a>
+                                </a><br>
                                 @endrole
 
                                 <form action="{{ route('logout') }}" method="POST">
@@ -47,14 +47,14 @@
 
                             @else
                             <button class="dropbtn" > سجّل الدخول</button>
-                            <div class="dropdown-content">
-                                <a href="#" data-toggle="modal" data-target="#myModal1" style="text-decoration-line:underline">
+                            <div class="dropdown-content" style="padding: 20px;">
+                                <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#myModal1">
                                     تسجيل دخول <span class="fa fa-unlock-alt" aria-hidden="true"></span>
-                                </a>
-                                <span><small>لا تمتلك حساب؟</small></span><br>
-                                <span><a href="#" data-toggle="modal" data-target="#myModal2" style="margin:20px 0px">
+                                </a><br>
+                                <small>لا تمتلك حساب؟</small>
+                                <a href="#" data-toggle="modal" data-target="#myModal2">
                                     سجّل الآن <span class="fa fa-pencil-square-o" aria-hidden="true"></span>
-                                </a></span>
+                                </a>
                             </div>
                             @endif
                         <!-- //login -->
@@ -164,8 +164,9 @@
 							</div>
 						</form>
 						<p style="text-align: right;">
-							<a href="{{ asset('frontend/') }}#">
-								بالضغط على تسجيل ، أوافق على شروطك</a>
+							<a href="{{ route('aboutUs') }}">
+							بالضغط على التسجيل أنت توافق على الشروط والأحكام
+                            </a>
 						</p>
 					</div>
 				</div>

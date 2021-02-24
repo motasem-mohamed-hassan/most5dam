@@ -232,6 +232,9 @@
                 </div>
                 <!-- //deals -->
             </div>
+
+
+            
         </div>
         <!-- //top products -->
     </div>
