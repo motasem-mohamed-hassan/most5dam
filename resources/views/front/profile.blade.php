@@ -14,8 +14,8 @@
                         <img src="{{ asset('storage/avatars/'.$user->image) }}" id='output_image' class="card-img-top" alt="profile-picture" style="width: 80% ; border-radius:50% "  >
                     @endif
                     <div class="card-body">
-                        <h3 class="card-title">اسم المستخدم</h3>
-                        <p class="card-text"> معلومات عن المستخدم معلومات عن المستخدم معلومات عن المستخدم معلومات عن المستخدم معلومات عن المستخدم </p>
+                        <h3 class="card-title">{{ $user->name }}</h3>
+                        <p class="card-text"> اضغط على الذر في الاسفل لتغيير صورتك الشخصية </p>
                     </div>
                     @if($user->id == Auth::id())
                     <div class="card-body">
@@ -76,7 +76,7 @@
                         <div class="row">
 
                             <div id="Address" class="col-sm-9 text-secondary">
-                                Bay Area, San Francisco, CA
+                                {{ $user->address }}
                             </div>
                             <div class="col-sm-3">
                                 <h4 class="mb-0">العنوان</h4>

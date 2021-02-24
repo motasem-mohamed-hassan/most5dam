@@ -17,7 +17,7 @@
                     <div  class="col-md-1"></div>
                     <div class="col-md-9">
 
-                        <select name="category_id" class="form-control" id="category">
+                        <select name="category_id" class="form-control" id="category" required>
                             <option value="" selected>--اختر قسم--</option>
                             @foreach ($categories as $category)
                                 <option category_id="{{ $category->id }}" id="categoriesOption" value="{{ $category->id }}">{{ $category->الاسم }}</option>
@@ -33,7 +33,7 @@
                 <div class="row d-flex justify-content-start" >
                     <div  class="col-md-1"></div>
                     <div class="col-md-9" >
-                        <select name="brand_id" class="form-control" id="brand">
+                        <select name="brand_id" class="form-control" id="brand" required>
                             <option value="" selected>--اختر ماركة--</option>
                         </select>
                     </div>

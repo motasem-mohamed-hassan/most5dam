@@ -19,7 +19,6 @@
                     <li>
                         <div class="dropdown"  style="width:100%;margin-right: 3rem">
                             @if(auth()->check())
-
                             <button class="dropbtn" >حسابك</button>
                             <div class="dropdown-content" >
 
@@ -48,7 +47,7 @@
 
                             @else
                             <button class="dropbtn" > سجّل الدخول</button>
-                            <div class="dropdown-content" >
+                            <div class="dropdown-content">
                                 <a href="#" data-toggle="modal" data-target="#myModal1" style="text-decoration-line:underline">
                                     تسجيل دخول <span class="fa fa-unlock-alt" aria-hidden="true"></span>
                                 </a>
@@ -58,7 +57,6 @@
                                 </a></span>
                             </div>
                             @endif
-
                         <!-- //login -->
                     </li>
 				</ul>

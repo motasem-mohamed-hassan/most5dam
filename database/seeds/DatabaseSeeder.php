@@ -171,7 +171,7 @@ class DatabaseSeeder extends Seeder
         //السيارات
         DB::table('filters')->insert([
             'category_id'   =>  '1',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -180,7 +180,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('filters')->insert([
             'category_id'   =>  '1',
-            'name'          =>  'Model',
+            'name'          =>  'model',
             'الاسم'         =>   'الموديل',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -258,7 +258,7 @@ class DatabaseSeeder extends Seeder
         //موبايلات
         DB::table('filters')->insert([
             'category_id'   =>  '2',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -266,7 +266,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '2',
-            'name'          =>  'Model',
+            'name'          =>  'model',
             'الاسم'         =>   'الموديل',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -333,7 +333,7 @@ class DatabaseSeeder extends Seeder
         //تاب
         DB::table('filters')->insert([
             'category_id'   =>  '3',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -341,7 +341,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '3',
-            'name'          =>  'Model',
+            'name'          =>  'model',
             'الاسم'         =>   'الموديل',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -349,7 +349,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '3',
-            'name'          =>  'screensize',
+            'name'          =>  'screenSize',
             'الاسم'         =>   'حجم الشاشة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -416,7 +416,7 @@ class DatabaseSeeder extends Seeder
         //لابتوب
         DB::table('filters')->insert([
             'category_id'   =>  '4',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -467,7 +467,7 @@ class DatabaseSeeder extends Seeder
         //كمبيوتر مكتبي
         DB::table('filters')->insert([
             'category_id'   =>  '5',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -519,7 +519,7 @@ class DatabaseSeeder extends Seeder
         //مكيفات
         DB::table('filters')->insert([
             'category_id'   =>  '6',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -527,7 +527,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '6',
-            'name'          =>  'Model',
+            'name'          =>  'model',
             'الاسم'         =>   'الموديل',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -571,7 +571,7 @@ class DatabaseSeeder extends Seeder
         //اجهزة كبيرة
         DB::table('filters')->insert([
             'category_id'   =>  '7',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -579,7 +579,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '7',
-            'name'          =>  'Model',
+            'name'          =>  'model',
             'الاسم'         =>   'الموديل',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -614,7 +614,7 @@ class DatabaseSeeder extends Seeder
         //اجهزة صغيرة
         DB::table('filters')->insert([
             'category_id'   =>  '8',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -622,7 +622,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '8',
-            'name'          =>  'Model',
+            'name'          =>  'model',
             'الاسم'         =>   'الموديل',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -657,7 +657,7 @@ class DatabaseSeeder extends Seeder
         //الكاميرات
         DB::table('filters')->insert([
             'category_id'   =>  '9',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -665,7 +665,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '9',
-            'name'          =>  'Model',
+            'name'          =>  'model',
             'الاسم'         =>   'الموديل',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -709,7 +709,7 @@ class DatabaseSeeder extends Seeder
         //تلفيزيونات
         DB::table('filters')->insert([
             'category_id'   =>  '10',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -753,7 +753,7 @@ class DatabaseSeeder extends Seeder
         //العاب الكترونية
         DB::table('filters')->insert([
             'category_id'   =>  '11',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -761,7 +761,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '11',
-            'name'          =>  'Model',
+            'name'          =>  'model',
             'الاسم'         =>   'الموديل',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -781,7 +781,7 @@ class DatabaseSeeder extends Seeder
         //مكائن القهوة
         DB::table('filters')->insert([
             'category_id'   =>  '12',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -789,7 +789,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '12',
-            'name'          =>  'Model',
+            'name'          =>  'model',
             'الاسم'         =>   'الموديل',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -816,7 +816,7 @@ class DatabaseSeeder extends Seeder
         //قوارب
         DB::table('filters')->insert([
             'category_id'   =>  '13',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -872,7 +872,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '13',
-            'name'          =>  'machines Age',
+            'name'          =>  'machinesAge',
             'الاسم'         =>   'عمر المكائن',
             'show_in_filter'=>  'no',
             'type'          =>  'input',//select / input
@@ -883,7 +883,7 @@ class DatabaseSeeder extends Seeder
         //عدد وادوات
         DB::table('filters')->insert([
             'category_id'   =>  '14',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -899,7 +899,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '14',
-            'name'          =>  'Model',
+            'name'          =>  'model',
             'الاسم'         =>   'الموديل',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -919,7 +919,7 @@ class DatabaseSeeder extends Seeder
         //معدات رباضية
         DB::table('filters')->insert([
             'category_id'   =>  '15',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -927,7 +927,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '15',
-            'name'          =>  'Model',
+            'name'          =>  'model',
             'الاسم'         =>   'الموديل',
             'show_in_filter'=>  'no',
             'type'          =>  'input',//select / input
@@ -955,7 +955,7 @@ class DatabaseSeeder extends Seeder
         //اثاث
         DB::table('filters')->insert([
             'category_id'   =>  '16',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'no',
             'type'          =>  'select',//select / input
@@ -982,7 +982,7 @@ class DatabaseSeeder extends Seeder
         //معدات صناعية
         DB::table('filters')->insert([
             'category_id'   =>  '17',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -998,7 +998,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '17',
-            'name'          =>  'Model',
+            'name'          =>  'model',
             'الاسم'         =>   'الموديل',
             'show_in_filter'=>  'no',
             'type'          =>  'input',//select / input
@@ -1034,7 +1034,7 @@ class DatabaseSeeder extends Seeder
         //اجهزة طبية
         DB::table('filters')->insert([
             'category_id'   =>  '18',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'no',
             'type'          =>  'select',//select / input
@@ -1061,7 +1061,7 @@ class DatabaseSeeder extends Seeder
         //مقتنيات ثمينة
         DB::table('filters')->insert([
             'category_id'   =>  '19',
-            'name'          =>  'Brand',
+            'name'          =>  'brand',
             'الاسم'         =>   'الماركة',
             'show_in_filter'=>  'no',
             'type'          =>  'select',//select / input
