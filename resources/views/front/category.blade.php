@@ -25,7 +25,7 @@
     <div class="ads-grid">
 		<div class="container-fluid" style="margin:1rem">
 			<!-- tittle heading -->
-			<h3 class="tittle-w3l">{{ $thiscategory->name }}
+			<h3 class="tittle-w3l">{{ $thiscategory->الاسم }}
 				<span class="heading-style">
 					<i></i>
 					<i></i>

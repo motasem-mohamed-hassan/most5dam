@@ -1,7 +1,33 @@
 
 
 	<div class="header-bot">
-		<div class="header-bot_inner_wthreeinfo_header_mid">
+
+
+        <nav class="relative flex flex-wrap items-center justify-between px-2 py-1 navbar-expand-lg bg-teal-500 mb-3">
+            <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+              <div class="lg:flex flex-grow items-center" id="example-navbar-warning">
+                <ul class="flex flex-col lg:flex-row list-none ml-auto items-center">
+                    @foreach($categories as $category)
+                    <li class="nav-item mr-5">
+                      <a class="px-5 py-2 flex items-center text-xs font-bold leading-snug text-white hover:opacity-75" href="{{ route('categoryPage', $category->id) }}">
+                        {{ $category->الاسم }}
+                      </a>
+                    </li>
+                    @endforeach
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+
+
+
+
+
+
+
+
+        <div class="header-bot_inner_wthreeinfo_header_mid">
 			<!-- header-bot-->
 			<div class="col-md-4 logo_agile">
 				<h1>
@@ -183,21 +209,8 @@
 			<div class="top_nav_left">
 				<nav class="navbar navbar-default">
 					<div class="container-fluid">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-						</div>
-						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav menu__list">
-
-
-
 								<li class="dropdown">
 									<a href="{{ asset('frontend/') }}#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">جميع الأقسام
 										<span class="caret"></span>

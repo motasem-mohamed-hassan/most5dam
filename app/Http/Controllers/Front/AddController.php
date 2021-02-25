@@ -59,7 +59,7 @@ class AddController extends Controller
         $product->category_id       =    $request->category_id;
         $product->brand_id	        =    $request->brand_id;
 
-        $product->name              =    $request->model;
+        $product->model              =    $request->model;
 
         $product->manufactureYear   =    $request->manufactureYear;
         $product->wheelType         =    $request->wheelType;
@@ -141,7 +141,7 @@ class AddController extends Controller
         $product->category_id       =    $request->category_id;
         $product->brand_id	        =    $request->brand_id;
 
-        $product->name              =    $request->Model;
+        $product->model              =   $request->model;
 
         $product->manufactureYear   =    $request->manufactureYear;
         $product->wheelType         =    $request->wheelType;
@@ -155,7 +155,7 @@ class AddController extends Controller
         $product->transmissionType  =    $request->transmissionType;
         $product->kilometers        =    $request->kilometers;
         $product->engineCapacity    =    $request->engineCapacity;
-        $product->screensize        =    $request->screenSize;
+        $product->screenSize        =    $request->screenSize;
         $product->memory            =    $request->memory;
         $product->storage           =    $request->storage;
         $product->generation        =    $request->generation;

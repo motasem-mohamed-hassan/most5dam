@@ -891,16 +891,16 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '14',
-            'name'          =>  'capleType',
-            'الاسم'         =>   'نوع الكابل',
+            'name'          =>  'model',
+            'الاسم'         =>   'الموديل',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
             'brand'         =>  '0'//1/0
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '14',
-            'name'          =>  'model',
-            'الاسم'         =>   'الموديل',
+            'name'          =>  'capleType',
+            'الاسم'         =>   'نوع الكابل',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
             'brand'         =>  '0'//1/0
@@ -990,18 +990,18 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '17',
-            'name'          =>  'fuelType',
-            'الاسم'         =>   'الوقود',
-            'show_in_filter'=>  'no',
-            'type'          =>  'select',//select / input
-            'brand'         =>  '0'//1/0
-        ]);
-        DB::table('filters')->insert([
-            'category_id'   =>  '17',
             'name'          =>  'model',
             'الاسم'         =>   'الموديل',
             'show_in_filter'=>  'no',
             'type'          =>  'input',//select / input
+            'brand'         =>  '0'//1/0
+        ]);
+        DB::table('filters')->insert([
+            'category_id'   =>  '17',
+            'name'          =>  'fuelType',
+            'الاسم'         =>   'الوقود',
+            'show_in_filter'=>  'no',
+            'type'          =>  'select',//select / input
             'brand'         =>  '0'//1/0
         ]);
         DB::table('filters')->insert([

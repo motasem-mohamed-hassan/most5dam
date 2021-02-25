@@ -35,7 +35,7 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-7 ">
-                                <input type="text" name="{{ $filter->name }}" class="form-control" required>
+                                <input type="text" name="{{ $filter->name }}" value="{{ $product->{$filter->name} }}" placeholder="{{ $filter->name }}" class="form-control" required>
                             </div>
                             <label class="col-md-2 text-center mr-5">{{ $filter->الاسم }}</label>
                             <div class="clearfix"></div>
@@ -46,13 +46,17 @@
                         <div class="row">
                             <div class="col-md-7 ">
                                 <select class="form-control" name="{{ $filter->name }}" required>
-                                    <option disabled selected value="">{{ $filter->الاسم }}</option>
+                                    <option selected value="{{ $product->{$filter->name} }}">{{ $product->{$filter->name} }}</option>
                                     @foreach($filter->values->where('brand_id', $brand_id) as $value)
-                                        <option value="{{ $value->name }}">{{ $value->الاسم }}</option>
+                                        @if($value->الاسم != $product->{$filter->name})
+                                        <option value="{{ $value->الاسم }}">{{ $value->الاسم }}</option>
+                                        @endif
                                     @endforeach
                                     @foreach($filter->values->where('brand_id', null) as $value)
-                                        <option value="{{ $value->name }}">{{ $value->الاسم }}</option>
-                                    @endforeach
+                                        @if($value->الاسم != $product->{$filter->name})
+                                        <option value="{{ $value->الاسم }}">{{ $value->الاسم }}</option>
+                                        @endif
+                                @endforeach
                                 </select><br>
                             </div>
                             <label class="col-md-2 text-center mr-5">{{ $filter->الاسم }}</label>
