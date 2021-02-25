@@ -4,12 +4,11 @@
 
 <!-- User account -->
 <div class="container">
-    <div class="main-body">
         <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
-                <div  id="user-card" class="card bg-light ">
+                <div  id="user-card" class="card2 bg-light ">
                     @if(!$user->image)
-                        <img src="{{ asset('frontend/images/avatar.png') }}" id='output_image' class="card-img-top" alt="profile-picture" style="width: 80% ; border-radius:50% ">
+                        <img src="{{ asset('frontend/images/avatar.png') }}" id='output_image' class="card-img-top" alt="profile-picture" style="width: 100% ; border-radius:50% ">
                     @else
                         <img src="{{ asset('storage/avatars/'.$user->image) }}" id='output_image' class="card-img-top" alt="profile-picture" style="width: 80% ; border-radius:50% "  >
                     @endif
@@ -39,8 +38,8 @@
                     @endif
                 </div>
             </div>
-            <div id="user-information" class="col-md-8 p-2 m-2">
-                <div class="card mb-3 p-4">
+            <div id="user-information" class="col-md-8 " >
+                <div class="card2 mb-3 p-4">
                     <div class="card-body">
                         <div class="row">
 
@@ -140,7 +139,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
 <!-------------- User account ------------->
 @endsection

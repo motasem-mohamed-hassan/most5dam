@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             'id'    => '1',
             'name' => 'admin',
             'phone_number'  => '0555555555',
+            'acc_number'    =>  '000000000000000000000000',
+            'address'       =>  'makka',
             'email' => 'admin@admin.com',
             'password' => Hash::make('123456789'),
         ]);
@@ -53,117 +55,154 @@ class DatabaseSeeder extends Seeder
         DB::table('categories')->insert([
             'id'            =>  '1',
             'الاسم'        =>  'سيارات',
-            'name'      =>  'Cars'
+            'name'      =>  'Cars',
+            'icon'      =>  asset('frontend/images/avatar.png')
         ]);
         DB::table('categories')->insert([
             'id'            =>  '2',
             'الاسم'        =>  'موبايلات',
-            'name'      =>  'Mobile'
+            'name'      =>  'Mobile',
+            'icon'      =>  asset('frontend/images/avatar.png')
 
-        ]);
+
+     ]);
 
         DB::table('categories')->insert([
             'id'            =>  '3',
             'الاسم'        =>  'اجهزة لوحية',
-            'name'      =>  'Tablets'
+            'name'      =>  'Tablets',
+            'icon'      =>  asset('frontend/images/avatar.png')
 
-        ]);
+
+     ]);
 
         DB::table('categories')->insert([
             'id'            =>  '4',
             'الاسم'        =>  'لابتوب',
-            'name'      =>      'laptop'
+            'name'      =>      'laptop',
+            'icon'      =>  asset('frontend/images/avatar.png')
 
-        ]);
+
+     ]);
 
         DB::table('categories')->insert([
             'id'            =>  '5',
             'الاسم'        =>  'كومبيوتر مكتبي',
-            'name'      =>  'Desktop Computer'
+            'name'      =>  'Desktop Computer',
+            'icon'      =>  asset('frontend/images/avatar.png')
+
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '6',
             'الاسم'        =>  'مكيفات',
-            'name'      =>  'Conditioners'
+            'name'      =>  'Conditioners',
+            'icon'      =>  asset('frontend/images/avatar.png')
+
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '7',
             'الاسم'        =>  'اجهزة منزلية كبيرة',
-            'name'      =>  'Large Home Appliances'
+            'name'      =>  'Large Home Appliances',
+            'icon'      =>  asset('frontend/images/avatar.png')
+
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '8',
             'الاسم'        =>  'اجهزة منزلية صغيرة',
-            'name'      =>  'Small Home Appliances'
+            'name'      =>  'Small Home Appliances',
+            'icon'      =>  asset('frontend/images/avatar.png')
+
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '9',
             'الاسم'        =>  'كاميرات',
-            'name'      =>  'Cameras'
+            'name'      =>  'Cameras',
+            'icon'      =>  asset('frontend/images/avatar.png')
+
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '10',
             'الاسم'        =>  'تلفيزيونات',
-            'name'      =>  'Televisions'
+            'name'      =>  'Televisions',
+            'icon'      =>  asset('frontend/images/avatar.png')
+
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '11',
             'الاسم'        =>  'العاب الكترونية',
-            'name'      =>  'Video Games'
+            'name'      =>  'Video Games',
+            'icon'      =>  asset('frontend/images/avatar.png')
+
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '12',
             'الاسم'        =>  'مكائن القهوة',
-            'name'      =>  'Coffee machines'
+            'name'      =>  'Coffee machines',
+            'icon'      =>  asset('frontend/images/avatar.png')
+
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '13',
             'الاسم'        =>  'قوارب',
-            'name'      =>  'Boats'
+            'name'      =>  'Boats',
+            'icon'      =>  asset('frontend/images/avatar.png')
+
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '14',
             'الاسم'        =>  'عدد وادوات',
-            'name'      =>  'Tools'
+            'name'      =>  'Tools',
+            'icon'      =>  asset('frontend/images/avatar.png')
+
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '15',
             'الاسم'        =>  'معدات رياضية',
-            'name'      =>  'Sports Equipment'
+            'name'      =>  'Sports Equipment',
+            'icon'      =>  asset('frontend/images/avatar.png')
+
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '16',
             'الاسم'        =>  'اثاث',
-            'name'      =>  'Furniture'
+            'name'      =>  'Furniture',
+            'icon'      =>  asset('frontend/images/avatar.png')
+
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '17',
             'الاسم'        =>  'معدات صناعية',
-            'name'      =>  'Industrial equipment'
+            'name'      =>  'Industrial equipment',
+            'icon'      =>  asset('frontend/images/avatar.png')
+
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '18',
             'الاسم'        =>  'اجهزة طبية',
-            'name'      =>  'Medical Devices'
+            'name'      =>  'Medical Devices',
+            'icon'      =>  asset('frontend/images/avatar.png')
+
         ]);
 
         DB::table('categories')->insert([
             'id'            =>  '19',
             'الاسم'        =>  'مقتنيات ثمينة',
-            'name'      =>  'Valuables'
+            'name'      =>  'Valuables',
+            'icon'      =>  asset('frontend/images/avatar.png')
+
         ]);
 
         //Filters

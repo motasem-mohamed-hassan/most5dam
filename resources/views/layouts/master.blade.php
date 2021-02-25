@@ -120,9 +120,6 @@
 
     @include('inc.header')
 
-	@yield('panner')
-
-
 	@yield('content')
 
 

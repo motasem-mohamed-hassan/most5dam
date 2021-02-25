@@ -67,6 +67,20 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="acc_number" class="col-md-4 col-form-label text-md-right">رقم الحساب البنكي</label>
+
+                            <div class="col-md-6">
+                                <input id="acc_number" type="number"  class="form-control @error('acc_number') is-invalid @enderror" name="acc_number" value="{{ old('acc_number') }}" required autocomplete="acc_number">
+
+                                @error('acc_number')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('الرقم السري') }}</label>
 
                             <div class="col-md-6">

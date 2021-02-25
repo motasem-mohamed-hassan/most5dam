@@ -56,6 +56,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'phone_number' => ['required','string','unique:users'], //you can also use required|regex:/[0-9]{10}/|digits:10 as per your needs
+            'acc_number' => ['required','string','unique:users', 'max:24'], //you can also use required|regex:/[0-9]{10}/|digits:10 as per your needs
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'address'   => ['required', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -73,6 +74,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'phone_number' => $data['phone_number'],
+            'acc_number' => $data['acc_number'],
             'email' => $data['email'],
             'address'   => $data['address'],
             'password' => $data['password'],
