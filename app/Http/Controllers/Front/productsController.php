@@ -35,7 +35,7 @@ class productsController extends Controller
             }
         }
 
-        $products = $query->get();
+        $products = $query->latest()->Paginate(50);
 
 
         return view('front.index', compact('categories','products', 'setting'));

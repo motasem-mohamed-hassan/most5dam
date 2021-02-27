@@ -14,7 +14,7 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        $products = Product::paginate(10);
+        $products = Product::paginate(50);
         $user = Auth::user();
 
         return view('dashboard.products.index', compact('products', 'user'));

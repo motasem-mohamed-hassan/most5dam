@@ -70,7 +70,7 @@ class CategoryController extends Controller
         if($request->has('city'))
             $query->wherein('city', $request->city);
 
-        $products = $query->get();
+        $products = $query->latest()->paginate(50);
 
         return view('front.category', compact('products', 'categories', 'thiscategory', 'setting', 'filters'));
 

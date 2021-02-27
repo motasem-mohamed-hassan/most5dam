@@ -4,56 +4,46 @@
 
 <!-- User account -->
 <div class="container">
+    <div class="main-body">
         <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
-                <div  id="user-card" class="card2 bg-light ">
+                <div  id="user-card" class="card bg-light ">
                     @if(!$user->image)
                         <img src="{{ asset('frontend/images/avatar.png') }}" id='output_image' class="card-img-top" alt="profile-picture" style="width: 100% ; border-radius:50% ">
                     @else
-                        <img src="{{ asset('storage/avatars/'.$user->image) }}" id='output_image' class="card-img-top" alt="profile-picture" style="width: 80% ; border-radius:50% "  >
+                        <img src="{{ asset('storage/avatars/'.$user->image) }}" id='output_image' class="card-img-top" alt="profile-picture" style="width: 100% ; border-radius:50% "  >
                     @endif
                     <div class="card-body">
                         <h3 class="card-title">{{ $user->name }}</h3>
-                        <p class="card-text"> اضغط على الذر في الاسفل لتغيير صورتك الشخصية </p>
+                        <Small>لتغيير الصورة اضغط على الزر ادناه</Small>
                     </div>
                     @if($user->id == Auth::id())
                     <div class="card-body">
                         <form action="{{ route('add-avatar', $user->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <input name="image" type="file" accept="image/*" onchange="preview_image(event)" style="  display: inline-block;
-                            width: 20%;
-                            padding:40px 0 0 0;
-                            height: 10px;
-                            overflow: hidden;
-                            -webkit-box-sizing: border-box;
-                            -moz-box-sizing: border-box;
-                            box-sizing: border-box;
-                            background: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698394-icon-130-cloud-upload-512.png') center center no-repeat #1accfd; */
-                            border-radius: 5px;
-                            background-size: 40px 40px;"
-                            ><br>
+                            
+                            <input name="image" type="file" accept="image/*" onchange="preview_image(event)" id="change-profile-btn"><br>
                             <button style="display: none" type="submit" id="confirm-photo">تأكيد الصورة</button>
                         </form>
                     </div>
                     @endif
                 </div>
             </div>
-            <div id="user-information" class="col-md-8 " >
-                <div class="card2 mb-3 p-4">
+            <div id="user-information" class="col-md-8" >
+                <div class="card2 ">
                     <div class="card-body">
-                        <div class="row">
-
-                            <div id="names" class="col-sm-9 text-secondary">
+                        <div class="row my-3">
+                            <div id="d" class="col-sm-9 text-secondary ">
                                 {{ $user->name }}
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-3 " >
                                 <h4 class="mb-0">الاسم</h4>
                             </div>
                         </div>
                         <hr>
-                        <div class="row">
+                        <div class="row my-3">
 
-                            <div id="mail" class="col-sm-9 text-secondary">
+                            <div id="d" class="col-sm-9 text-secondary">
                                 {{ $user->email }}
                             </div>
                             <div class="col-sm-3">
@@ -61,9 +51,9 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="row">
+                        <div class="row my-3">
 
-                            <div id="phone" class="col-sm-9 text-secondary">
+                            <div id="d" class="col-sm-9 text-secondary">
                                 {{ $user->phone_number }}
                             </div>
                             <div class="col-sm-3">
@@ -72,10 +62,10 @@
                         </div>
                         <hr>
 
-                        <div class="row">
+                        <div class="row my-3">
 
-                            <div id="Address" class="col-sm-9 text-secondary">
-                                {{ $user->address }}
+                            <div id="d" class="col-sm-9 text-secondary">
+                                Bay Area, San Francisco, CA
                             </div>
                             <div class="col-sm-3">
                                 <h4 class="mb-0">العنوان</h4>
@@ -83,10 +73,10 @@
                         </div><br>
                         @if($user->id == Auth::id())
                         <div class="d-flex justify-content-end">
-                            <button class="btn btn-info m-2" type="submit" id="edit-button" data-toggle="modal" data-target="#staticBackdrop">
+                            <button class="btn btn-success info m-2" type="submit" id="edit-button" data-toggle="modal" data-target="#staticBackdrop">
                                 تعديل البيانات الشخصية
                             </button>
-                                <a class="btn btn-primary" href="{{ route('personal-products', Auth::id()) }}">
+                                <a class="btn btn-success" href="{{ route('personal-products', Auth::id()) }}">
                                 منتجاتك
                                 </a>
                         </div>
@@ -139,6 +129,7 @@
                 </div>
             </div>
         </div>
+    </div>
 </div>
 <!-------------- User account ------------->
 @endsection

@@ -227,7 +227,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '1',
-            'name'          =>  'manufactureYear',
+            'name'          =>  'manufacture year',
             'الاسم'         =>   'سنة الصنع',
             'show_in_filter'=>  'yes',
             'type'          =>  'input',//select / input
@@ -243,7 +243,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '1',
-            'name'          =>  'transmissionType',
+            'name'          =>  'transmission type',
             'الاسم'         =>   'نوع القير',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -251,7 +251,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '1',
-            'name'          =>  'wheelType',
+            'name'          =>  'wheel type',
             'الاسم'         =>   'نوع الدفع',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -259,7 +259,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '1',
-            'name'          =>  'fuelType',
+            'name'          =>  'fuel type',
             'الاسم'         =>   'نوع الوقود',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -275,7 +275,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '1',
-            'name'          =>  'engineCapacity',
+            'name'          =>  'engine capacity',
             'الاسم'         =>   'سعة المحرك',
             'show_in_filter'=>  'yes',
             'type'          =>  'input',//select / input
@@ -313,7 +313,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '2',
-            'name'          =>  'screenSize',
+            'name'          =>  'screen size',
             'الاسم'         =>   'حجم الشاشة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -388,7 +388,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '3',
-            'name'          =>  'screenSize',
+            'name'          =>  'screen size',
             'الاسم'         =>   'حجم الشاشة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -574,7 +574,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '6',
-            'name'          =>  'coolingPower',
+            'name'          =>  'cooling power',
             'الاسم'         =>   'طاقة التبريد',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -582,7 +582,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '6',
-            'name'          =>  'coolingType',
+            'name'          =>  'cooling type',
             'الاسم'         =>   'نوع التبريد',
             'show_in_filter'=>  'no',
             'type'          =>  'select',//select / input
@@ -756,7 +756,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '10',
-            'name'          =>  'screenSize',
+            'name'          =>  'screen size',
             'الاسم'         =>   'حجم الشاشة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -764,7 +764,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '10',
-            'name'          =>  'screenType',
+            'name'          =>  'screen type',
             'الاسم'         =>   'نوع الشاشة',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -871,7 +871,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '13',
-            'name'          =>  'machinesPlace',
+            'name'          =>  'machines place',
             'الاسم'         =>   'مكان المكائن',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -879,7 +879,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '13',
-            'name'          =>  'machinesNumber',
+            'name'          =>  'machines number',
             'الاسم'         =>   'عدد المكائن',
             'show_in_filter'=>  'no',
             'type'          =>  'input',//select / input
@@ -887,7 +887,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '13',
-            'name'          =>  'machinesType',
+            'name'          =>  'machines type',
             'الاسم'         =>   'نوع الماكينه',
             'show_in_filter'=>  'no',
             'type'          =>  'input',//select / input
@@ -895,7 +895,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '13',
-            'name'          =>  'machinesPower',
+            'name'          =>  'machines power',
             'الاسم'         =>   'قوة الماكينه',
             'show_in_filter'=>  'no',
             'type'          =>  'input',//select / input
@@ -911,7 +911,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '13',
-            'name'          =>  'machinesAge',
+            'name'          =>  'machines age',
             'الاسم'         =>   'عمر المكائن',
             'show_in_filter'=>  'no',
             'type'          =>  'input',//select / input
@@ -938,7 +938,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '14',
-            'name'          =>  'capleType',
+            'name'          =>  'caple type',
             'الاسم'         =>   'نوع الكابل',
             'show_in_filter'=>  'yes',
             'type'          =>  'select',//select / input
@@ -1002,7 +1002,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '16',
-            'name'          =>  'manufactureType',
+            'name'          =>  'manufacture type',
             'الاسم'         =>   'نوع التصنيع',
             'show_in_filter'=>  'no',
             'type'          =>  'select',//select / input
@@ -1037,7 +1037,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('filters')->insert([
             'category_id'   =>  '17',
-            'name'          =>  'fuelType',
+            'name'          =>  'fuel type',
             'الاسم'         =>   'الوقود',
             'show_in_filter'=>  'no',
             'type'          =>  'select',//select / input

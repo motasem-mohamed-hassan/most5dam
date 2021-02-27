@@ -98,7 +98,7 @@
                                                                     font-weight: 600;
                                                                     padding: 8px;
                                                                     letter-spacing: 2px;
-                                                                    background: #1accfd;
+                                                                    background: #5aaa15;
                                                                 }
                                                                 /* //top-header */
                                                                 /*-- header-bottom --*/
@@ -177,7 +177,7 @@
                                                                     height: 42px;
                                                                     outline: none;
                                                                     box-shadow: none;
-                                                                    background: #1accfd;
+                                                                    background: #5aaa15;
                                                                     padding: 0;
                                                                     border-radius: inherit;
                                                                     -webkit-appearance: none;
@@ -275,7 +275,7 @@
                                                                     margin: 0;
                                                                     font-weight: 700;
                                                                     letter-spacing: 1px;
-                                                                    background: #1accfd;
+                                                                    background: #5aaa15;
                                                                     color: #fff;
                                                                     margin: 20px 0;
                                                                 }
@@ -597,7 +597,7 @@
                                                                     -webkit-transform: perspective(1px) translateZ(0);
                                                                     transform: perspective(1px) translateZ(0);
                                                                     box-shadow: 0 0 1px transparent;
-                                                                    background: #1accfd;
+                                                                    background: #5aaa15;
                                                                     border-radius: 4px;
                                                                     color: #fff;
                                                                     letter-spacing: 2px;
@@ -630,7 +630,7 @@
                                                                 .snipcart-details input.button {
                                                                     font-size: 13px;
                                                                     color: #fff;
-                                                                    background: #1accfd;
+                                                                    background: #5aaa15;
                                                                     text-decoration: none;
                                                                     position: relative;
                                                                     border: none;
@@ -693,7 +693,7 @@
 
                                                                 #PPminicartk .minicartk-submit {
                                                                     color: #fff !important;
-                                                                    background: #1accfd !important;
+                                                                    background: #5aaa15 !important;
                                                                     padding: 0 10px !important;
                                                                     font-size: 15px;
                                                                     letter-spacing: 1px;
@@ -705,7 +705,7 @@
                                                                     transition: 0.5s all;
                                                                     bottom: -25px !important;
                                                                     right: 0 !important;
-                                                                    border: 1px solid #1accfd !important;
+                                                                    border: 1px solid #5aaa15 !important;
                                                                     border-radius: 0px !important;
                                                                     text-shadow: none !important;
                                                                 }
@@ -761,6 +761,7 @@
                                                                     transition: all 0.5s ease-out 0s;
                                                                     visibility: hidden;
                                                                     border-radius: 10px;
+                                                                    height: 82%;
                                                                 }
 
                                                                 .product-men:nth-child(3) .product-new-top {
@@ -990,7 +991,7 @@
                                                                 }
 
                                                                 .search-hotel form input[type="submit"] {
-                                                                    background: url(../images/search.png) no-repeat 13px 11px #1accfd;
+                                                                    background: url(../images/search.png) no-repeat 13px 11px #5aaa15;
                                                                     width: 44px;
                                                                     height: 39px;
                                                                     border: none;
@@ -1273,7 +1274,7 @@
                                                                 .heading-style i:nth-child(2) {
                                                                     width: 12px;
                                                                     height: 12px;
-                                                                    background-color: #1accfd;
+                                                                    background-color: #5aaa15;
                                                                 }
 
                                                                 h3.tittle-w3l:after {
@@ -1446,7 +1447,7 @@
                                                                 }
 
                                                                 .footer-top input[type="submit"]:hover {
-                                                                    background: #1accfd;
+                                                                    background: #5aaa15;
                                                                     -webkit-transition: 0.5s all;
                                                                     -moz-transition: 0.5s all;
                                                                     -o-transition: 0.5s all;
@@ -1533,7 +1534,7 @@
                                                                 }
 
                                                                 .footer-info h3 {
-                                                                    color: #1accfd;
+                                                                    color: #5aaa15;
                                                                     font-size: 22px;
                                                                     letter-spacing: 1px;
                                                                     margin-bottom: 25px;
@@ -1886,7 +1887,7 @@
 
                                                                 .contact-text p i.fa {
                                                                     margin-right: 10px;
-                                                                    color: #1accfd;
+                                                                    color: #5aaa15;
                                                                 }
 
                                                                 .map iframe {
@@ -2498,7 +2499,7 @@
                                                                     width: 90%;
                                                                     border: none;
                                                                     padding: 16px;
-                                                                    border-bottom: solid 1px #1accfd;
+                                                                    border-bottom: solid 1px #5aaa15;
                                                                     height: 150px;
                                                                     outline: none;
                                                                 }
@@ -2519,7 +2520,7 @@
                                                                 }
 
                                                                 .wthree-help form input[type="submit"]:hover {
-                                                                    background: #1accfd;
+                                                                    background: #5aaa15;
                                                                     -webkit-transform: translateY(8px);
                                                                     -ms-transform: translateY(8px);
                                                                     -o-transform: translateY(8px);
@@ -2536,7 +2537,7 @@
                                                                 .wthree-help a {
                                                                     color: #fff;
                                                                     padding: 10px 20px;
-                                                                    background: #1accfd;
+                                                                    background: #5aaa15;
                                                                     font-size: 16px;
                                                                     margin-bottom: 50px;
                                                                 }
@@ -2773,11 +2774,11 @@
                                                                 }
 
                                                                 .product-single-w3l {
-                                                                    border-top: 1px solid #1accfd;
+                                                                    border-top: 1px solid #5aaa15;
                                                                 }
 
                                                                 .product-single-w3l p i {
-                                                                    color: #1accfd;
+                                                                    color: #5aaa15;
                                                                     margin-right: 11px;
                                                                     font-size: 24px;
                                                                 }
@@ -2934,7 +2935,7 @@
                                                                 }
 
                                                                 .address_form_agile h4 {
-                                                                    color: #1accfd;
+                                                                    color: #5aaa15;
                                                                     font-size: 24px;
                                                                     margin-bottom: 30px;
                                                                     letter-spacing: 1px;
@@ -2958,7 +2959,7 @@
                                                                 button.submit.check_out {
                                                                     padding: 12px 25px;
                                                                     letter-spacing: 1px;
-                                                                    background: #1accfd;
+                                                                    background: #5aaa15;
                                                                     font-size: 16px;
                                                                     color: #fff;
                                                                     border: none;
@@ -3007,7 +3008,7 @@
 
                                                                 .checkout-right-basket a span {
                                                                     margin-left: 7px;
-                                                                    color: #1accfd;
+                                                                    color: #5aaa15;
                                                                     font-size: 20px;
                                                                 }
                                                                 /*-- //payment button --*/
@@ -3039,10 +3040,10 @@
                                                                     position: relative;
                                                                     padding: 6px 50px 11px;
                                                                     letter-spacing: 3px;
-                                                                    background: #1accfd;
+                                                                    background: #5aaa15;
                                                                     font-size: 1.5em;
                                                                     color: #fff;
-                                                                    border: 1px solid #1accfd;
+                                                                    border: 1px solid #5aaa15;
                                                                     outline: none;
                                                                     text-transform: uppercase;
                                                                     cursor: pointer;
@@ -3218,7 +3219,7 @@
 
                                                                 .vertical_post form input[type="submit"],
                                                                 .number-paymk input[type="submit"] {
-                                                                    background: #1accfd;
+                                                                    background: #5aaa15;
                                                                     color: #FFFFFF;
                                                                     text-align: center;
                                                                     padding: 11px 19px;
@@ -5702,7 +5703,7 @@
                                                                     width: 40px;
                                                                     border: 0px;
                                                                     background: none;
-                                                                    /* background-color: #1accfd; */
+                                                                    /* background-color: #5aaa15; */
                                                                     color: #fff;
                                                                     float: left;
                                                                     padding: 6px 10px;
@@ -5735,14 +5736,25 @@
                                                                 }
 
                                                                 #user-information {
-                                                                    margin: 2rem 0rem;
-                                                                    padding: 3rem;
+                                                                    margin: 1rem 0rem;
+                                                                    padding: 1rem;
                                                                     text-align: right;
                                                                 }
 
+                                                                #user-information h4 {
+                                                                    width: 30%;
+                                                                    display: inline-block;
+                                                                }
+
+                                                                #user-information #d {
+                                                                    width: 70%;
+                                                                    display: inline-block;
+                                                                    float: left;
+                                                                }
+
                                                                 #user-card {
-                                                                    width: 18em;
-                                                                    border: solid #1accfd 0.25rem;
+                                                                    width: 18rem;
+                                                                    border: solid #5aaa15 0.25rem;
                                                                     padding: 1em;
                                                                     text-align: center;
                                                                     border-radius: 10%;
@@ -5794,12 +5806,11 @@
                                                                 }
 
                                                                 .side-bar button {
-                                                                    background-color: #1accfd;
-
+                                                                    background-color: #5aaa15;
                                                                 }
 
                                                                 #product-page {
-                                                                    background-color: #1accfd;
+                                                                    background-color: #5aaa15;
                                                                     border: none;
                                                                     width: 100%;
                                                                 }
@@ -5815,7 +5826,7 @@
                                                                 /* Dropdown Button */
 
                                                                 .dropbtn {
-                                                                    background-color: #1accfd;
+                                                                    background-color: #5aaa15;
                                                                     color: white;
                                                                     padding: 0.7rem;
                                                                     font-size: 16px;
@@ -5896,19 +5907,19 @@
                                                                 }
 
                                                                 .product-sec1:hover {
-                                                                    box-shadow: 0px 0px 5px 0px red;
+                                                                    box-shadow: 0px 0px 5px 0px orangered;
                                                                     box-sizing: border-box;
                                                                 }
 
                                                                 #four-elements {
                                                                     padding: 0.75rem;
                                                                     border: none;
-                                                                    margin: 0.25em 2em;
+                                                                    margin: 0.25em 1em;
                                                                     border-radius: 10px;
                                                                 }
 
                                                                 .card {
-                                                                    width: 13.2em;
+                                                                    width: 12.8em;
                                                                 }
 
                                                                 #footer-categories {
@@ -5939,4 +5950,18 @@
                                                                     #four-elements {
                                                                         display: none;
                                                                     }
+                                                                }
+
+                                                                #change-profile-btn {
+                                                                    display: inline-block;
+                                                                    width: 20%;
+                                                                    background: url('https://png.pngtree.com/png-vector/20190307/ourlarge/pngtree-vector-edit-profile-icon-png-image_762931.jpg') center center no-repeat #5aaa15;
+                                                                    padding: 40px 0 0 0;
+                                                                    height: 15px;
+                                                                    overflow: hidden;
+                                                                    -webkit-box-sizing: border-box;
+                                                                    -moz-box-sizing: border-box;
+                                                                    box-sizing: border-box;
+                                                                    border-radius: 5px;
+                                                                    background-size: 100% 100%;
                                                                 }

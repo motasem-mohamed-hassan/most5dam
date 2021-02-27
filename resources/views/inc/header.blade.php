@@ -46,7 +46,7 @@
         </nav>
         <div class="header-bot_inner_wthreeinfo_header_mid">
 			<!-- header-bot-->
-			<div class="col-md-2 logo_agile">
+			<div class="col-md-2 logo_agile" style="float:right">
 				<h1>
 					<a href="{{ route('home') }}">
 						<img src="{{ asset('frontend/images/logo.png') }}" alt="logo" width="100%" style="height:48px">
@@ -55,9 +55,9 @@
 			</div>
 			<!-- //header-bot -->
 
-			<div class="col-md-10 header" style="direction: rtl;" >
+			<div class="col-md-10 header" style="direction: rtl; float:right" >
 				<!-- header lists -->
-                <div class="search col-md-8" >
+                <div class="search col-md-8" style="direction: rtl;float:right" >
                     <form action="#" method="GET" class="search-form">
                          <input  type="text" name="search" placeholder="ابحث..." required>
                              <button type="submit" class="btn btn-default">
@@ -66,12 +66,12 @@
                      </form>
                 </div>
 
-                <div class="col-md-2 " style="float: right;">
+                <div class="col-md-2 " style="float:right;margin:auto;">
 				<ul>
                     <li>
                         <div class="dropdown">
                             @if(auth()->check())
-                            <button class="dropbtn" >حسابك</button>
+                            <button class="dropbtn">حسابك</button>
                             <div class="dropdown-content" style="padding: 20px;" >
 
                                 <a class="btn btn-primary" href="{{ route('profile', Auth::id())}}">
@@ -201,16 +201,15 @@
                             <div class="styled-input">
                                 <input style="text-align: right;" type="password" placeholder="تأكيد كلمة السر" name="password_confirmation" required>
                             </div>
-
+                            <div class="form-check" style="text-align: right">
+                                <label class="form-check-label" for="exampleCheck1"><a href="{{ route('aboutUs') }}">
+                                    بالضغط على تسجيل ، أوافق على شروطك</a></label>
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                            </div>
 							<div style="display: flex; justify-content: flex-end;">
 								<input type="submit" value="تسجيل جديد ">
 							</div>
 						</form>
-						<p style="text-align: right;">
-							<a href="{{ route('aboutUs') }}">
-							بالضغط على التسجيل أنت توافق على الشروط والأحكام
-                            </a>
-						</p>
 					</div>
 				</div>
 			</div>

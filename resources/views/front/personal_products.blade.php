@@ -2,12 +2,12 @@
 
 @section('content')
 
-<div class="container">
+<div class="container" style="direction: rtl;text-align:left;">
     <table class="table table-dark">
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">اسم المنج</th>
+            <th scope="col">اسم المنتج</th>
             <th scope="col">قسم المنتج</th>
             <th scope="col">السعر</th>
             <th scope="col">حالة المنتج</th>
@@ -18,14 +18,14 @@
             @foreach($products as $product)
                 <tr>
                     <th scope="row"> {{$loop->iteration}} </th>
-                    <td>{{ $product->name }}</td>
+                    <td>{{ $product->model }}</td>
                     <td>{{ $product->category->name }}</td>
                     <td>{{ $product->price }}</td>
                     <td>
                         {{ $product->status == 0 ? 'في انتظار النشر' : 'تم النشر' }}
                     </td>
                     <td>
-                        <a class="btn btn-info" href="{{ route('singleProduct', $product->id) }}">شاهد المنتج</a>
+                        <a class="btn btn-info" style="background-color: #5aaa15;border:none" href="{{ route('singleProduct', $product->id) }}">شاهد المنتج</a>
                     </td>
 
                 </tr>

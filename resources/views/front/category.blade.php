@@ -31,7 +31,7 @@
 
 <div>
     <div class="ads-grid">
-		<div class="container-fluid" style="margin:0rem 4rem">
+		<div class="container-fluid">
 			<!-- product right -->
 			{{-- <div class="agileinfo-ads-display col-md-9 w3l-rightpro">
                 <div class="wrapper" style="direction: rtl;float: right;">
@@ -124,7 +124,7 @@
                                 </div>
                             </div> --}}
 
-                             <div class="agileinfo-ads-display col-md-9 ">
+                             <div class="agileinfo-ads-display col-md-10 ">
                                 <div class="wrapper " id="id1" style="direction: rtl;float:right;">
                                     @foreach ($products->chunk(1) as $chunk)
                                         <div class="product-sec1 " >
@@ -165,7 +165,7 @@
 
 
 
-                            <div style="display: none;"  id="id2" class="col-md-9" >
+                            <div style="display: none;"  id="id2" class="col-md-10" >
                                 @foreach($products->chunk(1) as $chank)
                                     <div style="box-shadow: 0px 0px 15px 0px #D6D6D6;padding: 30px 20px;direction:rtl;margin:1rem 0rem">
                                         <div class="card2 mb-3" >
@@ -207,7 +207,7 @@
 
 
             <!-- product left -->
-                <div class="side-bar col-md-3" style="float:right">
+                <div class="side-bar col-md-2" style="float:right">
                     <div class="left-side" style="direction: rtl">
 
                         <button  onclick="ToggleList()" id="show-cat" style="display: inline-block;margin-left:1rem;color:#17a2b8">الاقسام الرئيسية<span style="font-size: 30px"> </span>+</button><hr>
@@ -253,7 +253,13 @@
                             </select><br>
                         @endforeach
                         @foreach($filters->where('type', 'input') as $filter)
-                            <input class="form-control" name="{{ $filter->name }}" placeholder="{{ $filter->الاسم }}"><br>
+                            <span style="width:10%;float:right;margin:5px 0px">من</span>
+                            <input style="width:40%;float:right;margin:5px 0px;font-size:0.8rem" class="form-control" name="{{ $filter->name }}" placeholder="{{ $filter->الاسم }}">
+                            <span style="width:10%;float:right;margin:5px 0px">الى</span>
+                            <input style="width:40%;float:right;margin:5px 0px;font-size:0.8rem" class="form-control" name="{{ $filter->name }}" placeholder="{{ $filter->الاسم }}">
+
+                            <br>
+                            <div class="clearfix"></div>
                         @endforeach
 
                         <button type="submit" class="btn btn-primary" style="width: 100%;">نفذ</button>
@@ -272,23 +278,20 @@
         $('#select').selectpicker();
 
     });
-
-
     function ToggleList() {
-        var x = document.getElementById("cat-list");
-        var y =document.getElementById("show-cat")
-        if (x.style.display === "none") {
-            x.style.display = "block";
-            y.innerHTML="الاقسام الرئيسية -"
+  var x = document.getElementById("cat-list");
+  var y =document.getElementById("show-cat")
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    y.innerHTML="الاقسام الرئيسية -"
 
-        } else {
-            x.style.display = "none";
-            y.innerHTML="الاقسام الرئيسية +"
-        }
-    }
+  } else {
+    x.style.display = "none";
+    y.innerHTML="الاقسام الرئيسية +"
+  }
+}
 
 </script>
-
 
 
 @endsection

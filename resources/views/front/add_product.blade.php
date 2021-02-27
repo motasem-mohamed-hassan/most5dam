@@ -34,7 +34,7 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-7 ">
-                                <input type="text" name="{{ $filter->name }}" value="{{ $filter->الاسم }}" class="form-control" required>
+                                <input type="text" name="{{ $filter->id }}" placeholder="{{ $filter->الاسم }}" class="form-control" required>
                             </div>
                             <label class="col-md-2 text-center mr-5">{{ $filter->الاسم }}</label>
                             <div class="clearfix"></div>

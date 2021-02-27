@@ -54,51 +54,19 @@ class AddController extends Controller
 
     public function store( Request $request)
     {
-        $product = new Product();
-        $product->user_id           =    Auth::id();
-        $product->category_id       =    $request->category_id;
-        $product->brand_id	        =    $request->brand_id;
+        #->except(['_token', 'user_id', 'category_id', 'brand_id', 'status', 'image'])
+        
+        $inputs = collect($request->all())
+        ->mapWithKeys(function($item, $key) {
+            return [str_replace("_", " ", $key) => $item];
+        })->except([' token', 'user_id', 'category_id', 'brand_id', 'status', 'image'])->toArray();
 
-        $product->model              =    $request->model;
-
-        $product->manufactureYear   =    $request->manufactureYear;
-        $product->wheelType         =    $request->wheelType;
-        $product->product           =    $request->product;
-        $product->machinesPlace     =    $request->machinesPlace;
-        $product->machinesType      =    $request->machinesType;
-        $product->machinesPower     =    $request->machinesPower;
-        $product->machinesAge       =    $request->machinesAge;
-        $product->capleType         =    $request->capleType;
-        $product->age               =    $request->age;
-        $product->transmissionType  =    $request->transmissionType;
-        $product->kilometers        =    $request->kilometers;
-        $product->engineCapacity    =    $request->engineCapacity;
-        $product->screenSize        =    $request->screenSize;
-        $product->memory            =    $request->memory;
-        $product->storage           =    $request->storage;
-        $product->generation        =    $request->generation;
-        $product->color             =    $request->color;
-        $product->accessories       =    $request->accessories;
-        $product->processor         =    $request->processor;
-        $product->coolingPower      =    $request->coolingPower;
-        $product->coolingType       =    $request->coolingType;
-        $product->capacitance       =    $request->capacitance;
-        $product->megapixel         =    $request->megapixel;
-        $product->screenType        =    $request->screenType;
-        $product->length            =    $request->length;
-        $product->machinesNumber    =    $request->machinesNumber;
-        $product->size              =    $request->size;
-        $product->manufactureType   =    $request->manufactureType;
-        $product->fuelType          =    $request->fuelType;
-        $product->energy            =    $request->energy;
-        $product->city              =    $request->city ;
-        $product->material          =    $request->material ;
-
-
-        $product->description       =   $request->description;
-        $product->price             =   $request->price;
-        $product->status            =   0;
-        $product->save();
+        $product = Product::create($inputs + [
+            'user_id'   => Auth::id(),
+            'category_id'   => $request->category_id,
+            'brand_id'      => $request->brand_id,
+            'status'        => 0
+        ]);
 
         $images = $request->file('image');
         foreach($images as $key =>$image)
