@@ -43,7 +43,7 @@
                     {{ $product->category->name }}
                 </td>
                 <td >
-                    {{ $product->name }}
+                    {{ $product->model }}
                 </td>
                 <td>
                     {{ $product->description }}

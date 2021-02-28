@@ -10,6 +10,6 @@ $factory->define(Image::class, function (Faker $faker) {
         'product_id' => function () {
             return factory(App\Product::class)->create()->id;
         },
-        'url'   => '2021022709014269237.jpg',
+        'url'   => '2021022808520176215.jpg',
     ];
 });

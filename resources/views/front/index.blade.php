@@ -1,145 +1,16 @@
 @extends('layouts.master')
 
-{{-- @section('panner')
-<!-- banner -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-	<!-- Indicators-->
-	<ol class="carousel-indicators">
-		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		<li data-target="#myCarousel" data-slide-to="1" class=""></li>
-		<li data-target="#myCarousel" data-slide-to="2" class=""></li>
-		<li data-target="#myCarousel" data-slide-to="3" class=""></li>
-	</ol>
-	<div class="carousel-inner" >
-		<div class="item active item1" >
-			<div class="container">
-				<div class="carousel-caption"> --}}
-					{{-- <h3>حفظ
-						<span>كبير</span>
-					</h3>
-					<p>احصل علي شقة
-						<span>10%</span> كاش
-					</p>
-					<a class="button2" href="{{ asset('frontend/') }}product.html">تسوق الان </a> --}}
-				{{-- </div>
-			</div>
-		</div>
-		<div class="item item2" >
-			<div class="container">
-				<div class="carousel-caption"> --}}
-					{{-- <h3>ادخار
-						<span>صحي</span>
-					</h3>
-					<p>اعلي من
-						<span>30%</span> خصم
-					</p>
-					<a class="button2" href="{{ asset('frontend/') }}product.html"> تسوق الان</a> --}}
-				{{-- </div>
-			</div>
-		</div>
-		<div class="item item3" >
-			<div class="container">
-				<div class="carousel-caption"> --}}
-					{{-- <h3>صفقة
-						<span>كبيرة</span>
-					</h3>
-					<p>احصل علي خصم
-						<span>20%</span> خصم
-					</p>
-
-					<a class="button2" href="{{ asset('frontend/') }}product.html">تسوق الان </a> --}}
-				{{-- </div>
-			</div>
-		</div>
-		<div class="item item4"  >
-			<div class="container">
-				<div class="carousel-caption"> --}}
-					{{-- <h3>خصم
-						<span>اليوم</span>
-					</h3>
-					<p>احصل الان
-						<span>40%</span> خصم
-					</p>
-					<a class="button2" href="{{ asset('frontend/') }}product.html"> تسوق الان</a> --}}
-				{{-- </div>
-			</div>
-		</div>
-	</div>
-
-	<a class="left carousel-control" href="{{ asset('frontend/') }}#myCarousel" role="button" data-slide="prev">
-		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-		<span class="sr-only">Previous</span>
-	</a>
-	<a class="right carousel-control" href="{{ asset('frontend/') }}#myCarousel" role="button" data-slide="next">
-		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-		<span class="sr-only">Next</span>
-	</a>
-</div>
-@endsection--}}
-
 @section('content')
 
 	<!-- top Products -->
 	<div class="ads-grid">
 		<div class="container-fluid" >
-			<!-- tittle heading -->
-			{{-- <h3 class="tittle-w3l">جميع المنتجات
-				<span class="heading-style">
-					<i></i>
-					<i></i>
-					<i></i>
-				</span>
-			</h3> --}}
-            <!-- //tittle heading -->
             <div style="direction: rtl">
                 <div style="direction: ltr">
                     <button  id="four-elements" onclick="displayedItems()">
                         <i class="fa fa-th" aria-hidden="true"></i>
                     </button>
                 </div>
-
-                {{-- <div class="agileinfo-ads-display col-md-9">
-                    <div class="wrapper" id="id1" style="direction: rtl;float: right;">
-                        @foreach ($products->chunk(4) as $chunk)
-                            <div class="product-sec1" >
-                                @foreach ($chunk as $product)
-                                <div class="col-md-3 product-men" style="direction: rtl;float: right;">
-                                    <div class="men-pro-item simpleCart_shelfItem">
-                                        <div class="men-thumb-item">
-                                            <img src="{{ asset('storage/products/'.$product->first_image->url) }}"
-                                                style="width: 100%; height:30vh">
-                                            <div class="men-cart-pro">
-                                                <div class="inner-men-cart-pro">
-                                                    <a href="{{ route('profile', $product->user_id) }}"
-                                                        class="link-product-add-cart">تواصل مع البائع</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info-product text-center border-top mt-4">
-                                            <h4 class="pt-1">
-                                                <a
-                                                    href="{{ route('singleProduct', $product->id) }}">{{ $product->name }}</a>
-                                            </h4>
-                                            <div class="info-product-price my-2">
-                                                <span class="item_price">${{ $product->price }}</span>
-                                            </div>
-                                            <div
-                                                class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                                <fieldset>
-                                                    <a href="{{ route('singleProduct', $product->id) }}"
-                                                        class="btn btn-success" id="product-page">صفحة المنتج</a>
-                                                </fieldset>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
-                                <div class="clearfix"></div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div> --}}
 
                  <div class="agileinfo-ads-display col-md-10 ">
                     <div class="wrapper " id="id1" style="direction: rtl;float:right;">
@@ -158,11 +29,12 @@
                                     <div class="item-info-product text-center border-top mt-4">
                                         <h4 class="pt-1">
                                             <a
-                                                href="{{ route('singleProduct', $product->id) }}">{{ $product->name }}
+                                                href="{{ route('singleProduct', $product->id) }}">{{ $product->model }}
                                             </a>
                                         </h4>
                                         <div class="info-product-price my-2">
-                                            <span class="item_price">${{ $product->price }}</span>
+                                            <span class="item_price">{{ $product->price }} ر.س</span><br>
+                                            <small class="text-gray-600">تاريخ النشر: {{ $product->created_at->format('d-m-Y') }}</small>
                                         </div>
                                         <div
                                             class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
@@ -201,10 +73,11 @@
                                         <div class="col-md-6">
                                             <div class="card-body">
                                             <h5 class="card-title">النوع: {{ $product->category->name }}</h5>
-                                            <p class="card-text">الموديل: {{ $product->name }}</p>
+                                            <p class="card-text">الموديل: {{ $product->model }}</p>
                                             <p class="card-text">الوصف: {{ $product->description }}</p><hr>
 
                                             <p class="card-text"><small class="text-muted">{{ $product->price }} ر.س </small></p>
+                                            <small class="text-gray-600">تاريخ النشر: {{ $product->created_at->format('d-m-Y') }}</small>
                                             </div>
                                         </div>
 

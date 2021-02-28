@@ -55,11 +55,11 @@ class AddController extends Controller
     public function store( Request $request)
     {
         #->except(['_token', 'user_id', 'category_id', 'brand_id', 'status', 'image'])
-        
-        $inputs = collect($request->all())
+
+        $inputs = collect($request->except([' token', 'user_id', 'category_id', 'brand_id', 'status', 'image']))
         ->mapWithKeys(function($item, $key) {
             return [str_replace("_", " ", $key) => $item];
-        })->except([' token', 'user_id', 'category_id', 'brand_id', 'status', 'image'])->toArray();
+        })->toArray();
 
         $product = Product::create($inputs + [
             'user_id'   => Auth::id(),
