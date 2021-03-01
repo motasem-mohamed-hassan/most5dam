@@ -26,7 +26,7 @@ class CategoryController extends Controller
             preg_match_all('!\d+!', $request->pricerange, $range);
             $query->whereBetween('price', [$range[0][0],$range[0][1]]);
         }if($request->has('brand'))
-            $query->wherein('brand', $request->brand);
+            $query->wherein('brand_id', $request->brand);
         if($request->has('model'))
             $query->wherein('model', $request->model);
         if($request->has('screen_size'))
@@ -74,7 +74,21 @@ class CategoryController extends Controller
 
         $products = $query->latest()->paginate(50);
 
+
         return view('front.category', compact('products', 'categories', 'thiscategory', 'setting', 'filters'));
+
+    }
+
+    public function filterBrand(Request $request)
+    {
+        $products = Product::where('status', 1)->where('category_id', $request->category_id)
+                    ->wherein('brand_id', $request->ids)->get()->load('first_image');
+
+        
+        return response()->json([
+            'status'    => true,
+            'data'      => $products
+        ]);
 
     }
 

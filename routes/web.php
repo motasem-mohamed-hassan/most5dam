@@ -8,9 +8,12 @@ use Illuminate\Support\Facades\Route;
 Route::namespace('Front')->group(function() {
 
     Route::get('/', 'productsController@index')->name('home'); #need search and select boxs
-    Route::get('product/{id}', 'productsController@show')->name('singleProduct');   #need data
+    Route::get('/product/{id}', 'productsController@show')->name('singleProduct');   #need data
     Route::get('/category/{id}', 'CategoryController@show')->name('categoryPage');   #need data and select box
     Route::get('/price-range', 'CategoryController@range')->name('priceRange');     #need to add slider
+
+    Route::get('/filter-brand', 'CategoryController@filterBrand')->name('filter-brand');
+
     Route::get('/contact', 'ContactController@index')->name('contactPage');         #data
     Route::post('/contact', 'ContactController@store')->name('sendEmail');
     Route::get('/about-us', 'AboutController@index')->name('aboutUs');

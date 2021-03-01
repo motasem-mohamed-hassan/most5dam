@@ -1038,7 +1038,7 @@ class DatabaseSeeder extends Seeder
         DB::table('filters')->insert([
             'category_id'   =>  '17',
             'name'          =>  'fuel type',
-            'الاسم'         =>   'الوقود',
+            'الاسم'         =>   'نوع الوقود',
             'show_in_filter'=>  'no',
             'type'          =>  'select',//select / input
             'brand'         =>  '0'//1/0

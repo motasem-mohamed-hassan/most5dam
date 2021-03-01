@@ -43,10 +43,9 @@
 
 
                     <div class="agileinfo-ads-display col-md-10 ">
-                    <div class="wrapper " id="id1" style="direction: rtl;float:right;">
-                        @foreach ($products->chunk(1) as $chunk)
-                            <div class="product-sec1 " >
-                                @foreach ($chunk as $product)
+                    <div class="wrapper" id="id1" style="direction: rtl;float:right;">
+                        @foreach ($products as $product)
+                            <div class="product-sec1">
                                 <div class="card men-thumb-item" >
                                     <img src="{{ asset('storage/products/'.$product->first_image->url) }}"
                                     style="width: 100%; height:30vh" class="card-img-top" alt="...">
@@ -75,7 +74,6 @@
                                         </div>
                                     </div>
                                     </div>
-                                @endforeach
                                 <div class="clearfix"></div>
                             </div>
                         @endforeach
@@ -85,38 +83,34 @@
 
 
                 <div style="display: none;"  id="id2" class="col-md-10" >
-                    @foreach($products->chunk(1) as $chank)
+                    @foreach($products as $product)
                         <div style="box-shadow: 0px 0px 15px 0px #D6D6D6;padding: 30px 20px;direction:rtl;margin:1rem 0rem">
                             <div class="card2 mb-3" >
-                                @foreach($chank as $product)
-                                    <div class="row no-gutters">
+                                <div class="row no-gutters">
+                                    <div class="col-md-2">
+                                        <a href="{{ route('singleProduct', $product->id) }}"
+                                            class="btn btn-success " style="width: 150px;margin:0.5rem 0rem">صفحة المنتج</a>
 
-                                        <div class="col-md-2">
-                                            <a href="{{ route('singleProduct', $product->id) }}"
-                                                class="btn btn-success " style="width: 150px;margin:0.5rem 0rem">صفحة المنتج</a>
-
-                                            <a href="{{ route('profile', $product->user_id) }}"
-                                                class="btn btn-info " style="width: 150px;margin:0.5rem 0rem">تواصل مع البائع</a>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="card-body">
-                                            <h5 class="card-title">النوع: {{ $product->category->name }}</h5>
-                                            <p class="card-text">الموديل: {{ $product->model }}</p>
-                                            <p class="card-text">الوصف: {{ $product->description }}</p><hr>
-
-                                            <p class="card-text"><small class="text-muted">{{ $product->price }} ر.س </small></p>
-                                            <small class="text-gray-600">تاريخ النشر: {{ $product->created_at->format('d-m-Y') }}</small>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <img src="{{ asset('storage/products/'.$product->first_image->url) }}"
-                                            style="width: 100%; height:20vh">
-                                        </div>
-
+                                        <a href="{{ route('profile', $product->user_id) }}"
+                                            class="btn btn-info " style="width: 150px;margin:0.5rem 0rem">تواصل مع البائع</a>
                                     </div>
-                                @endforeach
+
+                                    <div class="col-md-6">
+                                        <div class="card-body">
+                                        <h5 class="card-title">النوع: {{ $product->category->name }}</h5>
+                                        <p class="card-text">الموديل: {{ $product->model }}</p>
+                                        <p class="card-text">الوصف: {{ $product->description }}</p><hr>
+
+                                        <p class="card-text"><small class="text-muted">{{ $product->price }} ر.س </small></p>
+                                        <small class="text-gray-600">تاريخ النشر: {{ $product->created_at->format('d-m-Y') }}</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <img src="{{ asset('storage/products/'.$product->first_image->url) }}"
+                                        style="width: 100%; height:20vh">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     @endforeach
@@ -157,27 +151,27 @@
 
             <hr>
 
-            <form style="direction: rtl">
+            {{-- <form style="direction: rtl"> --}}
                 <div class="search-hotel">
                     <h3 class="agileits-sear-head">بحث في الصفحة</h3>
                     <input type="search" name="search" placeholder="اسم المنتج" style="width: 100%;border-radius:1rem;">
                 </div>
-                @foreach($filters->where('type', 'select')->where('brand', null) as $filter)
+                @foreach($filters->where('type', 'select')->where('brand', 1) as $filter)
+                <select style="background-color: blue" multiple class="selectpicker" id="filter-brand" category_id="{{ $thiscategory->id }}" name="{{ $filter->name }}[]" >
+                    <option disabled selected>{{ $filter->الاسم }}</option>
+                    @foreach ($filter->values as $value)
+                    <option value="{{ $value->id }}" >{{ $value->الاسم }}</option>
+                    @endforeach
+                </select><br>
+                @endforeach
 
+                @foreach($filters->where('type', 'select')->where('brand', null) as $filter)
                     <select style="background-color: blue" multiple class="selectpicker" name="{{ $filter->name }}[]" >
                         <option disabled disabled selected >{{ $filter->الاسم }}</option>
                         @foreach ($filter->values as $value)
                         <option value="{{ $value->الاسم }}" >{{ $value->الاسم }}</option>
                         @endforeach
 
-                    </select><br>
-                @endforeach
-                @foreach($filters->where('type', 'select')->where('brand', null) as $filter)
-                    <select style="background-color: blue" multiple class="selectpicker" name="{{ $filter->name }}[]" >
-                        <option disabled disabled selected >{{ $filter->الاسم }}</option>
-                        @foreach ($filter->values as $value)
-                        <option value="{{ $value->id }}" >{{ $value->الاسم }}</option>
-                        @endforeach
                     </select><br>
                 @endforeach
 
@@ -191,8 +185,8 @@
                     <div class="clearfix"></div>
                 @endforeach
 
-                <button type="submit" class="btn btn-primary" style="width: 100%;">نفذ</button>
-            </form>
+                {{-- <button type="submit" class="btn btn-primary" style="width: 100%;">نفذ</button>
+            </form> --}}
 		</div>
 	</div>
 
@@ -208,19 +202,83 @@
 
     });
     function ToggleList() {
-  var x = document.getElementById("cat-list");
-  var y =document.getElementById("show-cat")
-  if (x.style.display === "none") {
-    x.style.display = "block";
-    y.innerHTML="الاقسام الرئيسية -"
+    var x = document.getElementById("cat-list");
+    var y =document.getElementById("show-cat")
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        y.innerHTML="الاقسام الرئيسية -"
 
-  } else {
-    x.style.display = "none";
-    y.innerHTML="الاقسام الرئيسية +"
-  }
+    } else {
+        x.style.display = "none";
+        y.innerHTML="الاقسام الرئيسية +"
+    }
 }
-
 </script>
+
+<script>
+    $(document).on('change', '#filter-brand', function(e){
+        e.preventDefault();
+        var category_id = $(this).attr('category_id');
+        var ids=[]
+        var value_id = $('#filter-brand option:selected').each(function(){
+            ids.push($(this).val());
+        });
+
+
+        $.ajax({
+            type: "get",
+            url: "{{ route('filter-brand') }}",
+            data: {
+                    'category_id': category_id,
+                    'ids'    : ids
+                },
+
+            contentType: false,
+            cache: false,
+            success: function (response) {
+                // $('.ajax').remove(); //remove result before
+                $('#id1').empty();
+
+                $.each(response.data, function(index, value) {
+                    $('.ajax').remove();
+                    console.log(value.date);
+                    $('#id1').append(`<div class="product-sec1">
+                                <div class="card men-thumb-item" >
+                                    <img src="{{ asset('storage/products/${value.first_image.url}') }}"
+                                    style="width: 100%; height:30vh" class="card-img-top" alt="...">
+                                    <div class="men-cart-pro">
+                                        <div class="inner-men-cart-pro">
+                                            <a href='{{ url("profile/`+value.user_id+`") }}'
+                                                class="link-product-add-cart">تواصل مع البائع</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-info-product text-center border-top mt-4">
+                                        <h4 class="pt-1">
+                                            <a href='{{ url("product/`+value.id+`") }}'>${value.model}</a>
+                                        </h4>
+                                        <div class="info-product-price my-2">
+                                            <span class="item_price">${value.price}</span><br>
+                                            <small class="text-gray-600">تاريخ النشر: ${value.date}</small>
+                                        </div>
+                                        <div
+                                            class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                                            <fieldset>
+                                                <a href='{{ url("product/`+value.id+`") }}'
+                                                    class="btn btn-success" id="product-page">صفحة المنتج</a>
+                                            </fieldset>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    </div>
+                                <div class="clearfix"></div>
+                            </div>`);
+
+                });
+            },
+        });
+    });
+</script>
+
 
 
 @endsection

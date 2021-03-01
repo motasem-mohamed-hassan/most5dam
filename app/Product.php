@@ -38,4 +38,11 @@ class Product extends Model
     }
 
 
+    public function getDateAttribute()
+    {
+        return $this->created_at->format('Y-m-d');
+    }
+
+    protected $appends=['date'];
+
 }

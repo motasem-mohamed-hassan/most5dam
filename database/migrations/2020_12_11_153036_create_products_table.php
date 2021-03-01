@@ -49,7 +49,7 @@ class CreateProductsTable extends Migration
             $table->string('machines number')->nullable();   //عدد المكائن للقوارب
             $table->string('size')->nullable(); //المقاس للعدد والادوات
             $table->string('manufacture type')->nullable(); //نوع التصنيع للاثاث
-            $table->string('fuel')->nullable(); //نوع الوقود
+            $table->string('fuel type')->nullable(); //نوع الوقود
             $table->string('energy')->nullable();  //الطاقة للعدد والادوات
             $table->string('city')->nullable();  //المدينة للسيارات
             $table->string('material')->nullable();  //المادة للمقتنيات
