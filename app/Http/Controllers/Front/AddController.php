@@ -49,22 +49,25 @@ class AddController extends Controller
             ->where('brand', 0)
             ->get();
         $brand_id = $request->brand_id;
-        return view('front.add_product', compact('categories', 'category', 'brand_id', 'filters', 'setting'));
+        $brand_name = Value::where('id', $brand_id)->first()->الاسم;
+        return view('front.add_product', compact('categories', 'category', 'brand_id', 'filters', 'setting', 'brand_name'));
     }
 
     public function store( Request $request)
     {
         #->except(['_token', 'user_id', 'category_id', 'brand_id', 'status', 'image'])
 
-        $inputs = collect($request->except([' token', 'user_id', 'category_id', 'brand_id', 'status', 'image']))
+        $inputs = collect($request->except([' token', 'user_id', 'category_id', 'brand_id', 'brand_name', 'status', 'image']))
         ->mapWithKeys(function($item, $key) {
             return [str_replace("_", " ", $key) => $item];
         })->toArray();
+
 
         $product = Product::create($inputs + [
             'user_id'   => Auth::id(),
             'category_id'   => $request->category_id,
             'brand_id'      => $request->brand_id,
+            'brand_name'    => $request->brand_name,
             'status'        => 0
         ]);
 

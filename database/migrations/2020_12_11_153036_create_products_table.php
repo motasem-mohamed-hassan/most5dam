@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->integer('brand_id');
 
+            $table->string('brand_name')->nullable();
             $table->string('model')->nullable();
 
             $table->string('manufacture year')->nullable(); //سنة التصنيع

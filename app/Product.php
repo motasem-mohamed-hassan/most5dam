@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['user_id', 'category_id', 'brand_id', 'model', 'manufacture year', 'wheel type', 'product',
+    protected $fillable = ['user_id', 'category_id', 'brand_id','brand_name', 'model', 'manufacture year', 'wheel type', 'product',
      'machines place', 'machines type', 'machines power', 'machines age', 'caple type',
      'age', 'transmission type', 'kilometers', 'engine capacity', 'screen size', 'memory', 'storage',
       'generation', 'color', 'accessories', 'processor', 'cooling power', 'cooling type', 'capacitance',
-       'megapixel', 'screen type', 'length', 'machines number', 'size', 'manufacture type', 'fuelType', 'energy',
+       'megapixel', 'screen type', 'length', 'machines number', 'size', 'manufacture type', 'fuel type', 'energy',
         'city', 'material', 'material', 'description', 'price', 'status'];
 
 

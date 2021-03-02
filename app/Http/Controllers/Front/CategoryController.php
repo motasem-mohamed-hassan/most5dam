@@ -26,7 +26,7 @@ class CategoryController extends Controller
             preg_match_all('!\d+!', $request->pricerange, $range);
             $query->whereBetween('price', [$range[0][0],$range[0][1]]);
         }if($request->has('brand'))
-            $query->wherein('brand_id', $request->brand);
+            $query->wherein('brand_name', $request->brand);
         if($request->has('model'))
             $query->wherein('model', $request->model);
         if($request->has('screen_size'))
@@ -41,8 +41,8 @@ class CategoryController extends Controller
             $query->wherein('transmission type', $request->transmission_type);
         if($request->has('wheel_type'))
             $query->wherein('wheel type', $request->wheel_type);
-        if($request->has('fuel'))
-            $query->wherein('fuel', $request->fuel);
+        if($request->has('fuel_type'))
+            $query->wherein('fuel type', $request->fuel);
         if($request->minmanufacture_year && $request->maxmanufacture_year)
             $query->whereBetween('manufacture year', [$request->minmanufacture_year, $request->maxmanufacture_year]);
         if($request->minkilometers && $request->maxkilometers)
@@ -75,16 +75,59 @@ class CategoryController extends Controller
         $products = $query->latest()->paginate(50);
 
 
+
         return view('front.category', compact('products', 'categories', 'thiscategory', 'setting', 'filters'));
 
     }
 
     public function filterBrand(Request $request)
     {
-        $products = Product::where('status', 1)->where('category_id', $request->category_id)
-                    ->wherein('brand_id', $request->ids)->get()->load('first_image');
+        $query = Product::where('status', 1)->where('category_id', $request->category_id);
 
+        if($request->has('brand'))
+            $query->wherein('brand_name', $request->brand);
+        if($request->has('model'))
+            $query->wherein('model', $request->model);
+        if($request->has('screen_size'))
+            $query->wherein('screen size', $request->screen_size);
+        if($request->has('memory'))
+            $query->wherein('memory', $request->memory);
+        if($request->has('storage'))
+            $query->wherein('storage', $request->storage);
+        if($request->has('generation'))
+            $query->wherein('generation', $request->generation);
+        if($request->has('transmission_type'))
+            $query->wherein('transmission type', $request->transmission_type);
+        if($request->has('wheel_type'))
+            $query->wherein('wheel type', $request->wheel_type);
+        if($request->has('fuel_type'))
+            $query->wherein('fuel type', $request->fuel_type);
+        if($request->has('processor'))
+            $query->wherein('processor', $request->processor);
+        if($request->has('cooling_type'))
+            $query->wherein('cooling type', $request->cooling_type);
+        if($request->has('cooling_power'))
+            $query->wherein('cooling power', $request->cooling_power);
+        if($request->has('capacitance'))
+            $query->wherein('capacitance', $request->capacitance);
+        if($request->has('megapixel'))
+            $query->wherein('megapixel', $request->megapixel);
+        if($request->has('screen_type'))
+            $query->wherein('screen type', $request->screen_type);
+        if($request->has('product'))
+            $query->wherein('product', $request->product);
+        if($request->has('length'))
+            $query->wherein('length', $request->length);
+        if($request->has('machines_place'))
+            $query->wherein('machines place', $request->machines_place);
+        if($request->has('caple_type'))
+            $query->wherein('caple type', $request->caple_type);
+        if($request->has('city'))
+            $query->wherein('city', $request->city);
+
+        $products = $query->latest()->paginate(50)->load('first_image');
         
+
         return response()->json([
             'status'    => true,
             'data'      => $products

@@ -12,7 +12,7 @@ Route::namespace('Front')->group(function() {
     Route::get('/category/{id}', 'CategoryController@show')->name('categoryPage');   #need data and select box
     Route::get('/price-range', 'CategoryController@range')->name('priceRange');     #need to add slider
 
-    Route::get('/filter-brand', 'CategoryController@filterBrand')->name('filter-brand');
+    Route::get('/filter-select', 'CategoryController@filterBrand')->name('filter-select');
 
     Route::get('/contact', 'ContactController@index')->name('contactPage');         #data
     Route::post('/contact', 'ContactController@store')->name('sendEmail');

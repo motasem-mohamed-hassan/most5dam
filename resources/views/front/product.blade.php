@@ -7,7 +7,7 @@
 	<div class="banner-bootom-w3-agileits">
 		<div class="container">
 			<!-- tittle heading -->
-			<h3 class="tittle-w3l">{{ $product->category->الاسم }}
+			<h3 class="tittle-w3l">{{ $product->brand_name }}
 				<span class="heading-style">
 					<i></i>
 					<i></i>

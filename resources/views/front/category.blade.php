@@ -156,22 +156,20 @@
                     <h3 class="agileits-sear-head">بحث في الصفحة</h3>
                     <input type="search" name="search" placeholder="اسم المنتج" style="width: 100%;border-radius:1rem;">
                 </div>
-                @foreach($filters->where('type', 'select')->where('brand', 1) as $filter)
+                {{-- @foreach($filters->where('type', 'select')->where('brand', 1) as $filter)
                 <select style="background-color: blue" multiple class="selectpicker" id="filter-brand" category_id="{{ $thiscategory->id }}" name="{{ $filter->name }}[]" >
                     <option disabled selected>{{ $filter->الاسم }}</option>
                     @foreach ($filter->values as $value)
                     <option value="{{ $value->id }}" >{{ $value->الاسم }}</option>
                     @endforeach
                 </select><br>
-                @endforeach
+                @endforeach --}}
 
-                @foreach($filters->where('type', 'select')->where('brand', null) as $filter)
-                    <select style="background-color: blue" multiple class="selectpicker" name="{{ $filter->name }}[]" >
-                        <option disabled disabled selected >{{ $filter->الاسم }}</option>
+                @foreach($filters->where('type', 'select') as $filter)
+                    <select style="background-color: blue" multiple class="selectpicker filter-select" category_id="{{ $thiscategory->id }}" name="{{ $filter->name }}" >
                         @foreach ($filter->values as $value)
                         <option value="{{ $value->الاسم }}" >{{ $value->الاسم }}</option>
                         @endforeach
-
                     </select><br>
                 @endforeach
 
@@ -216,33 +214,151 @@
 </script>
 
 <script>
-    $(document).on('change', '#filter-brand', function(e){
+    $(document).on('change', '.filter-select', function(e){
         e.preventDefault();
         var category_id = $(this).attr('category_id');
-        var ids=[]
-        var value_id = $('#filter-brand option:selected').each(function(){
-            ids.push($(this).val());
-        });
+        var name_        = $(this).attr('name')
+        var name = name_.replace(" ", "_");
+        var brand=[];
+        var model=[];
+        var screen_size=[];
+        var memory=[];
+        var storage=[];
+        var generation=[];
+        var transmission_type=[];
+        var wheel_type=[];
+        var fuel_type=[];
+        var processor=[];
+        var cooling_type=[];
+        var cooling_power=[];
+        var capacitance=[];
+        var megapixel=[];
+        var screen_type=[];
+        var product=[];
+        var length=[];
+        var machines_place=[];
+        var caple_type=[];
+        var city=[];
+        
+        if (name == 'brand') {
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            brand.push($(this).val());
+            console.log(brand);
+            });
+        }if(name == 'model'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            model.push($(this).val());
+            });
+        }if(name == 'screen_size'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            screen_size.push($(this).val());
+            });
+        }if(name == 'memory'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            memory.push($(this).val());
+            });
+        }if(name == 'storage'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            storage.push($(this).val());
+            });
+        }if(name == 'generation'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            generation.push($(this).val());
+            });
+        }if(name == 'transmission_type'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            transmission_type.push($(this).val());
+            });
+        }if(name == 'wheel_type'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            wheel_type.push($(this).val());
+            });
+        }if(name == 'fuel_type'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            fuel_type.push($(this).val());
+            console.log(fuel_type);
+            });
+        }if(name == 'processor'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            processor.push($(this).val());
+            });
+        }if(name == 'cooling_type'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            cooling_type.push($(this).val());
+            });
+        }if(name == 'cooling_power'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            cooling_power.push($(this).val());
+            });
+        }if(name == 'capacitance'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            capacitance.push($(this).val());
+            });
+        }if(name == 'megapixel'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            megapixel.push($(this).val());
+            });
+        }if(name == 'screen_type'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            screen_type.push($(this).val());
+            });
+        }if(name == 'product'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            product.push($(this).val());
+            });
+        }if(name == 'length'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            length.push($(this).val());
+            });
+        }if(name == 'machines_place'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            machines_place.push($(this).val());
+            });
+        }if(name == 'caple_type'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            caple_type.push($(this).val());
+            });
+        }if(name == 'city'){
+            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            city.push($(this).val());
+            console.log(city);
 
-
+            });
+        }
+        
         $.ajax({
             type: "get",
-            url: "{{ route('filter-brand') }}",
+            url: "{{ route('filter-select') }}",
             data: {
-                    'category_id': category_id,
-                    'ids'    : ids
+                    'category_id'       :category_id,
+                    'brand'             :brand,
+                    'model'             :model,
+                    'screen_size'       :screen_size,
+                    'memory'            :memory,
+                    'storage'           :storage,
+                    'generation'        :generation,
+                    'transmission_type' :transmission_type,
+                    'wheel_type'        :wheel_type,
+                    'fuel_type'         :fuel_type,
+                    'processor'         :processor,
+                    'cooling_type'      :cooling_type,
+                    'cooling_power'     :cooling_power,
+                    'capacitance'       :capacitance,
+                    'megapixel'         :megapixel,
+                    'screen_type'       :screen_type,
+                    'product'           :product,
+                    'length'            :length,
+                    'machines_place'    :machines_place,
+                    'caple_type'        :caple_type,
+                    'city'              :city
                 },
 
-            contentType: false,
-            cache: false,
             success: function (response) {
                 // $('.ajax').remove(); //remove result before
-                $('#id1').empty();
-
                 $.each(response.data, function(index, value) {
                     $('.ajax').remove();
-                    console.log(value.date);
-                    $('#id1').append(`<div class="product-sec1">
+                    $('#id1').append(
+                            `<div class="product-sec1">
                                 <div class="card men-thumb-item" >
                                     <img src="{{ asset('storage/products/${value.first_image.url}') }}"
                                     style="width: 100%; height:30vh" class="card-img-top" alt="...">
@@ -271,12 +387,18 @@
                                     </div>
                                     </div>
                                 <div class="clearfix"></div>
-                            </div>`);
-
+                            </div>` 
+                        );
                 });
             },
+            beforeSend: function () {
+                $('#id1').empty();
+            }
         });
     });
+
+
+
 </script>
 
 

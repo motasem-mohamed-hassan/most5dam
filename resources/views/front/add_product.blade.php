@@ -26,8 +26,9 @@
 
         <form action="{{ route('post_add')}}" method="post"  enctype="multipart/form-data">
             @csrf
-            <input style="display: none" type="text" name="brand_id" class="form-control" value="{{ $brand_id }}">
             <input style="display: none" type="text" name="category_id" class="form-control" value="{{ $category->id }}">
+            <input style="display: none" type="text" name="brand_id" class="form-control" value="{{ $brand_id }}">
+            <input style="display: none" type="text" name="brand_name" class="form-control" value="{{ $brand_name }}">
 
             @foreach($filters as $filter )
                 @if($filter->type == 'input')
