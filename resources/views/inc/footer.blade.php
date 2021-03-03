@@ -8,7 +8,7 @@
 				<h2 style="text-align: right;">
 			      احصل على كل ما تحلم به بافضل الاسعار على الاطلاق و استمتع بتجربة شراء فريدة
                 </h2>
-				<p style="text-align: right;">توصيل مجاني على طلبك الأول</p>
+				<p style="text-align: right;"></p>
 				<form action="#" method="post">
 					<div style="display: flex; justify-content: flex-end;">
 						<input type="submit" value="تابع">
@@ -48,7 +48,7 @@
 				<div class="col-xs-4 offer-footer">
 					<div class="col-xs-8 text-form-footer">
 						<h3>
-							إرجاع مجاني وسهل</h3>
+							سياسة استخدام تحفظ حقوقك</h3>
 					</div>
 					<div class="col-xs-4 icon-fot">
 						<span class="fa fa-refresh" aria-hidden="true"></span>
@@ -60,7 +60,7 @@
 
 					<div class="col-xs-8 text-form-footer">
 						<h3>
-							الإلغاء عبر الإنترنت</h3>
+							تواصل سهل</h3>
 					</div>
 					<div class="col-xs-4 icon-fot">
 						<span class="fa fa-times" aria-hidden="true"></span>
