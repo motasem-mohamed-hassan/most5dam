@@ -31,6 +31,7 @@ class ProfileController extends Controller
         $user->name  =  $request->name;
         $user->email    = $request->email;
         $user->phone_number = $request->phone_number;
+        $user->address      = $request->address;
         $user->save();
 
         return redirect()->back();

@@ -107,60 +107,26 @@ class AddController extends Controller
     public function update(Request $request, $id)
     {
 
-        $product = Product::find($id);
-        $product->user_id           =    Auth::id();
-        $product->category_id       =    $request->category_id;
-        $product->brand_id	        =    $request->brand_id;
-
-        $product->model              =   $request->model;
-
-        $product->manufactureYear   =    $request->manufactureYear;
-        $product->wheelType         =    $request->wheelType;
-        $product->product           =    $request->product;
-        $product->machinesPlace     =    $request->machinesPlace;
-        $product->machinesType      =    $request->machinesType;
-        $product->machinesPower     =    $request->machinesPower;
-        $product->machinesAge       =    $request->machinesAge;
-        $product->capleType         =    $request->capleType;
-        $product->age               =    $request->age;
-        $product->transmissionType  =    $request->transmissionType;
-        $product->kilometers        =    $request->kilometers;
-        $product->engineCapacity    =    $request->engineCapacity;
-        $product->screenSize        =    $request->screenSize;
-        $product->memory            =    $request->memory;
-        $product->storage           =    $request->storage;
-        $product->generation        =    $request->generation;
-        $product->color             =    $request->color;
-        $product->accessories       =    $request->accessories;
-        $product->processor         =    $request->processor;
-        $product->coolingPower      =    $request->coolingPower;
-        $product->coolingType       =    $request->coolingType;
-        $product->capacitance       =    $request->capacitance;
-        $product->megapixel         =    $request->megapixel;
-        $product->screenType        =    $request->screenType;
-        $product->length            =    $request->length;
-        $product->machinesNumber    =    $request->machinesNumber;
-        $product->size              =    $request->size;
-        $product->manufactureType   =    $request->manufactureType;
-        $product->fuelType          =    $request->fuelType;
-        $product->energy            =    $request->energy;
-        $product->city              =    $request->city ;
-        $product->material          =    $request->material ;
+        $inputs = collect($request->except([' token', 'user_id', 'category_id', 'brand_id', 'brand_name', 'status', 'image']))
+        ->mapWithKeys(function($item, $key) {
+            return [str_replace("_", " ", $key) => $item];
+        })->toArray();
 
 
-        $product->description       =   $request->description;
-        $product->price             =   $request->price;
-        $product->status            =   0;
-        $product->save();
+        $product = Product::find($id)->update($inputs + [
+            'user_id'   => Auth::id(),
+            'category_id'   => $request->category_id,
+            'brand_id'      => $request->brand_id,
+            'brand_name'    => $request->brand_name,
+            'status'        => 0
+        ]);
 
         if($request->hasFile('image')){
             $oldimages = Image::where('product_id', $id)->get();
             foreach($oldimages as $oldimage)
             {
-                // File::delete('public/products/'.$oldimage->url);
                 Storage::disk('public')->delete('products/'.$oldimage->url);
                 $oldimage->delete();
-                // Storage::disk('local')->delete('public/products/'.$oldimage->url);
             }
             $images = $request->file('image');
             foreach($images as $key =>$image)
@@ -172,6 +138,7 @@ class AddController extends Controller
                 }
 
                 $imag = new Image();
+                $product = Product::find($id);
                 $imag->product_id   = $product->id;
                 $imag->url          = $file;
                 $imag->save();

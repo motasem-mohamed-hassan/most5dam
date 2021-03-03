@@ -85,48 +85,48 @@ class CategoryController extends Controller
         $query = Product::where('status', 1)->where('category_id', $request->category_id);
 
         if($request->has('brand'))
-            $query->wherein('brand_name', $request->brand);
+            $query->whereIn('brand_name', $request->brand[]);
         if($request->has('model'))
-            $query->wherein('model', $request->model);
+            $query->wherein('model', $request->model[]);
         if($request->has('screen_size'))
-            $query->wherein('screen size', $request->screen_size);
+            $query->wherein('screen size', $request->screen_size[]);
         if($request->has('memory'))
-            $query->wherein('memory', $request->memory);
+            $query->wherein('memory', $request->memory[]);
         if($request->has('storage'))
-            $query->wherein('storage', $request->storage);
+            $query->wherein('storage', $request->storage[]);
         if($request->has('generation'))
-            $query->wherein('generation', $request->generation);
+            $query->wherein('generation', $request->generation[]);
         if($request->has('transmission_type'))
-            $query->wherein('transmission type', $request->transmission_type);
+            $query->wherein('transmission type', $request->transmission_type[]);
         if($request->has('wheel_type'))
-            $query->wherein('wheel type', $request->wheel_type);
+            $query->wherein('wheel type', $request->wheel_type[]);
         if($request->has('fuel_type'))
-            $query->wherein('fuel type', $request->fuel_type);
+            $query->wherein('fuel type', $request->fuel_type[]);
         if($request->has('processor'))
-            $query->wherein('processor', $request->processor);
+            $query->wherein('processor', $request->processor[]);
         if($request->has('cooling_type'))
-            $query->wherein('cooling type', $request->cooling_type);
+            $query->wherein('cooling type', $request->cooling_type[]);
         if($request->has('cooling_power'))
-            $query->wherein('cooling power', $request->cooling_power);
+            $query->wherein('cooling power', $request->cooling_power[]);
         if($request->has('capacitance'))
-            $query->wherein('capacitance', $request->capacitance);
+            $query->wherein('capacitance', $request->capacitance[]);
         if($request->has('megapixel'))
-            $query->wherein('megapixel', $request->megapixel);
+            $query->wherein('megapixel', $request->megapixel[]);
         if($request->has('screen_type'))
-            $query->wherein('screen type', $request->screen_type);
+            $query->wherein('screen type', $request->screen_type[]);
         if($request->has('product'))
-            $query->wherein('product', $request->product);
+            $query->wherein('product', $request->product[]);
         if($request->has('length'))
-            $query->wherein('length', $request->length);
+            $query->wherein('length', $request->length[]);
         if($request->has('machines_place'))
-            $query->wherein('machines place', $request->machines_place);
+            $query->wherein('machines place', $request->machines_place[]);
         if($request->has('caple_type'))
-            $query->wherein('caple type', $request->caple_type);
+            $query->wherein('caple type', $request->caple_type[]);
         if($request->has('city'))
-            $query->wherein('city', $request->city);
+            $query->wherein('city', $request->city[]);
 
         $products = $query->latest()->paginate(50)->load('first_image');
-        
+
 
         return response()->json([
             'status'    => true,

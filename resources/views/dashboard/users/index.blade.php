@@ -28,7 +28,7 @@
                     <td>{{ $user->email }}</td>
 
                     <td>
-                        @role('suberAdmin')
+                        @hasrole('superAdmin')
                             <form method="POST" action="{{ Route('admin.makeAdmin', $user->id) }}">
                                 @method('PUT')
                                 @csrf
@@ -38,11 +38,11 @@
                                     <button type="submit" class="btn btn-primary waves-effect">تسجيل كأدمن</button>
                                 @endif
                             </form>
-                        @endrole
+                        @endhasrole
                     </td>
                 </tr>
                 @endforeach
-                {{ $products->render() }}
+                {{ $users->render() }}
             </table>
         </div>
     </section>

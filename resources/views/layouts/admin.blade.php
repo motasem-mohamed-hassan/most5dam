@@ -48,7 +48,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">الرئيسية</a>
+        <a href="{{ route('admin.dashboard') }}" class="nav-link">الرئيسية</a>
       </li>
     </ul>
   </nav>
@@ -109,24 +109,19 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="{{ route('admin.categories.index') }}" class="nav-link @if($segment=='categories') active @endif">
                   <i class="far fa-circle nav-icon"></i>
                   <p>انشاء الأقسام</p>
                 </a>
-              </li>
+              </li> --}}
               <li class="nav-item">
                 <a href="{{ route('admin.filters.index') }}" class="nav-link @if($segment=='filters') active @endif">
                   <i class="far fa-circle nav-icon"></i>
                   <p>انشاء الفلاتر</p>
                 </a>
               </li>
-              {{-- <li class="nav-item">
-                <a href="{{ route('admin.values.index') }}" class="nav-link @if($segment=='values') active @endif">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>انشاء القيم للفلاتر</p>
-                </a>
-              </li> --}}
+
             </ul>
           </li>
           <li class="nav-item has-treeview">

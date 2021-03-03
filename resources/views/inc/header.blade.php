@@ -3,7 +3,7 @@
 	<div class="header-bot" style="direction: rtl">
 
 
-        <nav class="relative flex flex-wrap items-center justify-between px-2 py-1 navbar-expand-lg mb-3" style="background-color: #BAEBF3">
+        <nav class="relative flex flex-wrap items-center justify-between px-2 py-1 navbar-expand-lg mb-3 bg-green-300">
             <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
               <div class="lg:flex flex-grow items-center" id="example-navbar-warning">
                 <ul class="flex flex-col lg:flex-row list-none ml-auto items-center">

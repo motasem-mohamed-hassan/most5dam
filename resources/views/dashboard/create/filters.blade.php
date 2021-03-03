@@ -59,12 +59,12 @@
                                     @if($filter->type == 'select')
                                         <a href="{{ route('admin.values.index', $filter->id) }}" class="btn btn-info">اضافة قيم</a>
                                     @endif
-                                    <button type="button" filter_id="{{ $filter->id }}" class="editBtn btn btn btn-primary mr-1 edit-filter" data-toggle="modal" data-target="#editFilterModal">تعديل</button>
+                                    {{-- <button type="button" filter_id="{{ $filter->id }}" class="editBtn btn btn btn-primary mr-1 edit-filter" data-toggle="modal" data-target="#editFilterModal">تعديل</button>
 
                                     <form action="#" method="POST">
                                         @csrf
                                         <button type="submit" filter_id="{{ $filter->id }}" class="delete_btn btn btn btn-danger">حذف</button>
-                                    </form>
+                                    </form> --}}
                               </div>
                             </div>
                           </li>
@@ -78,7 +78,7 @@
           </div>
         </div>
         <!-- create -->
-        <div class="col-md-4">
+        {{-- <div class="col-md-4">
           <div class="card">
             <div class="card-header">
               <h3>اضافة فلتر</h3>
@@ -132,7 +132,7 @@
               </form>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
     </div>
     @endsection

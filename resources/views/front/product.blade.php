@@ -74,7 +74,7 @@
 
     <!--End review cart -->
 
-	<!-- more products -->
+	{{-- <!-- more products -->
 	<div class="featured-section" id="projects">
 		<div class="container">
 			<!-- tittle heading -->
@@ -112,7 +112,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- //more products -->
+	<!-- //more products --> --}}
 
 
 @endsection

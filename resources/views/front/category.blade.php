@@ -166,7 +166,7 @@
                 @endforeach --}}
 
                 @foreach($filters->where('type', 'select') as $filter)
-                    <select style="background-color: blue" multiple class="selectpicker filter-select" category_id="{{ $thiscategory->id }}" name="{{ $filter->name }}" >
+                    <select id="select{{ $filter->name }}" style="background-color: blue" multiple class="selectpicker filter-select" category_id="{{ $thiscategory->id }}" name="{{ $filter->name }}" >
                         @foreach ($filter->values as $value)
                         <option value="{{ $value->الاسم }}" >{{ $value->الاسم }}</option>
                         @endforeach
@@ -214,11 +214,6 @@
 </script>
 
 <script>
-    $(document).on('change', '.filter-select', function(e){
-        e.preventDefault();
-        var category_id = $(this).attr('category_id');
-        var name_        = $(this).attr('name')
-        var name = name_.replace(" ", "_");
         var brand=[];
         var model=[];
         var screen_size=[];
@@ -239,122 +234,167 @@
         var machines_place=[];
         var caple_type=[];
         var city=[];
-        
+
+    $(document).on('change', '.filter-select', function(e){
+        e.preventDefault();
+
+
+
+        var category_id = $(this).attr('category_id');
+        var name_       = $(this).attr('name');
+        // var name =[],
+        // for (let i = 0; i < name.length; i++) {
+        //     if (name1 == name[i]) {
+        //     var value_name = $("select").attr(name, 'option:selected').each(function(){
+        //     brand.push($(this).val());
+        //     });
+
+        // }
+        // console.log(name);
+        var name = name_.replace(" ", "_");
+
         if (name == 'brand') {
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            brand.pop();
+            $("#selectbrand").attr(name, 'option:selected').each(function(){
             brand.push($(this).val());
-            console.log(brand);
             });
+
         }if(name == 'model'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            model.pop();
+            $("#selectmodel").attr(name, 'option:selected').each(function(){
             model.push($(this).val());
             });
         }if(name == 'screen_size'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            screen_size.pop();
+            $("#selectscreen_size").attr(name, 'option:selected').each(function(){
             screen_size.push($(this).val());
             });
         }if(name == 'memory'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            memory.pop();
+            $("#selectmemory").attr(name, 'option:selected').each(function(){
             memory.push($(this).val());
             });
         }if(name == 'storage'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            storage.pop();
+            $("#selectstorage").attr(name, 'option:selected').each(function(){
             storage.push($(this).val());
             });
         }if(name == 'generation'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            generation.pop();
+            $("#selectgeneration").attr(name, 'option:selected').each(function(){
             generation.push($(this).val());
             });
         }if(name == 'transmission_type'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            transmission_type.pop();
+            $("#selecttransmission_type").attr(name, 'option:selected').each(function(){
             transmission_type.push($(this).val());
             });
         }if(name == 'wheel_type'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            wheel_type.pop();
+            $("#selectwheel_type").attr(name, 'option:selected').each(function(){
             wheel_type.push($(this).val());
             });
         }if(name == 'fuel_type'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            fuel_type.pop();
+            $("#selectfuel_type").attr(name, 'option:selected').each(function(){
             fuel_type.push($(this).val());
-            console.log(fuel_type);
             });
         }if(name == 'processor'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            processor.pop();
+            $("#selectprocessor").attr(name, 'option:selected').each(function(){
             processor.push($(this).val());
             });
         }if(name == 'cooling_type'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            cooling_type.pop();
+            $("#selectcooling_type").attr(name, 'option:selected').each(function(){
             cooling_type.push($(this).val());
             });
         }if(name == 'cooling_power'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            cooling_power.pop();
+            $("#selectcooling_power").attr(name, 'option:selected').each(function(){
             cooling_power.push($(this).val());
             });
         }if(name == 'capacitance'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            capacitance.pop();
+            $("#selectcapacitance").attr(name, 'option:selected').each(function(){
             capacitance.push($(this).val());
             });
         }if(name == 'megapixel'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            megapixel.pop();
+            $("#selectmegapixel").attr(name, 'option:selected').each(function(){
             megapixel.push($(this).val());
             });
         }if(name == 'screen_type'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            screen_type.pop();
+            $("#selectscreen_type").attr(name, 'option:selected').each(function(){
             screen_type.push($(this).val());
             });
         }if(name == 'product'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            product.pop();
+            $("#selectproduct").attr(name, 'option:selected').each(function(){
             product.push($(this).val());
             });
         }if(name == 'length'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            length.pop();
+            $("#selectlength").attr(name, 'option:selected').each(function(){
             length.push($(this).val());
             });
         }if(name == 'machines_place'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            machines_place.pop();
+            $("#selectmachines_place").attr(name, 'option:selected').each(function(){
             machines_place.push($(this).val());
             });
         }if(name == 'caple_type'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            caple_type.pop();
+            $("#selectcaple_type").attr(name, 'option:selected').each(function(){
             caple_type.push($(this).val());
             });
         }if(name == 'city'){
-            var value_name = $("select").attr(name, 'option:selected').each(function(){
+            city.pop();
+            $("#selectcity").attr(name, 'option:selected').each(function(){
             city.push($(this).val());
-            console.log(city);
-
             });
         }
-        
+
+        var myData = {
+
+                        'category_id'       :category_id,
+                        'brand'             :brand,
+                        'model'             :model,
+                        'screen_size'       :screen_size,
+                        'memory'            :memory,
+                        'storage'           :storage,
+                        'generation'        :generation,
+                        'transmission_type' :transmission_type,
+                        'wheel_type'        :wheel_type,
+                        'fuel_type'         :fuel_type,
+                        'processor'         :processor,
+                        'cooling_type'      :cooling_type,
+                        'cooling_power'     :cooling_power,
+                        'capacitance'       :capacitance,
+                        'megapixel'         :megapixel,
+                        'screen_type'       :screen_type,
+                        'product'           :product,
+                        'length'            :length,
+                        'machines_place'    :machines_place,
+                        'caple_type'        :caple_type,
+                        'city'              :city,
+
+            }
+
         $.ajax({
             type: "get",
             url: "{{ route('filter-select') }}",
-            data: {
-                    'category_id'       :category_id,
-                    'brand'             :brand,
-                    'model'             :model,
-                    'screen_size'       :screen_size,
-                    'memory'            :memory,
-                    'storage'           :storage,
-                    'generation'        :generation,
-                    'transmission_type' :transmission_type,
-                    'wheel_type'        :wheel_type,
-                    'fuel_type'         :fuel_type,
-                    'processor'         :processor,
-                    'cooling_type'      :cooling_type,
-                    'cooling_power'     :cooling_power,
-                    'capacitance'       :capacitance,
-                    'megapixel'         :megapixel,
-                    'screen_type'       :screen_type,
-                    'product'           :product,
-                    'length'            :length,
-                    'machines_place'    :machines_place,
-                    'caple_type'        :caple_type,
-                    'city'              :city
-                },
+            data:   myData,
+            beforeSend: function () {
+
+                $('#id1').empty();
+            },
 
             success: function (response) {
                 // $('.ajax').remove(); //remove result before
+                 console.log(myData.model[0]);
+                //console.log(response.data)
                 $.each(response.data, function(index, value) {
                     $('.ajax').remove();
                     $('#id1').append(
@@ -387,13 +427,11 @@
                                     </div>
                                     </div>
                                 <div class="clearfix"></div>
-                            </div>` 
+                            </div>`
                         );
                 });
             },
-            beforeSend: function () {
-                $('#id1').empty();
-            }
+
         });
     });
 

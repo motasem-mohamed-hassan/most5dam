@@ -62,7 +62,7 @@
 				<li>
 					<i>|</i>
 
-					<a href="index.html">الرئيسية</a>
+					<a href="{{ route('home') }}">الرئيسية</a>
 				</li>
 			</ul>
 		</div>
@@ -111,7 +111,7 @@
 				<li>
 					<i>|</i>
 
-					<a href="index.html">الرئيسية</a>
+					<a href="{{ route('home') }}">الرئيسية</a>
 				</li>
 			</ul>
 		</div>

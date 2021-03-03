@@ -21,7 +21,7 @@
                     <div class="card-body">
                         <form action="{{ route('add-avatar', $user->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            
+
                             <input name="image" type="file" accept="image/*" onchange="preview_image(event)" id="change-profile-btn"><br>
                             <button style="display: none" type="submit" id="confirm-photo">تأكيد الصورة</button>
                         </form>
@@ -65,7 +65,7 @@
                         <div class="row my-3">
 
                             <div id="d" class="col-sm-9 text-secondary">
-                                Bay Area, San Francisco, CA
+                                {{ $user->address }}
                             </div>
                             <div class="col-sm-3">
                                 <h4 class="mb-0">العنوان</h4>
@@ -117,7 +117,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">العنوان</label>
-                                        <input type="text" class="form-control" name="address" value="Address">
+                                        <input type="text" class="form-control" name="address" value="{{ $user->address }}">
                                     </div>
                                     <div class="modal-footer">
                                         <input type="submit" class="btn btn-info" value="تأكيد">

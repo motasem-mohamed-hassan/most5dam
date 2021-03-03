@@ -7,7 +7,7 @@
         <div class="col-md-6">
             <div class="card card-secondary">
             <div class="card-header">
-                <h3 class="card-title">About us</h3>
+                <h3 class="card-title">من نحن</h3>
                 <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                     <i class="fas fa-minus"></i></button>
@@ -45,7 +45,7 @@
                     </div>
                     <br>
 
-                    <input type="submit" value="Save Changes" class="btn btn-success float-right">
+                    <input type="submit" value="حفظ التعديلات" class="btn btn-success float-right">
                 </form>
             </div>
             <!-- /.card-body -->

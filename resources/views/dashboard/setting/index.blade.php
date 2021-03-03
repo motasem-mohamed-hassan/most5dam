@@ -47,7 +47,7 @@
                         <label for="inputDescription">وصف الموقع</label>
                         <textarea class="form-control" name="description" rows="4">{{ $setting->description }}</textarea>
                     </div>
-                    <input type="تأكيد" value="Save Changes" class="btn btn-success float-right">
+                    <input type="تأكيد" value="حفظ التعديلات" class="btn btn-success float-right">
                 </form>
             </div>
             <!-- /.card-body -->

@@ -52,7 +52,7 @@
                     {{ $product->price }}
                 </td>
                 <td>
-                    <button product_id="{{ $product->id }}"  class="approve_btn btn btn-info">موافقة</button>
+                    {{-- <button product_id="{{ $product->id }}"  class="approve_btn btn btn-info">موافقة</button> --}}
                     <button product_id="{{ $product->id }}"  class="delete_btn btn btn-danger">مسح</button>
                     <a class="btn btn-success" href="{{ route('admin.show-btn', $product->id) }}">المزيد</a>
                 </td>

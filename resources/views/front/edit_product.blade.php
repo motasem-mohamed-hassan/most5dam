@@ -78,7 +78,7 @@
                     <div class="row">
 
                         <div class="col-md-7">
-                            <input class="btn back" type="file" name="image[]" id="image" class="form-control" multiple required>
+                            <input class="btn back" type="file" name="image[]" id="image" class="form-control" multiple >
                         </div>
                         <label class="col-md-2 text-center">صور المنتج</label>
                         <div class="clearfix"></div>
