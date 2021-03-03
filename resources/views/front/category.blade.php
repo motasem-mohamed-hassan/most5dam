@@ -166,7 +166,7 @@
                 @endforeach --}}
 
                 @foreach($filters->where('type', 'select') as $filter)
-                    <select id="select{{ $filter->name }}" style="background-color: blue" multiple class="selectpicker filter-select" category_id="{{ $thiscategory->id }}" name="{{ $filter->name }}" >
+                    <select id="select{{ str_slug($filter->name, '_') }}" style="background-color: blue" multiple class="selectpicker filter-select" category_id="{{ $thiscategory->id }}" name="{{ $filter->name }}" >
                         @foreach ($filter->values as $value)
                         <option value="{{ $value->الاسم }}" >{{ $value->الاسم }}</option>
                         @endforeach
@@ -241,7 +241,7 @@
 
 
         var category_id = $(this).attr('category_id');
-        var name_       = $(this).attr('name');
+        var name_      = $(this).attr('name');
         // var name =[],
         // for (let i = 0; i < name.length; i++) {
         //     if (name1 == name[i]) {
@@ -250,7 +250,7 @@
         //     });
 
         // }
-        // console.log(name);
+
         var name = name_.replace(" ", "_");
 
         if (name == 'brand') {
@@ -295,6 +295,7 @@
             wheel_type.push($(this).val());
             });
         }if(name == 'fuel_type'){
+            console.log('sdw')
             fuel_type.pop();
             $("#selectfuel_type").attr(name, 'option:selected').each(function(){
             fuel_type.push($(this).val());
@@ -393,8 +394,6 @@
 
             success: function (response) {
                 // $('.ajax').remove(); //remove result before
-                 console.log(myData.model[0]);
-                //console.log(response.data)
                 $.each(response.data, function(index, value) {
                     $('.ajax').remove();
                     $('#id1').append(
