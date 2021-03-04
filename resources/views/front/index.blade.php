@@ -113,7 +113,7 @@
                     <div class="search-hotel">
                         <h3 class="agileits-sear-head">بحث في الصفحة</h3>
                             <input type="search" name="search" placeholder="اسم المنتج" style="width: 100%;border-radius:1rem">
-                            <button type="submit" class="btn btn-primary" style="width: 100%" id="submitToRange">نفذ</button>
+                            <button type="submit" class="btn btn-primary" style="width: 100%" >نفذ</button>
                     </div>
                 </form>
 

@@ -118,9 +118,16 @@
               <li class="nav-item">
                 <a href="{{ route('admin.filters.index') }}" class="nav-link @if($segment=='filters') active @endif">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>انشاء الفلاتر</p>
+                  <p>انشاء قيم الفلاتر</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.cities.index') }}" class="nav-link @if($segment=='cities') active @endif">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>انشاء المدن والأحياء</p>
+                </a>
+              </li>
+
 
             </ul>
           </li>

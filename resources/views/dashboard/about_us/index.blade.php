@@ -4,7 +4,7 @@
 <!-- Main content -->
 <section class="content">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-10 offset-1">
             <div class="card card-secondary">
             <div class="card-header">
                 <h3 class="card-title">من نحن</h3>

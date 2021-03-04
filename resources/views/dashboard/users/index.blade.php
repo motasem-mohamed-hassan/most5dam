@@ -21,7 +21,10 @@
                     <th>الايميل</th>
                     <th>الصلاحيات</th>
                 </tr>
-                @foreach ($users as $user)
+                @foreach ($users as $index => $user)
+                @if($index == 0)
+
+                @else
                 <tr>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
@@ -41,6 +44,7 @@
                         @endhasrole
                     </td>
                 </tr>
+                @endif
                 @endforeach
                 {{ $users->render() }}
             </table>

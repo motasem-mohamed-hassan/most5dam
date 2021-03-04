@@ -184,7 +184,6 @@
             <!-- //FlexSlider-->
 
             <!-- price range (top products) -->
-            <script src="js/jquery-ui.js"></script>
             <script>
                 //<![CDATA[
                 $(window).load(function () {
@@ -239,7 +238,7 @@
 
 
             <!-- password-script -->
-            <script>
+            {{-- <script>
                 window.onload = function() {
                     document.getElementById("password1").onchange = validatePassword;
                 }
@@ -253,7 +252,7 @@
                         document.getElementById("password2").setCustomValidity('');
                     //empty string means no validation error
                 }
-            </script>
+            </script> --}}
             <!-- //password-script -->
 
 

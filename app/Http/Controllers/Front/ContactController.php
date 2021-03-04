@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\City;
 use App\Setting;
 use App\Category;
 use App\Mail\ContactFormMail;
@@ -16,9 +17,11 @@ class ContactController extends Controller
     {
         $setting = Setting::find('1');
         $categories = Category::all();
+        $cities     = City::all();
 
 
-        return view('front.contact', compact('categories', 'setting'));
+
+        return view('front.contact', compact('categories', 'setting', 'cities'));
     }
 
 

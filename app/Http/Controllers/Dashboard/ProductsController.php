@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Image;
 use App\Product;
 use App\Category;
+use App\City;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -14,8 +15,8 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        $products = Product::paginate(100);
-        $user = Auth::user();
+        $products   = Product::paginate(100);
+        $user       = Auth::user();
 
         return view('dashboard.products.index', compact('products', 'user'));
     }
@@ -39,6 +40,7 @@ class ProductsController extends Controller
 
     public function approve(Request $request)
     {
+        
         $product = Product::find($request->id);
         $product->status = 1;
         $product->save();

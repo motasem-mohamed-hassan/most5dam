@@ -166,7 +166,8 @@
                 @endforeach --}}
 
                 @foreach($filters->where('type', 'select') as $filter)
-                    <select id="select{{ str_slug($filter->name, '_') }}" style="background-color: blue" multiple class="selectpicker filter-select" category_id="{{ $thiscategory->id }}" name="{{ $filter->name }}" >
+                    <select style="direction:rtl" id="select{{ str_slug($filter->name, '_') }}"  multiple class="selectpicker filter-select" category_id="{{ $thiscategory->id }}" name="{{ $filter->name }}" >
+                        <option disabled selected>{{ $filter->الاسم }}</option>
                         @foreach ($filter->values as $value)
                         <option value="{{ $value->الاسم }}" >{{ $value->الاسم }}</option>
                         @endforeach

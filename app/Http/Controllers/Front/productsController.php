@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\City;
 use App\Image;
 use App\Review;
-use Illuminate\Http\Request;
 use App\Product;
-use App\Category;
-use App\Http\Controllers\Controller;
 use App\Setting;
+use App\Category;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -17,6 +18,7 @@ class productsController extends Controller
 
     public function index(Request $request)
     {
+        $cities     = City::all();
         $categories = Category::all();
         $setting = Setting::find('1');
         $query = Product::where('status', 1);
@@ -38,17 +40,18 @@ class productsController extends Controller
         $products = $query->latest()->Paginate(50);
 
 
-        return view('front.index', compact('categories','products', 'setting'));
+        return view('front.index', compact('categories','products', 'setting', 'cities'));
     }
 
     public function show($id)
     {
         $setting = Setting::find('1');
+        $cities     = City::all();
         $categories = Category::all();
         $product = Product::find($id);
         $images = Image::where('product_id', $id)->get();
 
-        return view('front.product', compact('product', 'categories', 'images', 'setting'));
+        return view('front.product', compact('product', 'categories', 'images', 'setting', 'cities'));
     }
 
 

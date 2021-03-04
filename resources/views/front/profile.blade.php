@@ -115,11 +115,22 @@
                                         <label for="exampleInputPassword1">رقم الهاتف</label>
                                         <input type="tel" class="form-control" name="phone_number" value="{{ $user->phone_number }}" onkeypress="return onlyNumberKey(event)">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">العنوان</label>
-                                        <input type="text" class="form-control" name="address" value="{{ $user->address }}">
+                                    <div class="form-group" >
+                                        <label class="text-center">المدينة</label>
+                                        <select name="city" class="form-control" id="selectCity" required>
+                                            <option value="" selected>--اختر المدينة--</option>
+                                            @foreach ($cities->where('city_id', null) as $city)
+                                                <option city_id="{{ $city->id }}" id="citiesOption" value="{{ $city->id }}">{{ $city->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
-                                    <div class="modal-footer">
+                                    <div class="form-group" >
+                                        <label class=text-center">الحي</label>
+                                        <select name="neighborhood" class="form-control" id="child_city" required>
+                                            <option value="" selected>--اختر الحي--</option>
+                                        </select>
+                                    </div>
+                                        <div class="modal-footer">
                                         <input type="submit" class="btn btn-info" value="تأكيد">
                                     </div>
                                 </form>
@@ -146,5 +157,28 @@
       }
       reader.readAsDataURL(event.target.files[0]);
     }
+
+
+    $(document).on('change', '#selectCity', function(e){
+        e.preventDefault();
+        var city_id = $('#selectCity option:selected').val();
+        $.ajax({
+            type: "get",
+            url: "{{ route('chose_city') }}",
+            data: {'id' : city_id},
+            contentType: false,
+            cache: false,
+
+            success: function (response) {
+                $('.ajax').remove(); //remove result before
+                $.each(response.data, function(index, value) {
+                    $('#child_city').append(`<option class="ajax" value="${value.id}">${value.name}</option>`);
+                });
+            },
+
+        });
+    });
+
 </script>
+
 @endsection

@@ -7,6 +7,7 @@ use App\User;
 use App\Setting;
 
 use App\Category;
+use App\City;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
@@ -21,8 +22,9 @@ class ProfileController extends Controller
         $categories = Category::all();
         $user       = User::findOrFail($id);
         $setting = Setting::find('1');
+        $cities     = City::all();
 
-        return view('front.profile', compact('categories', 'user', 'setting'));
+        return view('front.profile', compact('categories', 'user', 'setting', 'cities'));
     }
 
     public function update(Request $request)
@@ -31,7 +33,6 @@ class ProfileController extends Controller
         $user->name  =  $request->name;
         $user->email    = $request->email;
         $user->phone_number = $request->phone_number;
-        $user->address      = $request->address;
         $user->save();
 
         return redirect()->back();
@@ -57,11 +58,12 @@ class ProfileController extends Controller
     public function personalProduct($id)
     {
         $user = User::find($id);
+        $cities     = City::all();
         $setting = Setting::find('1');
         $categories = Category::all();
         $products = Product::where('user_id', $id)->get();
 
 
-        return view('front/personal_products', compact('user', 'setting', 'categories', 'products'));
+        return view('front/personal_products', compact('user', 'setting', 'categories', 'products', 'cities'));
     }
 }

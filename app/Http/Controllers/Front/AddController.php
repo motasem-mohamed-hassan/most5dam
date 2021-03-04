@@ -8,6 +8,7 @@ use App\Filter;
 use App\Product;
 use App\Setting;
 use App\Category;
+use App\City;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddRequest;
 use App\Http\Controllers\Controller;
@@ -21,9 +22,10 @@ class AddController extends Controller
     {
         $categories = Category::all();
         $setting = Setting::find('1');
+        $cities     = City::all();
 
 
-        return view('front.add', compact('categories', 'setting'));
+        return view('front.add', compact('categories', 'setting', 'cities'));
     }
 
     public function choseSub(Request $request)
@@ -42,6 +44,8 @@ class AddController extends Controller
     public function category(Request $request)
     {
         $setting = Setting::find('1');
+        $cities     = City::all();
+
 
         $categories = Category::all();
         $category = Category::where('id', $request->category_id)->first();
@@ -50,7 +54,7 @@ class AddController extends Controller
             ->get();
         $brand_id = $request->brand_id;
         $brand_name = Value::where('id', $brand_id)->first()->الاسم;
-        return view('front.add_product', compact('categories', 'category', 'brand_id', 'filters', 'setting', 'brand_name'));
+        return view('front.add_product', compact('categories', 'category', 'brand_id', 'filters', 'setting', 'brand_name', 'cities'));
     }
 
     public function store( Request $request)

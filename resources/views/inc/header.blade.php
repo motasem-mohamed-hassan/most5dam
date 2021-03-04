@@ -181,25 +181,52 @@
 						<form action="{{ route('register') }}" method="post" autocomplete="off">
 							@csrf
 							<div class="styled-input">
-								<input style="text-align: right;" type="text" placeholder="الاسم" name="name" required>
+								<input style="text-align: right;" type="text" placeholder="الاسم" name="name"  autocomplete="off" required>
 							</div>
 							<div class="styled-input">
-								<input style="text-align: right;" type="email" placeholder="البريد الالكتروني" name="email" required>
+								<input style="text-align: right;" type="email" placeholder="البريد الالكتروني" name="email"  autocomplete="off" required>
 							</div>
                             <div class="styled-input">
-								<input style="text-align: right;" type="text" placeholder="رقم الهاتف" name="phone_number" required>
+								<input style="text-align: right;" type="text" placeholder="رقم الهاتف" name="phone_number"  autocomplete="off" required>
 							</div>
+                            <div class="form-group" >
+                                <div class="row d-flex justify-content-start" >
+                                    <div  class="col-md-1"></div>
+                                    <div class="col-md-9">
+
+                                        <select name="city" class="form-control" id="selectCity" required>
+                                            <option value="" selected>--اختر المدينة--</option>
+                                            @foreach ($cities->where('city_id', null) as $city)
+                                                <option city_id="{{ $city->id }}" id="citiesOption" value="{{ $city->id }}">{{ $city->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <label class="col-md-2 text-center">المدينة</label>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="form-group" >
+                                <div class="row d-flex justify-content-start" >
+                                    <div  class="col-md-1"></div>
+                                    <div class="col-md-9" >
+                                        <select name="neighborhood" class="form-control" id="child_city" required>
+                                            <option value="" selected>--اختر الحي--</option>
+                                        </select>
+                                    </div>
+
+                                    <label class="col-md-2 text-center">الحي</label>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
                             <div class="styled-input">
-								<input style="text-align: right;" type="text" placeholder="العنوان" name="address" required>
-							</div>
-                            <div class="styled-input">
-								<input style="text-align: right;" type="text" placeholder="رقم الحساب البنكي" name="acc_number" required>
+								<input style="text-align: right;" type="text" placeholder="رقم الحساب البنكي"  autocomplete="off" name="acc_number" required>
 							</div>
 							<div class="styled-input">
-								<input style="text-align: right;" type="password" placeholder="كلمةالسر" name="password" id="password1" required>
+								<input style="text-align: right;" type="password" placeholder="كلمةالسر"  autocomplete="off" name="password" id="password1" required>
 							</div>
                             <div class="styled-input">
-                                <input style="text-align: right;" type="password" placeholder="تأكيد كلمة السر" name="password_confirmation" required>
+                                <input style="text-align: right;" type="password" placeholder="تأكيد كلمة السر"  autocomplete="off" name="password_confirmation" required>
                             </div>
                             <div class="form-check" style="text-align: right">
                                 <label class="form-check-label" for="exampleCheck1"><a href="{{ route('aboutUs') }}">
@@ -231,7 +258,7 @@
 									<a href="{{ asset('frontend/') }}#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">جميع الأقسام
 										<span class="caret"></span>
 									</a>
-                                    <div id="lines" style="background-color: black"></div>
+                                    <div id="lines"></div>
 									<ul class="dropdown-menu multi-column columns-3">
 										<div class="agile_inner_drop_nav_info">
                                             @foreach ($categories->chunk(10) as $chunk)
@@ -250,29 +277,9 @@
 									</ul>
 								</li>
                                 <?php $segment = Request::segment(1) ?>
-								{{-- <li class="@if($segment=='contact') active @endif">
-									<a class="nav-stylehead " href="{{ route('contactPage') }}">تواصل معنا</a>
-                                    <div id="lines" style="background-color:orange"></div>
-								</li>
-                                <li class="@if($segment == 'about-us') active @endif">
-									<a class="nav-stylehead " href="{{ route('aboutUs') }}">سياسة الاستخدام
-										<span class="sr-only">(current)</span>
-									</a>
-                                    <div id="lines" style="background-color: purple"></div>
-								</li>
-								<li class="@if($segment== 'about-us') active @endif">
-									<a class="nav-stylehead " href="{{ route('aboutUs') }}">من نحن </a>
-                                    <div id="lines" style="background-color: blue"></div>
-								</li>
-								<li class="@if($segment == 'profile') active @endif">
-									<a class="nav-stylehead " href="#">الصفحة الشخصية
-										<span class="sr-only">(current)</span>
-									</a>
-                                    <div id="lines" style="background-color: green"></div>
-								</li> --}}
                                 @foreach($categories as $key => $category)
                                 <li class="@if($segment== 'adding') active @endif">
-									<a class="nav-stylehead " href="{{ route('get_add') }}">{{ $category->الاسم }}</a>
+									<a class="nav-stylehead " href="{{ route('categoryPage', $category->id) }}">{{ $category->الاسم }}</a>
                                     @if ($key == 0)
                                         <div id="lines" style="background-color:maroon"></div>
                                     @endif
@@ -322,6 +329,27 @@
     @endif
 
 @section('scripts')
+    <script>
+        $(document).on('change', '#selectCity', function(e){
+            e.preventDefault();
+            var city_id = $('#selectCity option:selected').val();
+            $.ajax({
+                type: "get",
+                url: "{{ route('chose_city') }}",
+                data: {'id' : city_id},
+                contentType: false,
+                cache: false,
+
+                success: function (response) {
+                    $('.ajax').remove(); //remove result before
+                    $.each(response.data, function(index, value) {
+                        $('#child_city').append(`<option class="ajax" value="${value.id}">${value.name}</option>`);
+                    });
+                },
+
+            });
+        });
+    </script>
 
 @endsection
 	<!-- //navigation -->

@@ -62,6 +62,11 @@ Route::namespace('Dashboard')->as('admin.')->middleware('role:admin|superAdmin')
     Route::post('/dashboard/values/update', 'ValuesController@update')->name('value.update');
     Route::delete('/dashboard/values/delete', 'ValuesController@destroy')->name('value.delete');
 
+    Route::get('/dashboard/cities', 'CitiesController@index')->name('cities.index');
+    Route::post('/dashboard/cities', 'CitiesController@store')->name('cities.store');
+    Route::post('/dashboard/cities/update', 'CitiesController@update')->name('cities.update');
+    Route::delete('/dashboard/cities/delete', 'CitiesController@distroy')->name('cities.delete');
+
 
     //products view
     Route::get('/dashboard/products', 'productsController@index')->name('products.index');
@@ -85,7 +90,11 @@ Route::namespace('Dashboard')->as('admin.')->middleware('role:admin|superAdmin')
 
 });
 
+Route::get('/chose_city', 'Auth\RegisterController@chose_city')->name('chose_city');
+
 Auth::routes();
+
+
 Route::get('/verify', 'VerifyController@show')->name('verify');
 Route::post('/verify', 'VerifyController@verify')->name('verify');
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Product;
 use App\Setting;
 use App\Category;
+use App\City;
 use App\Filter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,6 +14,7 @@ class CategoryController extends Controller
 {
     public function show(Request $request, $id)
     {
+        $cities = City::all();
         $thiscategory    =  Category::find($id);
         $categories     = Category::all();
         $setting = Setting::find('1');
@@ -76,7 +78,7 @@ class CategoryController extends Controller
 
 
 
-        return view('front.category', compact('products', 'categories', 'thiscategory', 'setting', 'filters'));
+        return view('front.category', compact('products', 'categories', 'thiscategory', 'setting', 'filters', 'cities'));
 
     }
 

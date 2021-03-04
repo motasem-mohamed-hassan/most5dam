@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
+use App\City;
 use App\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 
 
@@ -58,8 +60,18 @@ class RegisterController extends Controller
             'phone_number' => ['required','string','unique:users'], //you can also use required|regex:/[0-9]{10}/|digits:10 as per your needs
             'acc_number' => ['required','string','unique:users', 'max:24'], //you can also use required|regex:/[0-9]{10}/|digits:10 as per your needs
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'address'   => ['required', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
+
+    public function chose_city(Request $request)
+    {
+        $child_cities = City::where('city_id', $request->id)->get();
+
+
+        return response()->json([
+            'status'    => true,
+            'data'      => $child_cities
         ]);
     }
 
@@ -71,12 +83,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $city = City::find($data['city']);
+        $neighborhood = City::find($data['neighborhood']);
+
         return User::create([
             'name' => $data['name'],
             'phone_number' => $data['phone_number'],
             'acc_number' => $data['acc_number'],
             'email' => $data['email'],
-            'address'   => $data['address'],
+            'city'   => $city->name,
+            'neighborhood'  => $neighborhood->name,
             'password' => $data['password'],
             // 'password' => Hash::make($data['password']),
         ]);

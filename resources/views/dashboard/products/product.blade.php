@@ -25,7 +25,7 @@
                     <ul>
                         <h3>{{ $product->model }}</h3>
                         <p>
-                            <span class="item_price">${{ $product->price }}</span>
+                            <span class="item_price">{{ $product->price }}رس</span>
                         </p>
                     </ul>
                     <div class="product-single-w3l">
@@ -42,8 +42,8 @@
                     </div>
                 </div>
                     <ul>
-                        <a href="{{ route('admin.products.approve') }}"  class="btn bg-info text-light mt-2">موافقة</a>
-                        <a href="{{ route('admin.products.delete') }}" class="btn bg-danger text-light mt-2 ml-2">مسح</a>
+                        <button product_id="{{ $product->id }}"  class="approve_btn btn btn-info">موافقة</button>
+                        <button product_id="{{ $product->id }}"  class="delete_btn btn btn-danger">مسح</button>
                     </ul>
                 </div>
             </div>
@@ -52,48 +52,58 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-
-
-
-{{-- <h3 class="tittle-w3l">{{ $product->category->name }}
-    <span class="heading-style">
-        <i></i>
-        <i></i>
-        <i></i>
-    </span>
-</h3>
-<!-- //tittle heading -->
-<div class="col-md-5 single-right-left ">
-    <div class="grid images_3_of_2">
-        <div class="flexslider">
-            <ul class="slides">
-                @foreach ($images as $image)
-                <li data-thumb="{{ asset('storage/products/'.$image->url) }}">
-                    <div class="thumb-image">
-                        <img src="{{ asset('storage/products/'.$image->url) }}" data-imagezoom="true" class="img-responsive" style="width: 40px" alt=""> </div>
-                </li>
-
-                @endforeach
-            </ul>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-</div>
-<div class="col-md-7 single-right-left simpleCart_shelfItem">
-    <h3>{{ $product->name }}</h3>
-    <p>
-        <span class="item_price">${{ $product->price }}</span>
-    </p>
-    <div class="product-single-w3l">
-        <p>
-            <i class="fa fa-hand-o-right" aria-hidden="true"></i>This is a
-            <label>{{ $product->category->name }}</label> product.</p>
-        <ul>{{ $product->description }}</ul>
-    </div>
-</div>
-<div class="clearfix"> </div>
-</div>
-</div> --}}
-
 @endsection
+
+
+@section('scripts')
+
+    <script>
+        //approve button
+        $(document).on('click', '.approve_btn', function(e){
+            e.preventDefault();
+
+            var product_id = $(this).attr('product_id');
+
+            $.ajax({
+                type: "get",
+                url: "{{ route('admin.products.approve') }}",
+                data: { 'id' : product_id },
+
+                success: function (response) {
+
+                    window.location.href = "{{ route('admin.products.waiting') }}";
+
+                    //success message
+                    toastr.success(response.msg);
+                }
+            });
+        });
+
+
+        //approve button
+        $(document).on('click', '.delete_btn', function(e){
+            e.preventDefault();
+
+            var product_id = $(this).attr('product_id')
+
+            $.ajax({
+                type: "get",
+                url: "{{ route('admin.products.delete') }}",
+                data: { 'id' : product_id },
+
+                success: function (response) {
+
+                    window.location.href = "{{ route('admin.products.waiting') }}";
+
+
+                    //success message
+                    toastr.success(response.msg);
+                }
+            });
+        })
+
+    </script>
+@endsection
+
+
+
