@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::namespace('Front')->group(function() {
 
     Route::get('/', 'productsController@index')->name('home'); #need search and select boxs
+    Route::get('/price-index', 'productsController@priceRange')->name('price_index');
     Route::get('/product/{id}', 'productsController@show')->name('singleProduct');   #need data
     Route::get('/category/{id}', 'CategoryController@show')->name('categoryPage');   #need data and select box
     Route::get('/price-range', 'CategoryController@range')->name('priceRange');     #need to add slider
@@ -30,8 +31,11 @@ Route::middleware('auth')->namespace('Front')->group(function() {
     Route::post('/adding', 'AddController@store')->name('post_add');
     Route::get('/edit-product/{id}', 'AddController@show')->name('edit_product');
     Route::put('/edit-product/{id}', 'AddController@update')->name('update_product');
+    Route::put('/product/sold/{id}', 'AddController@sold')->name('sold');
+
     Route::delete('/delete-product/{id}', 'AddController@delete')->name('delete_product');
     Route::get('/profile/{id}', 'ProfileController@show')->name('profile');
+    Route::get('/chose-city-profile', 'ProfileController@choseCity')->name('chose_city_profile');
     Route::put('/profile/update', 'ProfileController@update')->name('profile.update');
     Route::post('/profile/{id}/avatar', 'ProfileController@avater')->name('add-avatar');
     Route::get('/profile/{id}/products', 'ProfileController@personalProduct')->name('personal-products');

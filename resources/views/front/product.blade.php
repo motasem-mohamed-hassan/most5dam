@@ -59,6 +59,7 @@
                         @method('delete')
                         <button type="submit" class="btn btn-danger">مسح</button>
                     </form>
+                    <button type="button" class="editBtn btn btn-primary mr-1" data-toggle="modal" data-target="#sold" >تم البيع بنجاح؟</button>
 
                 </div>
                 @else
@@ -70,6 +71,48 @@
 			<div class="clearfix"> </div>
 		</div>
 	</div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="sold">
+        <div class="modal-dialog" role="document">
+            <form action="{{ route('sold', $product->id) }}" method="POST" enctype="multipart/form-data" >
+                @method('PUT')
+                @csrf
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">اتمام عملية البيع</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="checkbox" name="sold" required class="custom-control-input" id="customSwitch1"
+                            oninvalid="this.setCustomValidity('برجاء التأكيد')"
+                            oninput="this.setCustomValidity('')"
+                            >
+                            <label class="custom-control-label" for="customSwitch1">تم البيع بنجاح؟</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="btn back" type="file" required  name="image" id="image" class="form-control" multiple
+                                oninvalid="this.setCustomValidity('برجاء ارفاق صورة اصال الدفع')"
+                                oninput="this.setCustomValidity('')"
+                            >
+                            <label class="col-md-2 text-center">صورة ايصال الدفع</label>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="text" name="id" id="currentid" class="form-control" value="" hidden>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                        <button type="submit" class="btn btn-primary data-dismiss="modal">تأكيد</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- //Single Page -->
 
     <!--End review cart -->
@@ -116,4 +159,8 @@
 
 
 @endsection
+
+<script>
+
+</script>
 

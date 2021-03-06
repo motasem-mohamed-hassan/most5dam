@@ -63,6 +63,9 @@ class CreateProductsTable extends Migration
 
             $table->boolean('status')->default('0'); //Approved or not
 
+            $table->boolean('sold')->default('0');
+            $table->text('check_image')->nullable();
+
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

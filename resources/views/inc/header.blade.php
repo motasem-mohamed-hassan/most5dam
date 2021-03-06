@@ -1,9 +1,9 @@
 
 
-	<div class="header-bot" style="direction: rtl">
+	<div class="header-bot">
 
 
-        <nav class="relative flex flex-wrap items-center justify-between px-2 py-1 navbar-expand-lg mb-3 bg-green-300">
+        {{-- <nav class="relative flex flex-wrap items-center justify-between px-2 py-1 navbar-expand-lg mb-3 bg-green-300">
             <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
               <div class="lg:flex flex-grow items-center" id="example-navbar-warning">
                 <ul class="flex flex-col lg:flex-row list-none ml-auto items-center">
@@ -43,81 +43,132 @@
                 </ul>
               </div>
             </div>
-        </nav>
-        <div class="header-bot_inner_wthreeinfo_header_mid">
-			<!-- header-bot-->
-			<div class="col-md-2 logo_agile" style="float:right">
-				<h1>
-					<a href="{{ route('home') }}">
-						<img src="{{ asset('frontend/images/logo.png') }}" alt="logo" width="100%" style="height:48px">
-					</a>
-				</h1>
-			</div>
-			<!-- //header-bot -->
+        </nav> --}}
+		<header id="navbar">
+            <nav class="navbar-container container">
+                {{-- <a href="/" class="home-link">
+                <div class="navbar-logo"></div>
+                Website Name
+                </a> --}}
+                <button type="button" class="navbar-toggle" aria-label="Open navigation menu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-menu">
+                <ul class="navbar-links">
+                    <li class="navbar-item ">
+                        <a  href="{{ route('aboutUs') }}">
+                            من نحن
+                        </a>
+                    </li>
+                    <li class="navbar-item ">
+                        <a  href="{{ route('aboutUs') }}">
+                            سياسة الاستخدام
+                        </a>
+                    </li>
+                    @auth
+                    <li class="navbar-item ">
+                        <a  href="{{ route('profile', Auth::user()->id) }}">
+                            الصفحة الشخصية
+                        </a>
+                    </li>
+                    @endauth
+                    <li class="navbar-item ">
+                        <a  href="{{ route('contactPage') }}">
+                            تواصل معنا
+                        </a>
+                    </li>
+                    <li class="navbar-item ">
+                        <a  href="{{ route('get_add') }}">
+                            اضف منتجات
+                        </a>
+                    </li>
+                    <li class="navbar-item ">
+                        <a href="{{ route('home') }}">
+                            الرئيسية
+                        </a>
+                    </li>
+                </ul>
+                </div>
+            </nav>
 
-			<div class="col-md-10 header" style="direction: rtl; float:right" >
-				<!-- header lists -->
-                <div class="search col-md-8" style="direction: rtl;float:right" >
-                    <form action="#" method="GET" class="search-form">
-                         <input  type="text" name="search" placeholder="ابحث..." required>
-                             <button type="submit" class="btn btn-default">
-                                 <span class="fa fa-search" aria-hidden="true"> </span>
-                             </button>
-                     </form>
+            <div class="header-bot_inner_wthreeinfo_header_mid">
+                <!-- header-bot-->
+                <div class="col-md-2 logo_agile" style="float:right">
+                    <h1>
+                        <a href="{{ route('home') }}">
+                            <img src="{{ asset('frontend/images/logo.png') }}" alt="logo" width="100%" style="height:48px">
+                        </a>
+                    </h1>
+                </div>
+                <!-- //header-bot -->
+
+                <div class="col-md-10 header" style="direction: rtl; float:right" >
+                    <!-- header lists -->
+                    <div class="search col-md-8" style="direction: rtl;float:right" >
+                        <form action="#" method="GET" class="search-form">
+                            <input  type="text" name="search" placeholder="ابحث..." required>
+                                <button type="submit" class="btn btn-default">
+                                    <span class="fa fa-search" aria-hidden="true"> </span>
+                                </button>
+                        </form>
+                    </div>
+
+                    <div class="col-md-2 " style="float:right;margin:auto;">
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                @if(auth()->check())
+                                <button class="dropbtn">حسابك</button>
+                                <div class="dropdown-content" style="padding: 20px;" >
+
+                                    <a class="btn btn-primary" href="{{ route('profile', Auth::id())}}">
+                                        <span class="fa fa-user" aria-hidden="true"></span>الصفحة الشخصية
+                                    </a><br>
+
+                                    <a class="btn btn-primary" href="{{ route('personal-products', Auth::id()) }}">
+                                        منتجاتك
+                                    </a><br>
+
+                                    @role('admin|superAdmin')
+                                    <a class="btn btn-success" href="{{ route('admin.dashboard') }}">
+                                        صفحة الأدمن
+                                    </a><br>
+                                    @endrole
+
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button type="submit" id="logout-btn">
+                                            <span class="fa fa-unlock-alt" aria-hidden="true"></span> تسجيل خروج  </a>
+                                        </button>
+                                    </form>
+
+                                </div>
+
+                                @else
+                                <button class="dropbtn" > سجّل الدخول</button>
+                                <div class="dropdown-content" style="padding: 20px;">
+                                    <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#myModal1">
+                                        تسجيل دخول <span class="fa fa-unlock-alt" aria-hidden="true"></span>
+                                    </a><br>
+                                    <small>لا تمتلك حساب؟</small>
+                                    <a href="#" data-toggle="modal" data-target="#myModal2">
+                                        سجّل الآن <span class="fa fa-pencil-square-o" aria-hidden="true"></span>
+                                    </a>
+                                </div>
+                                @endif
+                            <!-- //login -->
+                        </li>
+                    </ul>
+                    {{-- </div> --}}
                 </div>
 
-                <div class="col-md-2 " style="float:right;margin:auto;">
-				<ul>
-                    <li>
-                        <div class="dropdown">
-                            @if(auth()->check())
-                            <button class="dropbtn">حسابك</button>
-                            <div class="dropdown-content" style="padding: 20px;" >
+                <div class="clearfix"></div>
 
-                                <a class="btn btn-primary" href="{{ route('profile', Auth::id())}}">
-                                    <span class="fa fa-user" aria-hidden="true"></span>الصفحة الشخصية
-                                </a><br>
-
-                                <a class="btn btn-primary" href="{{ route('personal-products', Auth::id()) }}">
-                                    منتجاتك
-                                </a><br>
-
-                                @role('admin|superAdmin')
-                                <a class="btn btn-success" href="{{ route('admin.dashboard') }}">
-                                    صفحة الأدمن
-                                </a><br>
-                                @endrole
-
-                                <form action="{{ route('logout') }}" method="POST">
-                                    @csrf
-                                    <button type="submit" id="logout-btn">
-                                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> تسجيل خروج  </a>
-                                    </button>
-                                </form>
-
-                            </div>
-
-                            @else
-                            <button class="dropbtn" > سجّل الدخول</button>
-                            <div class="dropdown-content" style="padding: 20px;">
-                                <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#myModal1">
-                                    تسجيل دخول <span class="fa fa-unlock-alt" aria-hidden="true"></span>
-                                </a><br>
-                                <small>لا تمتلك حساب؟</small>
-                                <a href="#" data-toggle="modal" data-target="#myModal2">
-                                    سجّل الآن <span class="fa fa-pencil-square-o" aria-hidden="true"></span>
-                                </a>
-                            </div>
-                            @endif
-                        <!-- //login -->
-                    </li>
-				</ul>
-                {{-- </div> --}}
             </div>
+        </header>
 
-			<div class="clearfix"></div>
-
-		</div>
 	</div>
 
 	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
@@ -194,10 +245,10 @@
                                     <div  class="col-md-1"></div>
                                     <div class="col-md-9">
 
-                                        <select name="city" class="form-control" id="selectCity" required>
+                                        <select name="city" class="form-control selectCity" id="" required>
                                             <option value="" selected>--اختر المدينة--</option>
                                             @foreach ($cities->where('city_id', null) as $city)
-                                                <option city_id="{{ $city->id }}" id="citiesOption" value="{{ $city->id }}">{{ $city->name }}</option>
+                                            <option city_id="{{ $city->id }}" id="citiesOption" value="{{ $city->id }}">{{ $city->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -219,9 +270,18 @@
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
-                            <div class="styled-input">
-								<input style="text-align: right;" type="text" placeholder="رقم الحساب البنكي"  autocomplete="off" name="acc_number" required>
+                            <div class="styled-input" id="bank-account-inputs" style="font-weight:light ">
+
+								<input id="f" type="text" maxlength="4"  name="acc_number_6" required>
+								<input id="e" type="text" maxlength="4"  name="acc_number_5" required>
+								<input id="d" type="text" maxlength="4"  name="acc_number_4" required>
+								<input id="c" type="text" maxlength="4"  name="acc_number_3" required>
+								<input id="b" type="text" maxlength="4"  name="acc_number_2" required>
+								<input id="a" style="position: relative;" type="text" maxlength="2"  name="acc_number_1" required><span style="position: absolute;right:89%;font-weight:bolder;fond-size:28px">S A</span>
+
+
 							</div>
+
 							<div class="styled-input">
 								<input style="text-align: right;" type="password" placeholder="كلمةالسر"  autocomplete="off" name="password" id="password1" required>
 							</div>
@@ -229,9 +289,16 @@
                                 <input style="text-align: right;" type="password" placeholder="تأكيد كلمة السر"  autocomplete="off" name="password_confirmation" required>
                             </div>
                             <div class="form-check" style="text-align: right">
-                                <label class="form-check-label" for="exampleCheck1"><a href="{{ route('aboutUs') }}">
-                                    بالضغط على تسجيل ، أوافق على شروطك</a></label>
+
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+								<label class="form-check-label" for="exampleCheck1" style="text-decoration: underline"><a href="{{ route('aboutUs') }}">
+                                     أوافق على الشروط و الاحكام</a></label>
+                            </div>
+							<div class="form-check" style="text-align: right">
+
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+								<label class="form-check-label" for="exampleCheck1" style="text-decoration: underline"><a href="{{ route('aboutUs') }}">
+                                   أوافق على دفع نسبة مخصصة للموقع عند البيع</a></label>
                             </div>
 							<div style="display: flex; justify-content: flex-end;">
 								<input type="submit" value="تسجيل جديد ">
@@ -254,13 +321,13 @@
 					<div class="container-fluid">
 						<div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav menu__list">
-								<li class="dropdown">
-									<a href="{{ asset('frontend/') }}#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">جميع الأقسام
+								<li class="dropdown" style="direction: rtl">
+									<a href="{{ asset('frontend/') }}#" class=" nav-stylehead" data-toggle="dropdown" style="color: orangered " role="button" aria-haspopup="true" aria-expanded="false">جميع الأقسام
 										<span class="caret"></span>
 									</a>
                                     <div id="lines"></div>
 									<ul class="dropdown-menu multi-column columns-3">
-										<div class="agile_inner_drop_nav_info">
+										<div class="agile_inner_drop_nav_info" style="direction: rtl;text-align:right">
                                             @foreach ($categories->chunk(10) as $chunk)
 											<div class="col-sm-6 multi-gd-img">
                                                 <ul class="multi-column-dropdown">
@@ -295,22 +362,25 @@
                                     @if ($key == 4)
                                     <div id="lines" style="background-color:blue"></div>
                                     @endif
+                                    @if ($key == 5)
+                                    <div id="lines" style="background-color:pink"></div>
+                                    @endif
 								</li>
-                                @if ($key == 4)
+                                @if ($key == 5)
                                     @break
                                 @endif
 
                                 @endforeach
-                                <li class="@if($segment== 'adding') active @endif">
+                                {{-- <li class="@if($segment== 'adding') active @endif">
 									<a class="nav-stylehead " href="{{ route('get_add') }}">اضف منتجات</a>
                                     <div id="lines" style="background-color:maroon"></div>
-								</li>
-                                <li class="@if(!$segment) active @endif">
+								</li> --}}
+                                {{-- <li class="@if(!$segment) active @endif">
 									<a class="nav-stylehead " href="{{ route('home') }}">الرئيسية
 										<span class="sr-only">(current)</span>
 									</a>
                                     <div id="lines" style="background-color: coral"></div>
-								</li>
+								</li> --}}
 							</ul>
 						</div>
 					</div>
@@ -328,28 +398,71 @@
     </div>
     @endif
 
-@section('scripts')
     <script>
-        $(document).on('change', '#selectCity', function(e){
-            e.preventDefault();
-            var city_id = $('#selectCity option:selected').val();
-            $.ajax({
-                type: "get",
-                url: "{{ route('chose_city') }}",
-                data: {'id' : city_id},
-                contentType: false,
-                cache: false,
+        var a = document.getElementById("a"),
+            b = document.getElementById("b"),
+            c = document.getElementById("c");
+            d = document.getElementById("d");
+            e = document.getElementById("e");
+            f = document.getElementById("f");
 
-                success: function (response) {
-                    $('.ajax').remove(); //remove result before
-                    $.each(response.data, function(index, value) {
-                        $('#child_city').append(`<option class="ajax" value="${value.id}">${value.name}</option>`);
-                    });
-                },
+            a.onkeyup = function() {
+            if (this.value.length === parseInt(this.attributes["maxlength"].value)) {
+                b.focus();
+            }
+        }
 
-            });
+        b.onkeyup = function() {
+            if (this.value.length === parseInt(this.attributes["maxlength"].value)) {
+                c.focus();
+            }
+        }
+        c.onkeyup = function() {
+            if (this.value.length === parseInt(this.attributes["maxlength"].value)) {
+                d.focus();
+            }
+        }
+        d.onkeyup = function() {
+            if (this.value.length === parseInt(this.attributes["maxlength"].value)) {
+                e.focus();
+            }
+        }
+        e.onkeyup = function() {
+            if (this.value.length === parseInt(this.attributes["maxlength"].value)) {
+                f.focus();
+            }
+        }
+
+
+
+        const navbar = document.getElementById("navbar");
+        const navbarToggle = navbar.querySelector(".navbar-toggle");
+
+        function openMobileNavbar() {
+        navbar.classList.add("opened");
+        navbarToggle.setAttribute("aria-label", "Close navigation menu.");
+        }
+
+        function closeMobileNavbar() {
+        navbar.classList.remove("opened");
+        navbarToggle.setAttribute("aria-label", "Open navigation menu.");
+        }
+
+        navbarToggle.addEventListener("click", () => {
+        if (navbar.classList.contains("opened")) {
+            closeMobileNavbar();
+        } else {
+            openMobileNavbar();
+        }
         });
-    </script>
 
-@endsection
-	<!-- //navigation -->
+        const navbarMenu = navbar.querySelector(".navbar-menu");
+        const navbarLinksContainer = navbar.querySelector(".navbar-links");
+
+        navbarLinksContainer.addEventListener("click", (clickEvent) => {
+        clickEvent.stopPropagation();
+        });
+
+        navbarMenu.addEventListener("click", closeMobileNavbar);
+
+    </script>

@@ -139,6 +139,28 @@
         <!-- jquery -->
         <script src="{{ asset('frontend/js/jquery-2.1.4.min.js') }}"></script>
         <!-- //jquery -->
+        <script>
+            $(document).on('change', '.selectCity', function(e){
+                e.preventDefault();
+                var city_id = $('.selectCity option:selected').val();
+                $.ajax({
+                    type: "get",
+                    url: "{{ route('chose_city') }}",
+                    data: {'id' : city_id},
+                    contentType: false,
+                    cache: false,
+
+                    success: function (response) {
+                        console.log(response.data)
+                        $('.ajax').remove(); //remove result before
+                        $.each(response.data, function(index, value) {
+                            $('#child_city').append(`<option class="ajax" value="${value.id}">${value.name}</option>`);
+                        });
+                    },
+
+                });
+            });
+        </script>
 
         <!-- For AJAX -->
         @yield('scripts')
@@ -182,26 +204,6 @@
                 });
             </script>
             <!-- //FlexSlider-->
-
-            <!-- price range (top products) -->
-            <script>
-                //<![CDATA[
-                $(window).load(function () {
-                    $("#slider-range").slider({
-                        range: true,
-                        min: 0,
-                        max: 100000,
-                        values: [200, 50000],
-                        slide: function (event, ui) {
-                            $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-                        }
-                    });
-
-                    $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
-                }); //]]>
-            </script>
-            <!-- //price range (top products) -->
-
 
 
             <!-- flexisel (for special offers) -->

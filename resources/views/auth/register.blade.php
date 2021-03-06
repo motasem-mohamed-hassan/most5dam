@@ -37,7 +37,7 @@
 
                         <div class="form-group row" >
                             <div class="col-md-8">
-                                <select name="city" class="form-control" id="selectCity" required>
+                                <select name="city" class="form-control selectCity" id="" required>
                                     <option value="" selected>--اختر المدينة--</option>
                                     @foreach ($cities->where('city_id', null) as $city)
                                         <option city_id="{{ $city->id }}" id="citiesOption" value="{{ $city->id }}">{{ $city->name }}</option>
@@ -117,9 +117,9 @@
 
 @section('scripts')
     <script>
-        $(document).on('change', '#selectCity', function(e){
+        $(document).on('change', '.selectCity', function(e){
             e.preventDefault();
-            var city_id = $('#selectCity option:selected').val();
+            var city_id = $('.selectCity option:selected').val();
             $.ajax({
                 type: "get",
                 url: "{{ route('chose_city') }}",

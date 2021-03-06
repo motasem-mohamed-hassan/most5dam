@@ -27,11 +27,25 @@ class ProfileController extends Controller
         return view('front.profile', compact('categories', 'user', 'setting', 'cities'));
     }
 
+    public function choseCity(Request $request)
+    {
+        $child_cities = City::where('city_id', $request->id)->get();
+
+
+        return response()->json([
+            'status'    => true,
+            'data'      => $child_cities
+        ]);
+
+    }
+
     public function update(Request $request)
     {
         $user = User::find(Auth::id());
         $user->name  =  $request->name;
         $user->email    = $request->email;
+        $user->city     = City::find($request->city)->name;
+        $user->neighborhood     = $request->neighborhood;
         $user->phone_number = $request->phone_number;
         $user->save();
 
@@ -54,6 +68,7 @@ class ProfileController extends Controller
         toastr()->success('تم اضافة الصورة بنجاح');
         return redirect()->back();
     }
+
 
     public function personalProduct($id)
     {

@@ -77,7 +77,6 @@ class CategoryController extends Controller
         $products = $query->latest()->paginate(50);
 
 
-
         return view('front.category', compact('products', 'categories', 'thiscategory', 'setting', 'filters', 'cities'));
 
     }
@@ -86,6 +85,8 @@ class CategoryController extends Controller
     {
         $query = Product::where('status', 1)->where('category_id', $request->category_id);
 
+        if($request->has('minPrice') && $request->has('maxPrice'))
+            $query->whereBetween('price', [$request->minPrice, $request->maxPrice]);
         if($request->has('brand'))
             $query->whereIn('brand_name', $request->brand[0]);
         if($request->has('model'))
@@ -127,12 +128,12 @@ class CategoryController extends Controller
         if($request->has('city'))
             $query->wherein('city', $request->city[0]);
 
-        $products = $query->latest()->paginate(50)->load('first_image');
+        $products = $query->latest()->paginate(50)->load('first_image')->load('category');
 
 
         return response()->json([
             'status'    => true,
-            'data'      => $products
+            'data'      => $products,
         ]);
 
     }

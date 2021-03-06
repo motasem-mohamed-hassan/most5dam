@@ -58,7 +58,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'phone_number' => ['required','string','unique:users'], //you can also use required|regex:/[0-9]{10}/|digits:10 as per your needs
-            'acc_number' => ['required','string','unique:users', 'max:24'], //you can also use required|regex:/[0-9]{10}/|digits:10 as per your needs
+            // 'acc_number' => ['required','string','unique:users', 'max:24'], //you can also use required|regex:/[0-9]{10}/|digits:10 as per your needs
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -85,11 +85,13 @@ class RegisterController extends Controller
     {
         $city = City::find($data['city']);
         $neighborhood = City::find($data['neighborhood']);
+        // .$data['acc_number_2'].$data['acc_number_2'].$data['acc_number_2'].$data['acc_number_2'].$data['acc_number_2']
+        $acc_number = ('SA'.$data['acc_number_1'].$data['acc_number_2'].$data['acc_number_2'].$data['acc_number_2'].$data['acc_number_2'].$data['acc_number_2']);
 
         return User::create([
             'name' => $data['name'],
             'phone_number' => $data['phone_number'],
-            'acc_number' => $data['acc_number'],
+            'acc_number' => $acc_number,
             'email' => $data['email'],
             'city'   => $city->name,
             'neighborhood'  => $neighborhood->name,

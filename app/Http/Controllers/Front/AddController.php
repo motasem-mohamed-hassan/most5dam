@@ -152,6 +152,26 @@ class AddController extends Controller
         return redirect()->route('home');
     }
 
+    public function sold(Request $request, $id)
+    {
+        $product = Product::find($id);
+        $product->sold = 1;
+        $product->status = 0;
+
+        $image = $request->file('image');
+        if($request->file('image')->getClientOriginalName()) {
+            $ext    = $image->getClientOriginalExtension();
+            $file   = date('YmdHis').rand(1,99999).'.'.$ext;
+            $image->storeAs('public/products', $file);
+        }
+        $product->check_image   = $file;
+        $product->save();
+
+        toastr()->success('شكرا لتعاملك معنا');
+        return redirect()->route('home');
+    }
+
+
     public function delete($id)
     {
         $product = Product::find($id);

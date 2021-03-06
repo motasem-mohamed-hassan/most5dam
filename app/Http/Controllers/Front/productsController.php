@@ -36,11 +36,23 @@ class productsController extends Controller
                 $query->orderBy('created_at');
             }
         }
-
         $products = $query->latest()->Paginate(50);
 
 
         return view('front.index', compact('categories','products', 'setting', 'cities'));
+    }
+
+
+    public function priceRange(Request $request)
+    {
+        $products = Product::where('status', 1)->whereBetween('price', [$request->minPrice, $request->maxPrice])
+        ->latest()->paginate(50)->load('first_image');
+
+        return response()->json([
+            'status'    => true,
+            'data'      => $products,
+        ]);
+
     }
 
     public function show($id)
@@ -53,6 +65,8 @@ class productsController extends Controller
 
         return view('front.product', compact('product', 'categories', 'images', 'setting', 'cities'));
     }
+
+
 
 
 

@@ -65,12 +65,22 @@
                         <div class="row my-3">
 
                             <div id="d" class="col-sm-9 text-secondary">
-                                {{ $user->address }}
+                                {{ $user->city }}
                             </div>
                             <div class="col-sm-3">
-                                <h4 class="mb-0">العنوان</h4>
+                                <h4 class="mb-0">المدينة</h4>
+                            </div>
+                        </div><hr>
+                        <div class="row my-3">
+
+                            <div id="d" class="col-sm-9 text-secondary">
+                                {{ $user->neighborhood }}
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 class="mb-0">الحي</h4>
                             </div>
                         </div><br>
+
                         @if($user->id == Auth::id())
                         <div class="d-flex justify-content-end">
                             <button class="btn btn-success info m-2" type="submit" id="edit-button" data-toggle="modal" data-target="#staticBackdrop">
@@ -117,8 +127,8 @@
                                     </div>
                                     <div class="form-group" >
                                         <label class="text-center">المدينة</label>
-                                        <select name="city" class="form-control" id="selectCity" required>
-                                            <option value="" selected>--اختر المدينة--</option>
+                                        <select name="city" class="form-control" id="selectCity">
+                                            <option disabled selected>{{ $user->city }}</option>
                                             @foreach ($cities->where('city_id', null) as $city)
                                                 <option city_id="{{ $city->id }}" id="citiesOption" value="{{ $city->id }}">{{ $city->name }}</option>
                                             @endforeach
@@ -126,8 +136,8 @@
                                     </div>
                                     <div class="form-group" >
                                         <label class=text-center">الحي</label>
-                                        <select name="neighborhood" class="form-control" id="child_city" required>
-                                            <option value="" selected>--اختر الحي--</option>
+                                        <select name="neighborhood" class="form-control child_city" id="">
+                                            <option disabled selected>{{ $user->neighborhood }}</option>
                                         </select>
                                     </div>
                                         <div class="modal-footer">
@@ -157,22 +167,24 @@
       }
       reader.readAsDataURL(event.target.files[0]);
     }
+</script>
 
-
+<script>
     $(document).on('change', '#selectCity', function(e){
         e.preventDefault();
         var city_id = $('#selectCity option:selected').val();
         $.ajax({
             type: "get",
-            url: "{{ route('chose_city') }}",
+            url: "{{ route('chose_city_profile') }}",
             data: {'id' : city_id},
             contentType: false,
             cache: false,
 
             success: function (response) {
+                console.log(response.data)
                 $('.ajax').remove(); //remove result before
                 $.each(response.data, function(index, value) {
-                    $('#child_city').append(`<option class="ajax" value="${value.id}">${value.name}</option>`);
+                    $('.child_city').append(`<option class="ajax" value="${value.name}">${value.name}</option>`);
                 });
             },
 
