@@ -54,7 +54,7 @@
                 <td>
                     {{-- <button product_id="{{ $product->id }}"  class="approve_btn btn btn-info">موافقة</button> --}}
                     <button product_id="{{ $product->id }}"  class="delete_btn btn btn-danger">مسح</button>
-                    <a class="btn btn-success" href="{{ route('admin.show-btn', $product->id) }}">المزيد</a>
+                    <a class="btn btn-success" href="{{ route('admin.show-sold', $product->id) }}">المزيد</a>
                 </td>
             </tr>
             @endforeach
@@ -66,28 +66,6 @@
 @section('scripts')
 
     <script>
-        //approve button
-        $(document).on('click', '.approve_btn', function(e){
-            e.preventDefault();
-
-            var product_id = $(this).attr('product_id');
-
-            $.ajax({
-                type: "get",
-                url: "{{ route('admin.products.approve') }}",
-                data: { 'id' : product_id },
-
-                success: function (response) {
-
-                    $('.productRow'+product_id).remove();
-
-                    //success message
-                    toastr.success(response.msg);
-                }
-            });
-        });
-
-
         //approve button
         $(document).on('click', '.delete_btn', function(e){
             e.preventDefault();

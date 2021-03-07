@@ -23,7 +23,7 @@ class ProductsController extends Controller
 
     public function waiting()
     {
-        $products = Product::where('status', 0)->paginate(10);
+        $products = Product::where('status', 0)->paginate(100);
         $user = Auth::user();
 
         return view('dashboard.products.waiting', compact('user', 'products'));
@@ -31,16 +31,23 @@ class ProductsController extends Controller
 
     public function approved()
     {
-        $products = Product::where('status', 1)->paginate(10);
+        $products = Product::where('status', 1)->paginate(100);
         $user = Auth::user();
 
         return view('dashboard.products.approved', compact('user', 'products'));
     }
 
+    public function sold_index()
+    {
+        $products = Product::where('sold', 1)->paginate(100);
+        $user = Auth::user();
+        return view('dashboard.products.sold', compact('products', 'user'));
+    }
+
 
     public function approve(Request $request)
     {
-        
+
         $product = Product::find($request->id);
         $product->status = 1;
         $product->save();
@@ -59,6 +66,14 @@ class ProductsController extends Controller
         $images = Image::where('product_id', $id)->get();
 
         return view('dashboard.products.product', compact('user','product', 'images', 'setting'));
+    }
+
+    public function show_sold($id)
+    {
+        $user = Auth::user();
+        $product = Product::find($id);
+
+        return view('dashboard.products.product_sold', compact('user', 'product'));
     }
 
     public function delete(Request $request)

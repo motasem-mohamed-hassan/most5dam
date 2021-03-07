@@ -76,10 +76,13 @@ Route::namespace('Dashboard')->as('admin.')->middleware('role:admin|superAdmin')
     Route::get('/dashboard/products', 'productsController@index')->name('products.index');
     Route::get('/dashboard/waiting', 'ProductsController@waiting')->name('products.waiting');
     Route::get('/dashboard/approved', 'ProductsController@approved')->name('products.approved');
+    Route::get('/dashboard/sold', 'ProductsController@sold_index')->name('products.sold');
 
     Route::get('/dashboard/products/approve', 'productsController@approve')->name('products.approve');
     Route::get('/dashboard/products/delete', 'productsController@delete')->name('products.delete');
     Route::get('dashboard/product/{id}', 'productsController@show')->name('show-btn');
+    Route::get('/dashboard/product-sold/{id}', 'ProductsController@show_sold')->name('show-sold');
+
 
     Route::resource('/dashboard/users', 'UsersController');
 

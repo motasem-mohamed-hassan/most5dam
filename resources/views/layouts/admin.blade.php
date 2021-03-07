@@ -158,6 +158,12 @@
                   <p>منتجات تمت الموافقة عليها</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.products.sold') }}" class="nav-link @if($segment=='approved') active @endif">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>المنتجات المباعة</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item has-treeview">
